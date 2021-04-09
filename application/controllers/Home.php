@@ -9,6 +9,6 @@ class Home extends CI_Controller {
 
 	public function view()
 	{
-		echo "lalalala";
+		echo "lalala";
 	}
 }

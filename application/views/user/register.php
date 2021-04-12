@@ -16,40 +16,40 @@
                     <?php endif; ?>
                     <form action="<?= base_url('register/submit') ?>" method="post">
                         <div class="mb-3">
-                          <label class="form-label" for="fname">First name:</label>
-                          <input class="form-control" type="text" id="fname" name="fname" value="John">
+                          <label class="form-label" for="fname">Nama Depan:</label>
+                          <input class="form-control" type="text" id="fname" name="fname">
                         </div>
                         <div class="mb-3">
-                          <label class="form-label" for="lname">Last name:</label>
-                          <input class="form-control" type="text" id="lname" name="lname" value="Doe">
+                          <label class="form-label" for="lname">Nama Belakang:</label>
+                          <input class="form-control" type="text" id="lname" name="lname">
                         </div>
                         <div class="mb-3">
-                          <label class="form-label" for="birth">Birth:</label>
-                          <input class="form-control" type="date" id="birth" name="birth" value="2018-07-22">
+                          <label class="form-label" for="birth">Tanggal Lahir:</label>
+                          <input class="form-control" type="date" id="birth" name="birth">
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="username">Username:</label>
-                          <input class="form-control" type="text" id="username" name="username" value="Doe">
+                          <input class="form-control" type="text" id="username" name="username">
                         </div>
                         <div class="mb-3">
                           <label class="form-label" for="email">Email:</label>
-                          <input class="form-control" type="text" id="email" name="email" value="Doe">
+                          <input class="form-control" type="text" id="email" name="email">
                           <div id="emailHelp" class="form-text">Contoh: email@yesmedika.com</div>
                         </div>
                         <div class="mb-3">
-                          <label class="form-label" for="phone">Mobile Phone:</label>
-                          <input class="form-control" type="number" id="phone" name="phone" value="08123456789">
+                          <label class="form-label" for="phone">Nomor HP:</label>
+                          <input class="form-control" type="number" id="phone" name="phone">
                         </div>
                         <div class="mb-3">
-                          <label class="form-label" for="password">Password:</label>
-                          <input class="form-control" type="password" id="password" name="password" value="Doe">
+                          <label class="form-label" for="password">Kata Sandi:</label>
+                          <input class="form-control" type="password" id="password" name="password">
                         </div>
                         <div class="mb-3">
-                          <label class="form-label" for="cPassword">Confirm Password:</label>
-                          <input class="form-control" type="password" id="cPassword" name="cPassword" value="Doe">
+                          <label class="form-label" for="cPassword">Konfirmasi Kata Sandi:</label>
+                          <input class="form-control" type="password" id="cPassword" name="cPassword">
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Daftar</button>
                         </div>
                     </form>
                 </div>

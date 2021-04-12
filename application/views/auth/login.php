@@ -20,7 +20,7 @@
                             <input type="password" class="form-control" id="InputPassword">
                         </div>
                         <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">Masuk</button>
                         </div>
                     </form>
                     <div class="text-muted text-center mt-3 daftar">

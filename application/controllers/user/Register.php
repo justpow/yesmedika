@@ -30,7 +30,7 @@ class Register extends MY_Controller {
 
 		if ($_POST['password'] !== $_POST['cPassword']) {
 			$this->session->set_flashdata('register_error', 'Password didn\'t match');
-			redirect('user/register');
+			$this->render_page('main', 'user/register');
 			return;
 		}
 
@@ -56,9 +56,9 @@ class Register extends MY_Controller {
 		$result = $this->user->insert_user($user);
 
 		// Error Handler. If got error in page, please set db_debug = FALSE at application/database.php
-		if ($result->error['code'] ==  0 && $result->error['message']) {
+		if ($result->error['code'] !==  0 && $result->error['message']) {
 			$this->session->set_flashdata('register_error', $this->compile_error($result->error['message']));
-			redirect('user/register');
+			$this->render_page('main', 'user/register');
 			return;
 		}
 		

@@ -1,3 +1,4 @@
+<!-- TEMPORARY ONLY, WILL CREATE NEW FORBIDDEN PAGE LATER -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,7 +6,7 @@
 </head>
 <body>
 
-<p>Directory access is forbidden.</p>
+<p>Access is forbidden.</p>
 
 </body>
 </html>

@@ -83,3 +83,17 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+
+/*
+|--------------------------------------------------------------------------
+| PERMISSION MAPPING LIST
+|--------------------------------------------------------------------------
+|
+| Do not edit or change the key and value. 
+| The Key and Value must identical with the data in database.
+| Update it only if there are permission changes in the database. 
+*/
+define('READ_ALL', 100);
+define('READ_REGISTER', 101);
+define('WRITE_REGISTER', 201);

@@ -6,7 +6,7 @@
     </section>        
     <section id="card-form" class="mt-5">
         <div class="container">
-            <div class="card mx-auto" style="max-width: 50%;">
+            <div class="card mx-auto shadow" style="max-width: 50%;">
                 <div class="card-body">
                     <h3 class="fw-bold px-3 py-3 text-center">Silahkan Masuk</h3>
                     <form>

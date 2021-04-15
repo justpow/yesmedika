@@ -5,7 +5,7 @@
         $title = "";
         switch ($page) {
             case 'auth/login':
-                $title = 'Masuk 1';
+                $title = 'Masuk';
                 break;
 
             case 'user/register':

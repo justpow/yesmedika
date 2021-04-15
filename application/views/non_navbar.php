@@ -21,9 +21,6 @@
         include './application/views/template/head/head.php';
         render_head_with_title($title);
 
-        // NAVBAR
-        include './application/views/template/nav/nav.php';
-
         // BODY
         include $page.'.php';
 

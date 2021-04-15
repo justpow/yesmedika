@@ -18,7 +18,7 @@ class Register extends MY_Controller {
 			return;
 		}
 
-		$this->render_page('main', 'user/register');	
+		$this->render_page('non_navbar', 'user/register');	
 	}
 
 	public function form_submit()
@@ -30,7 +30,7 @@ class Register extends MY_Controller {
 
 		if ($_POST['password'] !== $_POST['cPassword']) {
 			$this->session->set_flashdata('register_error', 'Password didn\'t match');
-			$this->render_page('main', 'user/register');
+			$this->render_page('non_navbar', 'user/register');
 			return;
 		}
 
@@ -58,12 +58,12 @@ class Register extends MY_Controller {
 		// Error Handler. If got error in page, please set db_debug = FALSE at application/database.php
 		if ($result->error['code'] !==  0 && $result->error['message']) {
 			$this->session->set_flashdata('register_error', $this->compile_error($result->error['message']));
-			$this->render_page('main', 'user/register');
+			$this->render_page('non_navbar', 'user/register');
 			return;
 		}
 		
 
-		$this->render_page('main', 'auth/login');	
+		$this->render_page('non_navbar', 'auth/login');	
 	}
 
 	private function compile_error($error)

@@ -6,7 +6,7 @@
     </section>        
     <section id="card-form" class="mt-5">
         <div class="container">
-            <div class="card mx-auto" style="max-width: 50%;">
+            <div class="card mx-auto shadow" style="max-width: 70%;">
                 <div class="card-body">
                     <h3 class="fw-bold px-3 py-3 text-center">Buat Akun</h3>
                     <?php if ($this->session->flashdata('register_error')): ?>
@@ -15,42 +15,44 @@
                       </div>
                     <?php endif; ?>
                     <form action="<?= base_url('register/submit') ?>" method="post">
-                        <div class="mb-3">
-                          <label class="form-label" for="fname">Nama Depan:</label>
-                          <input class="form-control" type="text" id="fname" name="fname">
+                      <div class="row">
+                        <div class="col-sm-12 col-md-6 mb-3">
+                          <label class="form-label" for="fname">Nama Depan</label>
+                          <input class="form-control" type="text" id="fname" name="fname" required>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="lname">Nama Belakang:</label>
-                          <input class="form-control" type="text" id="lname" name="lname">
+                        <div class="col-sm-12 col-md-6 mb-3">
+                          <label class="form-label" for="lname">Nama Belakang</label>
+                          <input class="form-control" type="text" id="lname" name="lname" required>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="birth">Tanggal Lahir:</label>
-                          <input class="form-control" type="date" id="birth" name="birth">
+                        <div class="col-sm-12 col-md-12 mb-3">
+                          <label class="form-label" for="username">Username</label>
+                          <input class="form-control" type="text" id="username" name="username" required>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="username">Username:</label>
-                          <input class="form-control" type="text" id="username" name="username">
+                        <div class="col-sm-12 col-md-12 mb-3">
+                          <label class="form-label" for="birth">Tanggal Lahir</label>
+                          <input class="form-control" type="date" id="birth" name="birth" required>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="email">Email:</label>
-                          <input class="form-control" type="text" id="email" name="email">
+                        <div class="col-sm-12 col-md-6 mb-3">
+                          <label class="form-label" for="email">Email</label>
+                          <input class="form-control" type="text" id="email" name="email" required>
                           <div id="emailHelp" class="form-text">Contoh: email@yesmedika.com</div>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="phone">Nomor HP:</label>
-                          <input class="form-control" type="number" id="phone" name="phone">
+                        <div class="col-sm-12 col-md-6 mb-3">
+                          <label class="form-label" for="phone">Nomor HP</label>
+                          <input class="form-control" type="number" id="phone" name="phone" required>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="password">Kata Sandi:</label>
-                          <input class="form-control" type="password" id="password" name="password">
+                        <div class="col-sm-12 col-md-12 mb-3">
+                          <label class="form-label" for="password">Kata Sandi</label>
+                          <input class="form-control" type="password" id="password" name="password" required>
                         </div>
-                        <div class="mb-3">
-                          <label class="form-label" for="cPassword">Konfirmasi Kata Sandi:</label>
-                          <input class="form-control" type="password" id="cPassword" name="cPassword">
+                        <div class="col-sm-12 col-md-12 mb-3">
+                          <label class="form-label" for="cPassword">Konfirmasi Kata Sandi</label>
+                          <input class="form-control" type="password" id="cPassword" name="cPassword" required>
                         </div>
                         <div class="d-flex justify-content-end">
                             <button type="submit" class="btn btn-primary">Daftar</button>
                         </div>
+                      </div>
                     </form>
                 </div>
             </div>

@@ -2,19 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Register extends MY_Controller {
-	var $USER;
 
 	public function __construct()
 	{
 		parent::__construct();
-		$this->USER = $this->session->userdata('user');
 		$this->load->model('user');
 	}
 		
 	public function index()
 	{
-		if (!$this->is_granted($this->USER['permission'], READ_REGISTER)) {
-			$this->load->view('forbidden');
+		if (!$this->has_access(READ_REGISTER)) {
+			redirect('');
 			return;
 		}
 
@@ -23,7 +21,7 @@ class Register extends MY_Controller {
 
 	public function form_submit()
 	{
-		if (!$this->is_granted($this->USER['permission'], WRITE_REGISTER)) {
+		if (!$this->has_access(WRITE_REGISTER)) {
 			$this->load->view('forbidden');
 			return;
 		}
@@ -53,7 +51,7 @@ class Register extends MY_Controller {
 		);
 
 		// Insert data.
-		$result = $this->user->insert_user($user);
+		$result = $this->user->insert($user);
 
 		// Error Handler. If got error in page, please set db_debug = FALSE at application/database.php
 		if ($result->error['code'] !==  0 && $result->error['message']) {
@@ -61,9 +59,9 @@ class Register extends MY_Controller {
 			$this->render_page('non_navbar', 'user/register');
 			return;
 		}
-		
 
-		$this->render_page('non_navbar', 'auth/login');	
+		$this->session->set_flashdata('register_success', 'Registrasi sukses. Silahkan login.');
+		redirect('login');	
 	}
 
 	private function compile_error($error)

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends MY_Controller {
 	public function index()
 	{
-		$this->render_page('main', 'index');
+		$this->render_page('main', 'product/listProduct');
 	}
 
 	public function view()

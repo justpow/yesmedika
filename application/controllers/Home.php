@@ -7,8 +7,11 @@ class Home extends MY_Controller {
 		$this->render_page('main', 'product/listProduct');
 	}
 
-	public function view()
+	public function cari_produk()
 	{
-		echo "lalala";
+		$merek = $this->input->get('merek[]');
+		$harga = $this->input->get('harga[]');
+		var_dump($merek); var_dump($harga); die();
+		$this->render_page('main', 'product/listProduct');
 	}
 }

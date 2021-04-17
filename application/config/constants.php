@@ -94,6 +94,17 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 | The Key and Value must identical with the data in database.
 | Update it only if there are permission changes in the database. 
 */
+// Superadmin Permission.
 define('READ_ALL', 100);
+define('WRITE_ALL', 200);
+
+// Register.
 define('READ_REGISTER', 101);
 define('WRITE_REGISTER', 201);
+
+// Login.
+define('READ_LOGIN', 102);
+define('WRITE_LOGIN', 202);
+
+// Logout.
+define('LOGOUT', 103);

@@ -57,6 +57,10 @@ $route['register/submit'] = 'user/register/form_submit';
 
 // Login Router
 $route['login'] = 'auth/login';
+$route['login/submit'] = 'auth/login/form_submit';
+
+// Logout Router
+$route['logout'] = 'auth/logout';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

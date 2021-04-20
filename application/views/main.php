@@ -34,7 +34,9 @@
         include './application/views/template/script/script.php';
 
         // JS SCRIPT EACH PAGE
-        @include $page.'.js';
+        echo "<script>";
+            @include $page.'.js';
+        echo "</script>";
 
     ?>
 </html>

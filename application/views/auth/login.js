@@ -1,5 +1,3 @@
-<script>
-    $( document ).ready(() => {
-        console.log($('#login').html())
-    });
-</script>
+$( document ).ready(() => {
+    console.log($('#login').html())
+});

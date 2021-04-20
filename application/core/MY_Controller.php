@@ -32,8 +32,8 @@ class MY_Controller extends CI_Controller {
 		}
 
 		// Temporary only, only for user debug. Uncomment this if needed.
-		$user = $this->session->userdata('user');
-		print_r($user);
+		// $user = $this->session->userdata('user');
+		// print_r($user);
 	}
 
 	private function is_granted($user_access, $permission)

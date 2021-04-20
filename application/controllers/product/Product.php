@@ -20,11 +20,38 @@ class Product extends MY_Controller {
         $minPrice = isset($_GET['min'])      ? $_GET['min'] : '';
         $maxPrice = isset($_GET['max'])      ? $_GET['max'] : '';
 
+        header('Content-Type: application/json');
+
+        // Max page that can be loaded.
+        if ($page > MAX_PAGE) {
+            http_response_code(404);
+            return;
+        }
+
+        // Get total products.
+        $result = $this->products->get_products(1, 1000);
+        if ($result->error['code'] !==  0 && $result->error['message']) {
+            http_response_code(500);
+            echo json_encode((object)$result->error);
+            return;
+        }
+
+        $total_data = $result->data->num_rows();
+        $total_page = ceil($total_data/$per_page);
+
+        // Handle limitation of the page.
+        if ($page > $total_page) {
+            http_response_code(404);
+            return;
+        }
+
         $result = $this->products->get_products($page, $per_page, $query, $sort_by, $order_by, $brand, $minPrice, $maxPrice);
         if ($result->error['code'] !==  0 && $result->error['message']) {
-            redirect('');
+            http_response_code(500);
+            echo json_encode((object)$result->error);
+            return;
         }
-        header('Content-Type: application/json');
-        echo json_encode( $result->data->result() );
+
+        echo json_encode($result->data->result());
 	}
 }

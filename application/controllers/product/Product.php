@@ -23,16 +23,15 @@ class Product extends MY_Controller {
         header('Content-Type: application/json');
 
         // Max page that can be loaded.
-        if ($page > MAX_PAGE) {
-            http_response_code(404);
+        if ($page > MISC['MAX_PAGE']) {
+            $this->send_api_response(404);
             return;
         }
 
         // Get total products.
-        $result = $this->products->get_products(1, 1000);
+        $result = $this->products->get_products(1, 1000, $query, $sort_by, $order_by, $brand, $minPrice, $maxPrice);
         if ($result->error['code'] !==  0 && $result->error['message']) {
-            http_response_code(500);
-            echo json_encode((object)$result->error);
+            $this->send_api_response(500, (object)$result->error);
             return;
         }
 
@@ -41,17 +40,16 @@ class Product extends MY_Controller {
 
         // Handle limitation of the page.
         if ($page > $total_page) {
-            http_response_code(404);
+            $this->send_api_response(404);
             return;
         }
 
         $result = $this->products->get_products($page, $per_page, $query, $sort_by, $order_by, $brand, $minPrice, $maxPrice);
         if ($result->error['code'] !==  0 && $result->error['message']) {
-            http_response_code(500);
-            echo json_encode((object)$result->error);
+            $this->send_api_response(500, (object)$result->error);
             return;
         }
 
-        echo json_encode($result->data->result());
+        $this->send_api_response(200, $result->data->result());
 	}
 }

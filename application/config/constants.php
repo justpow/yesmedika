@@ -111,7 +111,6 @@ define('LOGOUT', 103);
 
 
 // MAPPING DB STATUS.
-
 //General.
 define('DELETED', 0);
 
@@ -119,3 +118,6 @@ define('DELETED', 0);
 define('PRODUCT_NOT_ACTIVE', 1);
 define('PRODUCT_ACTIVE', 2);
 
+
+// MISC.
+define('MAX_PAGE', 20);

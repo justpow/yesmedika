@@ -108,3 +108,14 @@ define('WRITE_LOGIN', 202);
 
 // Logout.
 define('LOGOUT', 103);
+
+
+// MAPPING DB STATUS.
+
+//General.
+define('DELETED', 0);
+
+//Product.
+define('PRODUCT_NOT_ACTIVE', 1);
+define('PRODUCT_ACTIVE', 2);
+

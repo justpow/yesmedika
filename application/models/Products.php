@@ -24,7 +24,7 @@ class Products extends MY_Model {
             $this->db->where('price <=', $maxPrice);
         }
 
-        $this->db->where('status', PRODUCT_ACTIVE);
+        $this->db->where('status', PRODUCT['ACTIVE']);
         $result = $this->db->get('ym_product', $per_page, $start_from * $per_page);
         $error = $this->db->error();
         return $this->db_response($result, $error);

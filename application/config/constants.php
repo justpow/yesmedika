@@ -111,13 +111,20 @@ define('LOGOUT', 103);
 
 
 // MAPPING DB STATUS.
-//General.
-define('DELETED', 0);
 
 //Product.
-define('PRODUCT_NOT_ACTIVE', 1);
-define('PRODUCT_ACTIVE', 2);
+$product = array(
+    'DELETED' => 0,
+    'NOT_ACTIVE' => 1,
+    'ACTIVE' => 2
+);
+
+define('PRODUCT', $product);
 
 
 // MISC.
-define('MAX_PAGE', 20);
+$misc = array(
+    'MAX_PAGE' => 20
+);
+
+define('MISC', $misc);

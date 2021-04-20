@@ -69,4 +69,15 @@ class MY_Controller extends CI_Controller {
 		$this->session->set_tempdata('user', $new_data, 1800);
 		
 	}
+
+	public function send_api_response($status_code, $data='')
+	{
+		if ($status_code != 200) {
+			http_response_code($status_code);
+		}
+
+		if (!empty($data)) {
+			echo json_encode($data);
+		}
+	}
 }

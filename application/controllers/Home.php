@@ -17,7 +17,13 @@ class Home extends MY_Controller {
 	{
 		$merek = $this->input->get('merek[]');
 		$harga = $this->input->get('harga[]');
-		var_dump($merek); var_dump($harga); die();
+		if(empty($merek) and empty($harga[0]) and empty($harga[1])){
+			redirect('');
+		}
 		$this->render_page('main', 'product/listProduct');
+	}
+
+	public function detail_produk(){
+		$this->render_page('main', 'product/detailProduct');
 	}
 }

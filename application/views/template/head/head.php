@@ -10,6 +10,9 @@
                 <link href="'.base_url('assets/bootstrap-5.0.0/css/bootstrap.min.css').'" rel="stylesheet">
                 <link rel="stylesheet" href="'.base_url('assets/bootstrap-5.0.0/css/bootstrap-icons.css').'">
                 <link rel="stylesheet" href="'.base_url('assets/style.css').'">
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+                <link rel="stylesheet" href="'.base_url('assets/owl-carousel/dist/assets/owl.carousel.min.css').'">
+                <link rel="stylesheet" href="'.base_url('assets/owl-carousel/dist/assets/owl.theme.default.min.css').'">
                 <title>'.$title.'</title>
             </head>
         ';

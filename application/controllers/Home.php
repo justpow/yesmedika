@@ -26,4 +26,12 @@ class Home extends MY_Controller {
 	public function detail_produk(){
 		$this->render_page('main', 'product/detailProduct');
 	}
+
+	public function keranjang(){
+		$this->render_page('main', 'transaction/cart');
+	}
+
+	public function detail_pesanan(){
+		$this->render_page('main', 'transaction/orderDetails');
+	}
 }

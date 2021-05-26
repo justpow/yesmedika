@@ -31,4 +31,24 @@ jQuery('.quantity').each(function() {
 
 });
 
-$("#input-1").rating();
+$(document).ready(function(){
+  $('.owl-carousel').owlCarousel({
+    margin:5,
+    responsive:{
+        0:{
+            items:5,
+            nav:true
+        },
+        600:{
+            items:5,
+            nav:false
+        },
+        1000:{
+            items:5,
+            nav:true,
+            loop:false
+        }
+    }
+  });
+  $('.owl-nav').hide();
+});

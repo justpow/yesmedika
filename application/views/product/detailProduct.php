@@ -1,18 +1,24 @@
 <section class="head-product">
     <div class="container">
         <div class="row mt-5">
-            <div id="image-product" class="col-md-6 d-flex px-2 py-2">
-                <img src="<?= base_url('assets/image/perban.jpg') ?>" class="img-fluid rounded mx-auto my-auto" alt="Product image" width="400">
-                <div class="thumbnail d-flex flex-column justify-content-around">
-                    <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded" alt="Product image" width="100">
-                    <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded" alt="Product image" width="100">
-                    <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded" alt="Product image" width="100">
+            <div id="image-product" class="col-md-6 px-2 py-2 text-center">
+                <img src="<?= base_url('assets/image/perban.jpg') ?>" class="img-fluid rounded" alt="Product image" width="400">
+                <div class="thumbnail d-flex justify-content-center flex-wrap mt-3 mx-auto" style="width:25rem;">
+                    <div class="owl-carousel">
+                        <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded m-1" alt="Product image" width="60">
+                        <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded m-1" alt="Product image" width="60">
+                        <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded m-1" alt="Product image" width="60">
+                        <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded m-1" alt="Product image" width="60">
+                        <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded m-1" alt="Product image" width="60">
+                        <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded m-1" alt="Product image" width="60">
+                        <img src="<?= base_url('assets/image/perban.jpg') ?>" class="rounded m-1" alt="Product image" width="60">
+                    </div>
                 </div>
             </div>
             <div id="detail-product" class="col-md-6">
                 <div class="komponen-detail ms-5">
                     <h3 class="text-uppercase fw-bold">Perban Serbaguna</h3>
-                    <h4 class="text-danger fw-bold">Rp. 50.000</h3>
+                    <h4 class="fw-bold harga">Rp. 50.000</h3>
                     <small><em>(Harga sudah termasuk pajak)</em></small>
                     <div class="add-to-cart mt-3">
                         <p>Varian</p>

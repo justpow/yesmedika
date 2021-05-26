@@ -15,13 +15,28 @@
     <section class="main-menu">
         <div class="container my-5">
             <div class="row">
+                <div class="card-urutkan col-lg-12">
+                    <div class="row g-3 justify-content-end">
+                        <div class="col-auto">
+                            <label for="urutkan" class="col-form-label">Urutkan : </label>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Ulasan</option>
+                                <option value="1">Harga Tertinggi</option>
+                                <option value="2">Harga Terendah</option>
+                                <option value="3">Sesuai</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-filter col-md-12 col-lg-3">
-                    <h6 class="fw-bold my-3">FILTER</h6>
-                    <div class="card shadow" >
+                    <h5 class="fw-bold my-3">Filter</h5>
+                    <div class="card shadow-sm rounded-3" >
                         <ul class="list-group">
-                            <li class="list-group-item" type="button" data-bs-toggle="collapse" data-bs-target="#merekCollapse">Merek</li>
+                            <li class="list-group-item border-0" type="button" data-bs-toggle="collapse" data-bs-target="#merekCollapse">Merek</li>
                             <div class="collapse show multi-collapse" id="merekCollapse">
-                                <div class="card card-body">
+                                <div class="card card-body border-0">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="2" id="mrk_soft" name="brand[]" onchange="submitFilter()">
                                         <label class="form-check-label" for="mrk_soft">
@@ -36,9 +51,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <li class="list-group-item" type="button" data-bs-toggle="collapse" data-bs-target="#hargaCollapse">Harga</li>
+                            <li class="list-group-item border-0" type="button" data-bs-toggle="collapse" data-bs-target="#hargaCollapse">Harga</li>
                             <div class="collapse show multi-collapse" id="hargaCollapse">
-                                <div class="card card-body">
+                                <div class="card card-body border-0">
                                     <label for="harga-minimum" class="form-label">Harga Minimum</label>
                                     <div class="input-group input-group-sm mb-3">
                                         <span class="input-group-text">Rp.</span>

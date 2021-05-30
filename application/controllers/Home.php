@@ -34,4 +34,8 @@ class Home extends MY_Controller {
 	public function detail_pesanan(){
 		$this->render_page('main', 'transaction/orderDetails');
 	}
+
+	public function pembayaran(){
+		$this->render_page('main', 'transaction/payment');
+	}
 }

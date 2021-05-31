@@ -52,3 +52,9 @@ $(document).ready(function(){
   });
   $('.owl-nav').hide();
 });
+
+ // Set price by selected variant.
+ function variantListener(id, price) {
+  $('#price').html(`Rp. ${price}`);
+  $('#variantId').val(id);
+}

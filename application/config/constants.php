@@ -121,6 +121,15 @@ $product = array(
 
 define('PRODUCT', $product);
 
+//Variant.
+$variant = array(
+    'DELETED' => 0,
+    'NOT_ACTIVE' => 1,
+    'ACTIVE' => 2
+);
+
+define('VARIANT', $variant);
+
 
 // MISC.
 $misc = array(

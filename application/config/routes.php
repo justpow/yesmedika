@@ -62,5 +62,9 @@ $route['login/submit'] = 'auth/login/form_submit';
 // Logout Router
 $route['logout'] = 'auth/logout';
 
+// Product Router
+$route['product/(:num)'] = 'product/product/detail/$1';
+$route['product/add-to-cart'] = 'product/product/add_to_cart';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

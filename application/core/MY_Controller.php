@@ -28,12 +28,15 @@ class MY_Controller extends CI_Controller {
 			}
 
 			$data->permission = $role_permission;
+			$data->username = $data->username.time();
 			$this->create_user_session($data);
 		}
 
 		// Temporary only, only for user debug. Uncomment this if needed.
 		// $user = $this->session->userdata('user');
 		// print_r($user);
+		// session_destroy();
+		// die();
 	}
 
 	private function is_granted($user_access, $permission)

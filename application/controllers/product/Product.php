@@ -7,6 +7,8 @@ class Product extends MY_Controller {
 	{
 		parent::__construct();
 		$this->load->model('products');
+		$this->load->model('variants');
+		$this->load->model('cart');
 	}
 		
 	public function index()
@@ -52,4 +54,106 @@ class Product extends MY_Controller {
 
         $this->send_api_response(200, $result->data->result());
 	}
+
+    public function detail($productId)
+    {
+        // Add filter id.
+        $filter = array('id' => $productId);
+
+        // Get product by id.
+        $result = $this->products->get_products(1, 1000, '', 'id', 'desc', '', '', '', $filter);
+        if ($result->error['code'] !==  0 && $result->error['message']) {
+            $this->send_api_response(500, (object)$result->error);
+            return;
+        }
+
+        $product = $result->data->result_array()[0];
+
+        // Get variant product.
+        $result = $this->variants->get_variants(array('product_id' => $productId));
+        $result = $result->data->result_array();
+        if (count($result) > 0) {
+            $product['variants'] = $result;
+        }
+
+        $this->render_page('main', 'product/detailProduct', $product);
+
+    }
+
+    public function add_to_cart()
+    {
+        $productId = $_POST['productId'];
+        $variantId = $_POST['variantId'];
+        $quantities = $_POST['qty'];
+        $user = (object)$this->session->userdata('user');
+        if (!isset($user)) {
+            $this->cart_page();
+            return;
+        }
+
+        $username = $user->username;
+        $data = array(
+            'product_id' => $productId,
+            'variant_id' => $variantId,
+            'qty' => $quantities,
+            'username' => $username,
+            'create_by' => $user->id,
+            'update_by' => $user->id
+        );
+
+        $result = $this->cart->insert($data);
+        if ($result->error['code'] !==  0 && $result->error['message']) {
+			$this->cart_page();
+            return;
+        }
+
+        $this->cart_page();
+    }
+
+    public function cart_page()
+    {
+        $user = (object)$this->session->userdata('user');
+        if (!isset($user)) {
+            redirect('home');
+            return;
+        }
+
+        // Get cart by username.
+        $result = $this->cart->get_carts(array('username' => $user->username));
+        $result = $result->data->result_array();
+
+        if (count($result) == 0) {
+            $this->render_page('main', 'transaction/cart');
+            return;
+        }
+
+        $listPrd = array();
+        foreach ($result as $cart) {
+            // Add filter id.
+            $filter = array('id' => $cart['product_id']);
+    
+            // Get product by id.
+            $resultProd = $this->products->get_products(1, 1000, '', 'id', 'desc', '', '', '', $filter);
+            if ($resultProd->error['code'] !==  0 && $resultProd->error['message']) {
+                $this->send_api_response(500, (object)$resultProd->error);
+                return;
+            }
+    
+            $product = $resultProd->data->result_array()[0];
+           
+            // Get variant product.
+            $resultVar = $this->variants->get_variants(array('id' => $cart['variant_id']));
+            $resultVar = $resultVar->data->result_array();
+            
+            foreach ($resultVar as $key => $value) {
+                array_push($listPrd, array(
+                    'product' => $product,
+                    'variant' => $value,
+                    'qty' => $cart['qty']
+                ));
+            }
+        }
+        
+        $this->render_page('main', 'transaction/cart', $listPrd);
+    }
 }

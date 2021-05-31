@@ -1,9 +1,19 @@
-@media (max-width: 1200px) { 
-  body {font-size:.9rem;} 
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 0.75rem;
+  }
 }
- 
-@media (min-width: 1200px) {  
-  body {font-size:1rem;}   
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 0.85rem;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 1rem;
+  }
 }
 
 body {
@@ -219,5 +229,10 @@ footer {
 .owl-nav{
   text-align:center;
   font-size: 2rem;
+}
+
+.mx-custom-1{
+  margin-left: 20rem;
+  margin-right: 20rem;
 }
   

@@ -107,7 +107,8 @@ class Product extends MY_Controller {
             return;
         }
 
-        $this->cart_page();
+        // $this->cart_page();
+        redirect('cart');
     }
 
     public function cart_page()

@@ -67,7 +67,7 @@
                                 } echo $total; ?></p>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-primary float-end mt-3">Lanjutkan Pembayaran</a>
+                        <a  href="<?= base_url().'home/pembayaran' ?>" class="btn btn-primary float-end mt-3">Lanjutkan Pembayaran</a>
                     </div>
                 </div>
             </div>

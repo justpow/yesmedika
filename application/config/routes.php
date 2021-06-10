@@ -65,6 +65,7 @@ $route['logout'] = 'auth/logout';
 // Product Router
 $route['product/(:num)'] = 'product/product/detail/$1';
 $route['product/add-to-cart'] = 'product/product/add_to_cart';
+$route['cart'] = 'product/product/cart_page';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

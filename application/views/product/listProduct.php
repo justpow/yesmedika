@@ -3,8 +3,8 @@
     <section class="head-home">
         <div id="head-home" class="position-relative overflow-hidden p-3 p-md-5 text-center bg-dark text-light">
             <div class="col-md-5 p-lg-5 mx-auto my-5">
-                <h1 class="display-4 fw-normal">YESMedika Alkes</h1>
-                <p class="lead fw-normal">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab cupiditate earum soluta culpa alias iure labore dicta. Velit soluta, possimus ea eos earum exercitationem libero. Ex quae incidunt eos optio.</p>
+                <h1 class="display-4 fw-normal">YES Medika Alkes</h1>
+                <p class="lead fw-normal">YES MEDIKA menyediakan segala jenis kebutuhan di bidang alat kesehatan</p>
                 <div class="input-group mb-3">
                     <input id="searchField" type="text" class="form-control" placeholder="Cari..." aria-label="Search bar" aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="searchBtn"><i class="fas fa-search"></i></button>

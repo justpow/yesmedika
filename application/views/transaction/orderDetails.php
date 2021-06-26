@@ -1,6 +1,6 @@
 <section class="cart">
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-5 pt-5">
             <h5 class="fw-bold">Detail Pesanan</h5>
             <div class="col-lg-7">
                 <div class="border-bottom mb-5">

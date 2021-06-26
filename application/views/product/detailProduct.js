@@ -34,6 +34,7 @@ jQuery('.quantity').each(function() {
 $(document).ready(function(){
   $('.owl-carousel').owlCarousel({
     margin:5,
+    nav: false,
     responsive:{
         0:{
             items:5,
@@ -50,7 +51,6 @@ $(document).ready(function(){
         }
     }
   });
-  $('.owl-nav').hide();
 });
 
  // Set price by selected variant.

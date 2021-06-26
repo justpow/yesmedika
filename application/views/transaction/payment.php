@@ -1,6 +1,6 @@
 <section class="cart">
     <div class="container">
-        <div class="row mt-5 flex-direction-column justify-content-center">
+        <div class="row mt-5 pt-5 flex-direction-column justify-content-center">
             <div class="col-12 text-center">
                 <h5 class="fw-bold">Status transaksi</h5>
                 <span class="badge bg-warning text-dark fs-5">Menunggu Pembayaran</span>

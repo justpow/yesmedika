@@ -1,6 +1,6 @@
 <section class="head-product">
     <div class="container">
-        <div class="row mt-5">
+        <div class="row mt-5 pt-5">
             <div id="image-product" class="col-md-6 px-2 py-2 text-center">
                 <img src="<?= base_url('assets/image/').json_decode($data['photo'])[0] ?>" class="img-fluid rounded" alt="Product image" width="400">
                 <div class="thumbnail d-flex justify-content-center flex-wrap mt-3 mx-auto" style="width:25rem;">

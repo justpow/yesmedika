@@ -239,4 +239,28 @@ body {
   margin-left: 20rem;
   margin-right: 20rem;
 }
-  
+
+.owl-item{ 
+  width : auto !important; 
+}
+
+.btn-secondary{
+  background-color:rgba(0,0,0,.1) !important;
+}
+
+.media{
+  display:inline-block;
+  position:relative;
+}
+
+.badge-custom-1 {
+  top:10px;
+  position:absolute;
+  left:10px;
+}
+
+.badge-custom-2 {
+  top:8px;
+  position:absolute;
+  left:15px;
+}

@@ -15,7 +15,7 @@
                 <form action="<?= base_url().'product/add-to-cart' ?>" method="post">
                     <input type="text" name="productId" value="<?= $data['id'] ?>" hidden>
                     <input type="text" id="variantId" name="variantId" value="<?php 
-                            if(isset($data['variants'])){ echo $data['variants'][0]['id'];} else { echo ''; }?>" hidden> 
+                            if(isset($data['variants'])){ echo $data['variants'][0]['id'];} else { echo 0; }?>" hidden> 
                     <div class="komponen-detail ms-5">
                         <h3 class="text-uppercase fw-bold"><?= $data['name'] ?></h3>
                         <h4 id="price" class="fw-bold harga">Rp. <?php 

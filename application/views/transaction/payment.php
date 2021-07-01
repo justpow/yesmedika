@@ -1,3 +1,9 @@
+<?php 
+    if (!isset($data)) {
+        redirect('transaction/history');
+    }
+?>
+
 <section class="cart">
     <div class="container">
         <div class="row mt-5 pt-5 flex-direction-column justify-content-center">
@@ -5,7 +11,7 @@
                 <h5 class="fw-bold">Status transaksi</h5>
                 <span class="badge bg-warning text-dark fs-5">Menunggu Pembayaran</span>
                 <p class="mt-4 mb-0">Batas akhir pembayaran</p>
-                <h5 class="text-danger mt-1 fw-bold">Senin, 30 Mei 2021 23:51:40</h5>
+                <h5 class="text-danger mt-1 fw-bold"><?= $data['expire'] ?></h5>
             </div>
             <div class="col-12 mt-5">
                 <div class="card mx-auto" style="width:60%;">
@@ -15,12 +21,12 @@
                     </div>
                     <div class="card-body text-center">
                         <p class="card-title mb-1 fs-6 mt-3">No Tagihan</p>
-                        <h5 class="card-text fw-bold">INV/2021/31/02/Ab</h5>
+                        <h5 class="card-text fw-bold"><?= $data['invoice'] ?></h5>
                         <p class="card-title mb-1 fs-6 mt-4">No Rekening</p>
                         <h5 class="card-text mb-1 fw-bolder">827708123121568</h5>
                         <h5 class="card-text">Atas Nama PT Yesmedika</h5>
                         <p class="card-title mb-1 fs-6 mt-4">Total Pembayaran</p>
-                        <h5 class="card-text mb-4 text-danger fw-bold"> Rp. 50.000</h5>
+                        <h5 class="card-text mb-4 text-danger fw-bold"> Rp. <?= $data['total'] ?></h5>
                     </div>
                 </div>
             </div>

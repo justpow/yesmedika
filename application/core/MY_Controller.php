@@ -69,7 +69,7 @@ class MY_Controller extends CI_Controller {
 			'role' => $data->title,
 			'permission' => $data->permission
 		);
-		$this->session->set_tempdata('user', $new_data, 1800);
+		$this->session->set_tempdata('user', $new_data, 3600 * 24 * 7); // 1 week session
 		
 	}
 

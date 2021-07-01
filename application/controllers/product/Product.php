@@ -82,6 +82,11 @@ class Product extends MY_Controller {
 
     public function add_to_cart()
     {
+        if (!$this->has_access(ADD_TO_CART)) {
+			redirect('login');
+			return;
+        }
+
         $productId = $_POST['productId'];
         $variantId = $_POST['variantId'];
         $quantities = $_POST['qty'];
@@ -94,16 +99,19 @@ class Product extends MY_Controller {
         $username = $user->username;
         $data = array(
             'product_id' => $productId,
-            'variant_id' => $variantId,
             'qty' => $quantities,
             'username' => $username,
             'create_by' => $user->id,
             'update_by' => $user->id
         );
 
+        if ($variantId != 0) {
+            $data['variant_id'] = $variantId;
+        }
+
         $result = $this->cart->insert($data);
         if ($result->error['code'] !==  0 && $result->error['message']) {
-			$this->cart_page();
+            $this->cart_page();
             return;
         }
 
@@ -113,6 +121,11 @@ class Product extends MY_Controller {
 
     public function cart_page()
     {
+        if (!$this->has_access(ADD_TO_CART)) {
+			redirect('login');
+			return;
+        }
+        
         $user = (object)$this->session->userdata('user');
         if (!isset($user)) {
             redirect('home');
@@ -142,14 +155,21 @@ class Product extends MY_Controller {
     
             $product = $resultProd->data->result_array()[0];
            
-            // Get variant product.
-            $resultVar = $this->variants->get_variants(array('id' => $cart['variant_id']));
-            $resultVar = $resultVar->data->result_array();
-            
-            foreach ($resultVar as $key => $value) {
+            if ($cart['variant_id'] != null) {
+                // Get variant product.
+                $resultVar = $this->variants->get_variants(array('id' => $cart['variant_id']));
+                $resultVar = $resultVar->data->result_array();
+                
+                foreach ($resultVar as $key => $value) {
+                    array_push($listPrd, array(
+                        'product' => $product,
+                        'variant' => $value,
+                        'qty' => $cart['qty']
+                    ));
+                }
+            } else {
                 array_push($listPrd, array(
                     'product' => $product,
-                    'variant' => $value,
                     'qty' => $cart['qty']
                 ));
             }

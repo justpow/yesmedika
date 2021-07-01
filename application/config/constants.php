@@ -109,6 +109,11 @@ define('WRITE_LOGIN', 202);
 // Logout.
 define('LOGOUT', 103);
 
+// Add to Cart.
+define('ADD_TO_CART', 300);
+
+// Checkout.
+define('CHECKOUT', 400);
 
 // MAPPING DB STATUS.
 
@@ -118,7 +123,6 @@ $product = array(
     'NOT_ACTIVE' => 1,
     'ACTIVE' => 2
 );
-
 define('PRODUCT', $product);
 
 //Variant.
@@ -127,7 +131,6 @@ $variant = array(
     'NOT_ACTIVE' => 1,
     'ACTIVE' => 2
 );
-
 define('VARIANT', $variant);
 
 
@@ -135,5 +138,21 @@ define('VARIANT', $variant);
 $misc = array(
     'MAX_PAGE' => 20
 );
-
 define('MISC', $misc);
+
+// TRANSACTION STATUS.
+$trans = array(
+    'WAITING_PAYMENT' => 1,
+    'ON_PROCESS' => 2,
+    'ON_DELIVERY' => 3,
+    'DELIVERED' => 4,
+    'CANCELLED' => 5,
+
+    // FRONTEND NEEDS.
+    1 => 'Menunggu Pembayaran',
+    2 => 'Diproses',
+    3 => 'Dikirim',
+    4 => 'Sampai Tujuan',
+    5 => 'Dibatalkan'
+);
+define('TRANS', $trans);

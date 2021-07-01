@@ -8,13 +8,16 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="<?= base_url() ?>">Home</a>
+          <a class="nav-link active" aria-current="page" href="<?= base_url() ?>">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Articles</a>
+          <a class="nav-link" href="#">Artikel</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Cart</a>
+          <a class="nav-link" href="<?= base_url('cart') ?>">Keranjang</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('transaction/history') ?>">Riwayat Pesanan</a>
         </li>
       </ul>
       <form class="d-flex mb-auto">
@@ -31,7 +34,7 @@
             <li><a class="dropdown-item" href="#">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Setting</a></li>
-            <li><a class="dropdown-item" href="#">Log Out</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('logout') ?>">Log Out</a></li>
           </ul>
         </li>
         </ul>

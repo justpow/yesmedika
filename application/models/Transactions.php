@@ -1,27 +1,21 @@
 <?php
-class Cart extends MY_Model {
+class Transactions extends MY_Model {
 
-    public function insert($data)
+    public function insert_transaction_product($data)
     {
-        $result = $this->db->insert('ym_cart', $data);
+        $result = $this->db->insert('ym_transaction_product', $data);
         $error = $this->db->error();
         return $this->db_response($result, $error);
     }
-
-    public function get_carts($filters=[])
+    
+    public function insert_transaction($data)
     {
-        if (count($filters) != 0) {
-            foreach ($filters as $key => $value) {
-               $this->db->where($key, $value);
-            }
-        }
-
-        $result = $this->db->get('ym_cart');
+        $this->db->insert('ym_transaction', $data);
         $error = $this->db->error();
-        return $this->db_response($result, $error);
+        return $this->db_response($this->db->insert_id(), $error);
     }
 
-    public function update($data, $filters=[])
+    public function get_transaction($filters=[])
     {
         if (count($filters) != 0) {
             foreach ($filters as $key => $value) {
@@ -29,15 +23,23 @@ class Cart extends MY_Model {
             }
         }
 
-        $result = $this->db->update('ym_cart', $data);
+        $result = $this->db->get('ym_transaction');
+        $error = $this->db->error();
+        return $this->db_response($result, $error);
+    }
+    
+    public function get_transaction_product($filters=[])
+    {
+        if (count($filters) != 0) {
+            foreach ($filters as $key => $value) {
+               $this->db->where($key, $value);
+            }
+        }
+
+        $result = $this->db->get('ym_transaction_product');
         $error = $this->db->error();
         return $this->db_response($result, $error);
     }
 
-    public function delete($where)
-    {
-        $result = $this->db->delete('ym_cart', $where);
-        $error = $this->db->error();
-        return $this->db_response($result, $error);
-    }
+   
 }

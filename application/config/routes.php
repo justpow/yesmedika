@@ -67,5 +67,11 @@ $route['product/(:num)'] = 'product/product/detail/$1';
 $route['product/add-to-cart'] = 'product/product/add_to_cart';
 $route['cart'] = 'product/product/cart_page';
 
+// Transaction Router
+$route['transaction/precheckout'] = 'transaction/transaction/pre_checkout';
+$route['transaction/checkout'] = 'transaction/transaction/checkout';
+$route['transaction/history'] = 'transaction/transaction/history';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -51,7 +51,7 @@
                         </div>
                         <div class="card-body">
                             <div class="d-flex text-center align-items-center">
-                                <input class="form-check-input me-5" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <input class="form-check-input me-5" type="radio" id="flexRadioDefault1">
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-cart-arrow-down text-primary fs-1"></i>
                                 </div>
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                             <div class="d-flex text-center align-items-center mt-5">
-                                <input class="form-check-input me-5" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                <input class="form-check-input me-5" type="radio" id="flexRadioDefault1">
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-shipping-fast text-primary fs-1"></i>
                                 </div>
@@ -84,13 +84,13 @@
                             <div class="d-flex">
                                 <div class="flex-grow-1 me-5">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault2">
+                                        <input class="form-check-input" type="radio" id="flexRadioDefault2">
                                         <label class="form-check-label" for="flexRadioDefault2">
                                             COD
                                         </label>
                                     </div>
                                     <div class="form-check mt-2">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault1" id="flexRadioDefault3">
+                                        <input class="form-check-input" type="radio" id="flexRadioDefault3">
                                         <label class="form-check-label" for="flexRadioDefault3">
                                             Transfer Bank
                                         </label>

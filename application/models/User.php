@@ -8,6 +8,15 @@ class User extends MY_Model {
         return $this->db_response($result, $error);
     }
     
+    public function update($param, $data)
+    {
+        $this->db->set($data);
+        $this->db->where('id', $param['id']);
+        $this->db->update('ym_user');
+        $error = $this->db->error();
+        return $this->db_response($result, $error);
+    }
+
     public function get($data)
     {
         $this->db->select('user.*, role.title'); 

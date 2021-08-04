@@ -13,6 +13,7 @@
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
                 <link rel="stylesheet" href="'.base_url('assets/owl-carousel/dist/assets/owl.carousel.min.css').'">
                 <link rel="stylesheet" href="'.base_url('assets/owl-carousel/dist/assets/owl.theme.default.min.css').'">
+                <script src="'.base_url('assets/swal/sweetalert2.all.min.js').'"></script>
                 <title>'.$title.'</title>
             </head>
         ';

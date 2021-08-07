@@ -11,7 +11,7 @@
           <a class="nav-link active" aria-current="page" href="<?= base_url() ?>">Beranda</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Artikel</a>
+          <a class="nav-link" href="<?= base_url('home/list_alamat') ?>">Alamat</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('cart') ?>">Keranjang</a>

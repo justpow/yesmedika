@@ -10,6 +10,9 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?= base_url() ?>">Beranda</a>
         </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Artikel</a>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('home/list_alamat') ?>">Alamat</a>
         </li>
@@ -31,7 +34,7 @@
             Profile
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><a class="dropdown-item" href="<?= base_url('user/profile') ?>">Profile</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Setting</a></li>
             <li><a class="dropdown-item" href="<?= base_url('logout') ?>">Log Out</a></li>

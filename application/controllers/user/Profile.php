@@ -76,7 +76,7 @@ class Profile extends MY_Controller {
 		$this->session->set_flashdata('update_success', 'Anda berhasil memperbarui profile');
 		redirect('user/profile');	
 	}
-
+  
 	public function ubah_password()
 	{
 		// Check user permission.

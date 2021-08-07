@@ -60,20 +60,64 @@ class Profile extends MY_Controller {
 		);
 
 		$param = array(
-            'id' 	        => $this->input->post('id_user')
+            'id' 	        => $this->session->userdata('user')['id']
 		);
 
-		// Insert data.
+		// Update data.
 		$result = $this->user->update($param, $user);
 
 		// Error Handler. If got error in page, please set db_debug = FALSE at application/database.php
 		if ($result->error['code'] !==  0 && $result->error['message']) {
 			$this->session->set_flashdata('update_error', 'Anda gagal memperbarui profile');
-			$this->render_page('main', 'user/profile');
+			redirect('user/profile');
 			return;
 		}
 
 		$this->session->set_flashdata('update_success', 'Anda berhasil memperbarui profile');
+		redirect('user/profile');	
+	}
+  
+	public function ubah_password()
+	{
+		// Check user permission.
+        if (!$this->has_access(CHECKOUT)) {
+			redirect('login');
+			return;
+        }
+		
+		// Check old password in database
+		$param = array(
+            'user.id' 	        => $this->session->userdata('user')['id']
+		);
+		$old_password_db = $this->user->get($param)->data->result_array();
+		$old_password_form = $this->input->post('inputPassword');
+		$verify = password_verify($old_password_form, $old_password_db[0]['password']);
+		// var_dump($verify);die();
+		if( !$verify ){
+			$this->session->set_flashdata('password_error', 'Maaf, Kata Sandi Lama tidak sesuai');
+			redirect('user/profile');
+			return;
+		}
+
+		$user = array(
+			'password'	 	=> password_hash($this->input->post('inputPassword2'), PASSWORD_BCRYPT)
+		);
+
+		$param = array(
+            'id' 	        => $this->session->userdata('user')['id']
+		);
+
+		// Update data.
+		$result = $this->user->update($param, $user);
+
+		// Error Handler. If got error in page, please set db_debug = FALSE at application/database.php
+		if ($result->error['code'] !==  0 && $result->error['message']) {
+			$this->session->set_flashdata('password_error', 'Anda gagal memperbarui kata sandi');
+			redirect('user/profile');
+			return;
+		}
+
+		$this->session->set_flashdata('password_success', 'Anda berhasil memperbarui kata sandi');
 		redirect('user/profile');	
 	}
 }

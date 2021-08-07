@@ -75,7 +75,7 @@ $route['transaction/history'] = 'transaction/transaction/history';
 // Profile Router
 $route['user/profile'] = 'user/profile';
 $route['user/edit-profile'] = 'user/profile/edit_prof_submit';
-
+$route['user/ubah-password'] = 'user/profile/ubah_password';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

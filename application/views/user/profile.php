@@ -1,5 +1,6 @@
 <section class="profile">
     <div class="container">
+      
         <?php if ($this->session->flashdata('update_success')){ ?>
         <script>
             Swal.fire('', '<?=$this->session->flashdata('update_success')?>', 'success');
@@ -9,6 +10,17 @@
             Swal.fire('', '<?=$this->session->flashdata('update_error')?>', 'error');
         </script>
         <?php } ?>
+
+        <?php if ($this->session->flashdata('password_success')){ ?>
+        <script>
+            Swal.fire('', '<?=$this->session->flashdata('password_success')?>', 'success');
+        </script>
+        <?php }else if($this->session->flashdata('password_error')){ ?>
+        <script>
+            Swal.fire('', '<?=$this->session->flashdata('password_error')?>', 'error');
+        </script>
+        <?php } ?>
+  
         <div class="row mt-5 pt-5">
             <h5 class="fw-bold">Profil Kamu</h5>
             <div class="row">
@@ -62,27 +74,29 @@
                     <hr class="mt-1 text-primary rounded-pill" style="height:.3rem;">
                 </div>
                 <div class="col-12 mt-3">
-                    <div class="mb-3 row">
-                        <label for="inputPassword" class="col-sm-4 col-form-label">Kata Sandi Lama</label>
-                        <div class="col-sm-8">
-                            <input type="password" class="form-control" id="inputPassword">
+                    <form id="form_ubah_password" action="<?= base_url('user/profile/ubah_password') ?>" method="post">
+                        <div class="mb-3 row">
+                            <label for="inputPassword" class="col-sm-4 col-form-label">Kata Sandi Lama</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="inputPassword" name="inputPassword" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword2" class="col-sm-4 col-form-label">Kata Sandi Baru</label>
-                        <div class="col-sm-8">
-                            <input type="password" class="form-control" id="inputPassword2">
+                        <div class="mb-3 row">
+                            <label for="inputPassword2" class="col-sm-4 col-form-label">Kata Sandi Baru</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="inputPassword2" name="inputPassword2" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputPassword3" class="col-sm-4 col-form-label">Konfirmasi Kata Sandi Baru</label>
-                        <div class="col-sm-8">
-                            <input type="password" class="form-control" id="inputPassword3">
+                        <div class="mb-3 row">
+                            <label for="inputPassword3" class="col-sm-4 col-form-label">Konfirmasi Kata Sandi Baru</label>
+                            <div class="col-sm-8">
+                                <input type="password" class="form-control" id="inputPassword3" name="inputPassword3" required>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-auto float-end">
-                        <button type="submit" class="btn btn-primary mb-3">Simpan</button>
-                    </div>
+                        <div class="col-auto float-end">
+                            <button type="button" id="submit_ubah_password" class="btn btn-primary mb-3">Simpan</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

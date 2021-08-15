@@ -264,3 +264,8 @@ body {
   position:absolute;
   left:15px;
 }
+
+.notfound-404 h1 {
+  font-weight: 600;
+  font-size: 15rem;
+}

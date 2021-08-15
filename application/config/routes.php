@@ -77,5 +77,8 @@ $route['user/profile'] = 'user/profile';
 $route['user/edit-profile'] = 'user/profile/edit_prof_submit';
 $route['user/ubah-password'] = 'user/profile/ubah_password';
 
+// Address Router
+$route['address/list-address'] = 'address/address';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

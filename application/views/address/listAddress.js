@@ -51,7 +51,7 @@ $( '#kota' ).change(function() {
         type: "GET",
         dataType : 'json',
         success: function(data) {
-            console.log(data);
+            // console.log(data);
             $.each(data, function(key, value) {
                 $('#kecamatanOptions').append("<option data-id='"+ value.kode +"' value='"+ value.nama + "'>");
             });
@@ -71,7 +71,7 @@ $( '#kecamatan' ).change(function() {
         type: "GET",
         dataType : 'json',
         success: function(data) {
-            console.log(data);
+            // console.log(data);
             $.each(data, function(key, value) {
                 $('#kelurahanOptions').append("<option data-id='"+ value.kode +"' value='"+ value.nama + "'>");
             });
@@ -106,7 +106,7 @@ $( "#add_address" ).click(function() {
             kelurahan : val_kelurahan,
         },
         success: function(data) {
-            console.log(data);
+            // console.log(data);
             if ( data.kode == 0)
             {
                 Swal.fire(
@@ -204,18 +204,27 @@ $( '.btn-edit' ).click(function(){
         dataType : 'json',
         success: function(data) {
             console.log(data);
-            $( '#namaAlamat' ).val(data[0].address_name);
-            $( '#namaPenerima' ).val(data[0].recipient_name);
-            $( '#noTelp' ).val(data[0].phone_number);
-            $( '#detailAlamat' ).val(data[0].address);
-            $( '#noteAlamat' ).val(data[0].note_address);
-            $( '#provinsi' ).val(data[0].nama_provinsi);
-            $( '#kota' ).val(data[0].nama_kota);
-            $( '#kecamatan' ).val(data[0].nama_kecamatan);
-            $( '#kelurahan' ).val(data[0].nama_kelurahan);
-            $( '#inputZip' ).val(data[0].kode_pos);
-
-            let_get_provinsi();
+            if (data == 'error') 
+            {
+                location.reload();
+                return;
+            }
+            else
+            {
+                $( '#namaAlamat' ).val(data[0].address_name);
+                $( '#namaPenerima' ).val(data[0].recipient_name);
+                $( '#noTelp' ).val(data[0].phone_number);
+                $( '#detailAlamat' ).val(data[0].address);
+                $( '#noteAlamat' ).val(data[0].note_address);
+                $( '#provinsi' ).val(data[0].nama_provinsi);
+                $( '#kota' ).val(data[0].nama_kota);
+                $( '#kecamatan' ).val(data[0].nama_kecamatan);
+                $( '#kelurahan' ).val(data[0].nama_kelurahan);
+                $( '#inputZip' ).val(data[0].kode_pos);
+    
+                let_get_provinsi();
+            }
+           
         }
     });    
 

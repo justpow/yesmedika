@@ -38,16 +38,40 @@ class Address extends MY_Controller {
 
 	public function get_address()
 	{
+		
+		// Check user permission.
+		if (!$this->has_access(CHECKOUT)) {
+			redirect('login');
+			return;
+        }
+
+		// Get user session.
+        $user = (object)$this->session->userdata('user');
+        if (!isset($user)) {
+            redirect('login');
+            return;
+        }
 
 		$id = $this->input->get('id');
 		$resultAddress = $this->UserAddress->get_address_wilayah(array('id' => $id));
-		
+		$result = $resultAddress->data->result_array();
+
 		if ($resultAddress->error['code'] !==  0 && $resultAddress->error['message']) {
             redirect(''); // temporary error handler. Need flashdata.
             return;
         }
 
-		echo json_encode($resultAddress->data->result_array());
+		// Check user id = session user id
+		if ( $user->id != $result[0]['id_user'] )
+		{
+			// echo json_encode($resultAddress);
+			$this->session->set_flashdata('error', 'Maaf, Data tidak sesuai');
+			$err = 'error';
+			echo json_encode($err);
+			return;
+		}
+
+		echo json_encode($result);
 
 	}
 
@@ -201,8 +225,6 @@ class Address extends MY_Controller {
             return;
         }
 
-		// var_dump($this->input->post());die();
-
 		$address = array(
 			'id_user' 			=> $user->id,
 			'address_name' 		=> $this->input->post('namaAlamat'),
@@ -301,6 +323,14 @@ class Address extends MY_Controller {
 		$data = array(
 			'id'	=> $this->input->get('id')
 		);
+
+		// Check user id = session user id
+		if ( $data['id'] != $user->id )
+		{
+			$this->session->set_flashdata('error', 'Anda gagal menghapus alamat');
+			redirect('address/list-address');
+			return;
+		}
 
 		// Delete data.
 		$result = $this->UserAddress->delete($data);

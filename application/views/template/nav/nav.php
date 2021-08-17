@@ -14,7 +14,7 @@
           <a class="nav-link" href="#">Artikel</a>
         </li> -->
         <li class="nav-item">
-          <a class="nav-link" href="<?= base_url('home/list_alamat') ?>">Alamat</a>
+          <a class="nav-link" href="<?= base_url('address/list-address') ?>">Alamat</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="<?= base_url('cart') ?>">Keranjang</a>

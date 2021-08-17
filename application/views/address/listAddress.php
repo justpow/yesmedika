@@ -1,25 +1,61 @@
 <section class="profile">
     <div class="container">
+
+        <?php if ($this->session->flashdata('success')){ ?>
+        <script>
+            Swal.fire('', '<?=$this->session->flashdata('success')?>', 'success');
+        </script>
+        <?php }else if($this->session->flashdata('error')){ ?>
+        <script>
+            Swal.fire('', '<?=$this->session->flashdata('error')?>', 'error');
+        </script>
+        <?php } ?>
+
         <div class="row mt-5 pt-5">
             <h5 class="fw-bold">Alamat Kamu</h5>
             <div class="row">
                 <div class="col-12">
                     <div class="text-end">
-                        <button type="button" class="btn btn-primary fs-6" data-bs-toggle="modal" data-bs-target="#tambahAlamat"><small><i class="fas fa-plus"></i>&nbsp; Tambah Alamat</small></button>
+                        <button type="button" class="btn btn-primary fs-6" id="btn_tambah_alamat" data-bs-toggle="modal" data-bs-target="#tambahAlamat"><small><i class="fas fa-plus"></i>&nbsp; Tambah Alamat</small></button>
                     </div>
+                    <?php
+                        if ( empty($data['address']) )
+                        {
+                    ?>
+                    <div id="notfound" class="text-center mt-5">
+                        <div class="notfound">
+                            <div class="notfound-404">
+                                <h1>404</h1>
+                            </div>
+                            <h2>Maaf, Anda belum memiliki alamat</h2>
+                            <p>Silahkan daftarkan alamat anda!</p>
+                            <a href="<?= base_url('') ?>">Kembali ke Halaman Utama</a>
+                        </div>
+                    </div>
+
+                    <?php
+                        }
+                    ?>
+                    <?php 
+                        foreach ( $data['address'] as $result ){
+                         if ( $result['is_utama'] == '1' ) { 
+                    ?>
                     <div class="border-bottom border-3 mb-5">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1">
-                                    <h5>Home</h5>
-                                    <p class="mb-1"><b>Penerima : Wunsel Arto - 081232332101</b></p>
+                                    <h5><?= $result['address_name'] ?></h5>
+                                    <p class="mb-1"><b>Penerima : <?= $result['recipient_name'] ?> - <?= $result['phone_number'] ?></b></p>
                                     <p class="mb-0">Alamat :</p>
-                                    <p class="mb-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus vel nemo corporis animi ea repellat saepe obcaecati sit, tempore accusamus explicabo! Fuga cupiditate vero, similique hic neque culpa maiores iure.</p>
+                                    <p class="mb-1"><?= $result['address'] ?>, Kelurahan <?= $result['nama_kelurahan'] ?>, Kecamatan <?= $result['nama_kecamatan'] ?>, <?= $result['nama_kota'] ?>, <?= $result['nama_provinsi'] ?> <?= $result['kode_pos'] ?></p>
                                     <small class="mb-0">Catatan :</small>
-                                    <small>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</small>
+                                    <small><?= $result['note_address'] ?></small>
                                 </div>
                                 <div>
-                                    <button class="fas fa-edit fs-5 text-primary btn btn-transparent" type="button"></button>
+                                    <a class="delete_address fs-5 text-primary btn btn-transparent" data-id="<?= $result['id'] ?>"><i class="fas fa-trash"></i></a>
+                                </div>
+                                <div>
+                                    <button class="fas fa-edit fs-5 text-primary btn btn-transparent btn-edit m-2" type="button" data-id="<?= $result['id'] ?>" data-bs-toggle="modal" data-bs-target="#tambahAlamat"></button>
                                 </div>
                                 <div>
                                     <span class="badge bg-transparent border border-primary text-primary px-2 py-2">Utama</span>
@@ -27,120 +63,132 @@
                             </div>
                         </div>
                     </div>
+                    <?php    
+                         }
+                        } 
+                       foreach ( $data['address'] as $result ){
+                        if ( $result['is_utama'] == '0' ) {
+                    ?>   
                     <div class="border-bottom border-3 mb-5">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="flex-grow-1">
-                                    <h5>Kantor</h5>
-                                    <p class="mb-1"><b>Penerima : Wunsel Arto - 081232332101</b></p>
+                                    <h5><?= $result['address_name'] ?></h5>
+                                    <p class="mb-1"><b>Penerima : <?= $result['recipient_name'] ?> - <?= $result['phone_number'] ?></b></p>
                                     <p class="mb-0">Alamat :</p>
-                                    <p class="mb-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus vel nemo corporis animi ea repellat saepe obcaecati sit, tempore accusamus explicabo! Fuga cupiditate vero, similique hic neque culpa maiores iure.</p>
+                                    <p class="mb-1"><?= $result['address'] ?>, Kelurahan <?= $result['nama_kelurahan'] ?>, Kecamatan <?= $result['nama_kecamatan'] ?>, <?= $result['nama_kota'] ?>, <?= $result['nama_provinsi'] ?> <?= $result['kode_pos'] ?></p>
                                     <small class="mb-0">Catatan :</small>
-                                    <small>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</small>
+                                    <small><?= $result['note_address'] ?></small>
                                 </div>
                                 <div>
-                                    <button class="fas fa-edit fs-5 text-primary btn btn-transparent" type="button"></button>
+                                    <a class="delete_address fs-5 text-primary btn btn-transparent" data-id="<?= $result['id'] ?>"><i class="fas fa-trash"></i></a>
+                                </div>
+                                <div>
+                                    <button class="fas fa-edit fs-5 text-primary btn btn-transparent btn-edit" type="button" data-id="<?= $result['id'] ?>" data-bs-toggle="modal" data-bs-target="#tambahAlamat"></button>
                                 </div>
                             </div>
                             <div class="text-end">
-                                <button type="button" class="btn btn-primary fs-6"><small>Jadikan Alamat Utama</small></button>
+                                <a type="button" href="<?= base_url('address/address/set_utama?id='.$result['id']) ?>" class="btn btn-primary fs-6"><small>Jadikan Alamat Utama</small></a>
                             </div>
                         </div>
                     </div>
-                    <div class="border-bottom border-3 mb-5">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div class="flex-grow-1">
-                                    <h5>Kantor Kedua</h5>
-                                    <p class="mb-1"><b>Penerima : Wunsel Arto - 081232332101</b></p>
-                                    <p class="mb-0">Alamat :</p>
-                                    <p class="mb-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Delectus vel nemo corporis animi ea repellat saepe obcaecati sit, tempore accusamus explicabo! Fuga cupiditate vero, similique hic neque culpa maiores iure.</p>
-                                    <small class="mb-0">Catatan :</small>
-                                    <small>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</small>
-                                </div>
-                                <div>
-                                    <button class="fas fa-edit fs-5 text-primary btn btn-transparent" type="button"></button>
-                                </div>
-                            </div>
-                            <div class="text-end">
-                                <button type="button" class="btn btn-primary fs-6"><small>Jadikan Alamat Utama</small></button>
-                            </div>
-                        </div>
-                    </div>
+                    <?php   
+                         }
+                        } 
+                    ?>
                 </div>
             </div>
         </div>
         <!-- Tambah Alamat -->
         <div class="modal fade border-0" id="tambahAlamat" tabindex="-1" aria-labelledby="tambahAlamat" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered border-0">
+            <div class="modal-dialog modal-dialog-centered modal-lg border-0">
                 <div class="modal-content">
                     <div class="modal-header border-0">
-                        <h5 class="modal-title" id="tambahAlamat">Tambah Alamat</h5>
+                        <h5 class="modal-title" id="judulModal">Alamat Kamu</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body border-0">
-                        <div class="container">
-                            <form class="row g-3">
-                                <div class="col-12">
-                                    <label for="namaAlamat" class="form-label">Nama Alamat</label>
-                                    <input type="text" class="form-control" id="namaAlamat">
+                    
+                    <form id="add_address_submit" action="" method="post">
+                        <div class="modal-body border-0">
+                            <div class="container">
+                                <div class="row g-3">
+                                    <div class="col-12">
+                                        <label for="namaAlamat" class="form-label">Nama Alamat</label>
+                                        <input type="text" class="form_address form-control" id="namaAlamat" name="namaAlamat" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="namaPenerima" class="form-label">Nama Penerima</label>
+                                        <input type="text" class="form_address form-control" id="namaPenerima" name="namaPenerima" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="noTelp" class="form-label">No Handphone</label>
+                                        <input type="text" class="form_address form-control numbers" id="noTelp" name="noTelp" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="detailAlamat1" class="form-label">Alamat</label>
+                                        <div class="form-floating">
+                                            <textarea class="form_address form-control" placeholder="Jalan Depok Raya No. 12" id="detailAlamat" name="detailAlamat" style="height: 100px" required></textarea>
+                                            <label for="detailAlamat">Detail Alamat</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <label for="noteAlamat" class="form-label"><small>Catatan</small></label>
+                                        <input type="text" class="form_address form-control form-control-sm" id="noteAlamat" name="noteAlamat">
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="provinsi" class="form-label">Provinsi</label>
+                                        <input class="form_address form-control" type="text" list="provinsiOptions" id="provinsi" name="provinsi" placeholder="Pilih Provinsi" required>
+                                        <input type="hidden" id="provinsiId" name="provinsiId" value="">
+                                        <datalist id="provinsiOptions">
+                                            
+                                        </datalist>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="kota" class="form-label">Kota/Kabupaten</label>
+                                        <input class="form_address form-control" list="kotaOptions" id="kota" name="kota" placeholder="Pilih Kota/Kabupaten" required>
+                                        <input type="hidden" id="kotaId" name="kotaId" value="">
+                                        <datalist id="kotaOptions">
+                                            
+                                        </datalist>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="kecamatan" class="form-label">Kecamatan</label>
+                                        <input class="form_address form-control" list="kecamatanOptions" id="kecamatan" name="kecamatan" placeholder="Pilih Kecamatan" required>
+                                        <input type="hidden" id="kecamatanId" name="kecamatanId" value="">
+                                        <datalist id="kecamatanOptions">
+                                            
+                                        </datalist>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="kelurahan" class="form-label">Kelurahan</label>
+                                        <input class="form_address form-control" list="kelurahanOptions" id="kelurahan" name="kelurahan" placeholder="Pilih Kelurahan" required>
+                                        <input type="hidden" id="kelurahanId" name="kelurahanId" value="">
+                                        <datalist id="kelurahanOptions">
+                                            
+                                        </datalist>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="inputZip" class="form-label">Zip</label>
+                                        <input type="text" class="form_address form-control numbers" id="inputZip" name="inputZip" required>
+                                    </div>
+                                    <div class="col-12" id="showUtama">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="isUtama" name="isUtama" value="1">
+                                            <label class="form-check-label" for="isUtama">
+                                                Jadikan alamat utama
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
                                 </div>
-                                <div class="col-6">
-                                    <label for="namaPenerima" class="form-label">Nama Penerima</label>
-                                    <input type="text" class="form-control" id="namaPenerima">
-                                </div>
-                                <div class="col-6">
-                                    <label for="noTelp" class="form-label">No Handphone</label>
-                                    <input type="text" class="form-control" id="noTelp">
-                                </div>
-                                <div class="col-12">
-                                    <label for="inputAddress" class="form-label">Address</label>
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Jalan Depok Raya No. 12">
-                                </div>
-                                <div class="col-6">
-                                    <label for="provinsi" class="form-label">Provinsi</label>
-                                    <select id="provinsi" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>DKI Jakarta</option>
-                                        <option>Jawa Barat</option>
-                                    </select>
-                                </div>
-                                <div class="col-6">
-                                    <label for="provinsi" class="form-label">Kota</label>
-                                    <select id="provinsi" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>Jakarta Pusat</option>
-                                        <option>Jakarta Timur</option>
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <label for="kecamatan" class="form-label">Kecamatan</label>
-                                    <select id="kecamatan" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>Gambir</option>
-                                        <option>Kemayoran</option>
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <label for="kecamatan" class="form-label">Kelurahan</label>
-                                    <select id="kecamatan" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>Cempaka Baru</option>
-                                        <option>Sumur Batu</option>
-                                    </select>
-                                </div>
-                                <div class="col-4">
-                                    <label for="inputZip" class="form-label">Zip</label>
-                                    <input type="text" class="form-control" id="inputZip">
-                                </div>
-                            </form>
+                            </div>
                         </div>
-                        
-                    </div>
-                    <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Tambah</button>
-                    </div>
+                        <div class="modal-footer border-0">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button id="add_address" type="button" class="btn btn-primary">Submit</button>
+                        </div>
+                    
+                    </form>
                 </div>
             </div>
         </div>

@@ -54,4 +54,8 @@ class Home extends MY_Controller {
 	public function list_artikel(){
 		$this->render_page('main', 'article/listArticle');
 	}
+
+	public function transaksi_detail(){
+		$this->render_page('main', 'transaction/transactionDetails');
+	}
 }

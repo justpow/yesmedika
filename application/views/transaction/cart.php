@@ -1,7 +1,7 @@
 <section class="cart">
     <div class="container">
         <form action="<?= base_url().'transaction/precheckout' ?>" method="POST">
-            <div class="row mt-5">
+            <div class="row mt-page">
                 <h5 class="fw-bold">Keranjang</h5>
                 <div class="col-lg-7">
                     <div class="form-check mt-5 mb-2">
@@ -33,7 +33,7 @@
                                     <?php endif; ?>
                                     <p class="card-text harga fw-bold mb-1" id="<?='price_'.$cart['product']['id'].'_'.$variant ?>"  data-price="<?= $price*$cart['qty'] ?>">Rp. <span class="prc"><?= $price?></span></p>
                                 </div>
-                                <div class="flex-grow-1 ms-3 align-self-center">
+                                <div class="flex-grow-1 ms-3 align-self-center text-end">
                                     <i class="fas fa-trash-alt text-primary"></i>
                                 </div>
                             </div>
@@ -48,8 +48,8 @@
                     <?php endforeach; ?>
                 </div>
                 <div class="col-lg-5 pt-3">
-                    <div class="card border-2 mx-auto shadow-sm" style="width:80%;">
-                        <div class="card-body">
+                    <div class="card border-2 rounded-custom-1 mx-auto shadow-sm" style="width:80%;">
+                        <div class="card-body p-4">
                             <h5 class="card-title fw-bold">Ringkasan Belanja</h5>
                             <div class="row">
                                 <div class="col-5">

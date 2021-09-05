@@ -9,48 +9,24 @@
                 </div>
                 <div class="modal-body border-0" style="min-height:20rem;max-height:38rem;">
                     <div class="container">
+                        <?php $count=1;
+                            foreach ( $data['address_all'] as $add ) { 
+                        ?>
                         <div class="form-check mb-3 border-bottom border-3">
-                            <input class="form-check-input" type="radio" name="selectAlamat" id="alamat1">
-                            <label class="form-check-label mb-2" for="alamat1"> 
+                            <input class="form-check-input" type="radio" name="selectAlamat" id="alamat<?= $count ?>" value="<?= $add['id'] ?>">
+                            <label class="form-check-label mb-2" for="alamat<?= $count ?>"> 
                                 <div class="d-flex align-items-center">
                                     <div class="flex-grow-1">
-                                        <h6 class="mb-1"><b>Rumah</b></h6>
-                                        <p class="mb-0"><small>Penerima : Wunsel - 081232132131</small></p>
-                                        <p class="mb-0"><small>Jalan Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia possimus explicabo obcaecati in quaerat nostrum amet incidunt, nulla beatae rem molestiae autem praesentium?</small></p>
+                                        <h6 class="mb-1"><b><?= $add['address_name'] ?></b></h6>
+                                        <p class="mb-0"><small>Penerima : <?= $add['recipient_name'] ?> - <?= $add['phone_number'] ?></small></p>
+                                        <p class="mb-0"><small><?= $add['address'] ?>, Kelurahan <?= $add['nama_kelurahan'] ?>, Kecamatan <?= $add['nama_kecamatan'] ?>, <?= $add['nama_kota'] ?>, <?= $add['nama_provinsi'] ?> <?= $add['kode_pos'] ?></small></p>
                                         <small class="mb-0">Catatan :</small>
-                                        <small>Lorem, ipsum.</small>
+                                        <small><?= $add['note_address'] ?></small>
                                     </div>
                                 </div>
                             </label>
-                        </div>    
-                        <div class="form-check mb-3 border-bottom border-3">
-                            <input class="form-check-input" type="radio" name="selectAlamat" id="alamat2">
-                            <label class="form-check-label mb-2" for="alamat2"> 
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-1"><b>Rumah</b></h6>
-                                        <p class="mb-0"><small>Penerima : Wunsel - 081232132131</small></p>
-                                        <p class="mb-0"><small>Jalan Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia possimus explicabo obcaecati in quaerat nostrum amet incidunt, nulla beatae rem molestiae autem praesentium?</small></p>
-                                        <small class="mb-0">Catatan :</small>
-                                        <small>Lorem, ipsum.</small>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>        
-                        <div class="form-check mb-3 border-bottom border-3">
-                            <input class="form-check-input" type="radio" name="selectAlamat" id="alamat3">
-                            <label class="form-check-label mb-2" for="alamat3"> 
-                                <div class="d-flex align-items-center">
-                                    <div class="flex-grow-1">
-                                        <h6 class="mb-1"><b>Rumah</b></h6>
-                                        <p class="mb-0"><small>Penerima : Wunsel - 081232132131</small></p>
-                                        <p class="mb-0"><small>Jalan Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia possimus explicabo obcaecati in quaerat nostrum amet incidunt, nulla beatae rem molestiae autem praesentium?</small></p>
-                                        <small class="mb-0">Catatan :</small>
-                                        <small>Lorem, ipsum.</small>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>                     
+                        </div>             
+                        <?php $count++; } ?>  
                     </div>
                 </div>
                 <div class="modal-footer border-0">

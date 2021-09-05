@@ -65,6 +65,14 @@ class Address extends MY_Controller {
 		$resultAddress = $this->UserAddress->get_address_wilayah(array('id' => $id));
 		$result = $resultAddress->data->result_array();
 
+		// Check Empty or Not Result 
+		if ( empty($result) ) {
+			http_response_code(400);
+			$response = array('code' => 99, 'msg' => 'Maaf, Data tidak ditemukan');
+			echo json_encode($response);
+			return;
+		}
+
 		if ($resultAddress->error['code'] !==  0 && $resultAddress->error['message']) {
             http_response_code(400);
 			$response = array('code' => 99, 'msg' => 'Maaf, Data tidak ditemukan');

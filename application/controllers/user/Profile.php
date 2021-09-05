@@ -49,6 +49,12 @@ class Profile extends MY_Controller {
 
 		// TO DO: NEED PASSWORD LENGTH VALIDATOR.
 
+		if ( strlen($this->input->post('phone_number')) < 10 ) {
+			$this->session->set_flashdata('update_error', 'Nomor handphone tidak boleh kurang dari 10 karakter');
+			redirect('user/profile');
+			return;
+		}
+
 		$user = array(
 			'firstname' 	=> $this->input->post('fname'),
 			'lastname' 		=> $this->input->post('lname'),

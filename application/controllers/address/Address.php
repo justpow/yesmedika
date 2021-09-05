@@ -12,6 +12,7 @@ class Address extends MY_Controller {
 		
 	public function index()
 	{
+
         // Check user permission.
          if (!$this->has_access(CHECKOUT)) {
 			redirect('login');
@@ -31,9 +32,17 @@ class Address extends MY_Controller {
             redirect(''); // temporary error handler. Need flashdata.
             return;
         }
+
         $result['address'] = $resultAddress->data->result_array();
+
+		if ( $result['address'][0]['id_user'] != $user->id ) {
+			$this->session->set_flashdata('error', 'Maaf, Data tidak sesuai');
+			$this->render_page('main', 'address/listAddress');
+			return;	
+		}
  
 		$this->render_page('main', 'address/listAddress', $result);	
+		
 	}
 
 	public function get_address()
@@ -57,21 +66,23 @@ class Address extends MY_Controller {
 		$result = $resultAddress->data->result_array();
 
 		if ($resultAddress->error['code'] !==  0 && $resultAddress->error['message']) {
-            redirect(''); // temporary error handler. Need flashdata.
-            return;
+            http_response_code(400);
+			$response = array('code' => 99, 'msg' => 'Maaf, Data tidak ditemukan');
+			echo json_encode($response);
+			return;
         }
 
 		// Check user id = session user id
 		if ( $user->id != $result[0]['id_user'] )
 		{
-			// echo json_encode($resultAddress);
-			$this->session->set_flashdata('error', 'Maaf, Data tidak sesuai');
-			$err = 'error';
-			echo json_encode($err);
+			http_response_code(400);
+			$response = array('code' => 99, 'msg' => 'Maaf, Data tidak ditemukan');
+			echo json_encode($response);
 			return;
 		}
 
 		echo json_encode($result);
+		return;
 
 	}
 
@@ -272,6 +283,18 @@ class Address extends MY_Controller {
             return;
         }
 
+		// Check Data Kosong
+		foreach ( $this->input->post() as $key => $value ) {
+			if ( $value == "" ) {
+				$this->session->set_flashdata('error', 'Data tidak boleh kosong');
+				redirect('address/list-address');
+				return;
+			}
+		}
+
+		// Check User Address
+		$this->check_address($id);
+
 		$data = array(
 			'address_name' 		=> $this->input->post('namaAlamat'),
 			'recipient_name'	=> $this->input->post('namaPenerima'),
@@ -320,17 +343,12 @@ class Address extends MY_Controller {
             return;
         }
 
+		// Check User Address
+		$this->check_address($this->input->get('id'));
+
 		$data = array(
 			'id'	=> $this->input->get('id')
 		);
-
-		// Check user id = session user id
-		if ( $data['id'] != $user->id )
-		{
-			$this->session->set_flashdata('error', 'Anda gagal menghapus alamat');
-			redirect('address/list-address');
-			return;
-		}
 
 		// Delete data.
 		$result = $this->UserAddress->delete($data);
@@ -344,7 +362,7 @@ class Address extends MY_Controller {
 
 		$this->session->set_flashdata('success', 'Anda berhasil menghapus alamat');
 		redirect('address/list-address');
-		// echo json_encode($this->input->get('id'));
+
 	}
 
 	public function set_utama()
@@ -362,6 +380,9 @@ class Address extends MY_Controller {
             redirect('login');
             return;
         }
+
+		// Check User Address
+		$this->check_address($this->input->get('id'));
 
 		// Set Update All Data to is_utama 0
 		$data = array(
@@ -397,6 +418,43 @@ class Address extends MY_Controller {
 
 		$this->session->set_flashdata('success', 'Anda berhasil mengubah alamat utama');
 		redirect('address/list-address');	
+
+	}
+
+	public function check_address($id="") 
+	{
+
+		// Check user permission.
+		if (!$this->has_access(CHECKOUT)) {
+			redirect('login');
+			return;
+        }
+
+		// Get user session.
+        $user = (object)$this->session->userdata('user');
+        if (!isset($user)) {
+            redirect('login');
+            return;
+        }
+
+		$resultAddress = $this->UserAddress->get_address_wilayah(array('id' => $id));
+		$result = $resultAddress->data->result_array();
+
+		if ($resultAddress->error['code'] !==  0 && $resultAddress->error['message']) {
+            $this->session->set_flashdata('error', 'Maaf, Data tidak sesuai');
+			redirect('address/list-address');
+			return;
+        }
+
+		// Check user id = session user id
+		if ( $user->id != $result[0]['id_user'] )
+		{
+			$this->session->set_flashdata('error', 'Maaf, Data tidak sesuai');
+			redirect('address/list-address');
+			return;
+		}
+
+		return;
 
 	}
 

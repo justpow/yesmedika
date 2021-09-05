@@ -11,7 +11,7 @@
         </script>
         <?php } ?>
 
-        <div class="row mt-5 pt-5">
+        <div class="row mt-page">
             <h5 class="fw-bold">Alamat Kamu</h5>
             <div class="row">
                 <div class="col-12">
@@ -34,7 +34,7 @@
                     </div>
 
                     <?php
-                        }
+                        } else {
                     ?>
                     <?php 
                         foreach ( $data['address'] as $result ){
@@ -55,7 +55,7 @@
                                     <a class="delete_address fs-5 text-primary btn btn-transparent" data-id="<?= $result['id'] ?>"><i class="fas fa-trash"></i></a>
                                 </div>
                                 <div>
-                                    <button class="fas fa-edit fs-5 text-primary btn btn-transparent btn-edit m-2" type="button" data-id="<?= $result['id'] ?>" data-bs-toggle="modal" data-bs-target="#tambahAlamat"></button>
+                                    <button class="fas fa-edit fs-5 text-primary btn btn-transparent btn-edit m-2" type="button" data-id="<?= $result['id'] ?>" ></button>
                                 </div>
                                 <div>
                                     <span class="badge bg-transparent border border-primary text-primary px-2 py-2">Utama</span>
@@ -84,7 +84,7 @@
                                     <a class="delete_address fs-5 text-primary btn btn-transparent" data-id="<?= $result['id'] ?>"><i class="fas fa-trash"></i></a>
                                 </div>
                                 <div>
-                                    <button class="fas fa-edit fs-5 text-primary btn btn-transparent btn-edit" type="button" data-id="<?= $result['id'] ?>" data-bs-toggle="modal" data-bs-target="#tambahAlamat"></button>
+                                    <button class="fas fa-edit fs-5 text-primary btn btn-transparent btn-edit" type="button" data-id="<?= $result['id'] ?>"></button>
                                 </div>
                             </div>
                             <div class="text-end">
@@ -93,8 +93,9 @@
                         </div>
                     </div>
                     <?php   
-                         }
-                        } 
+                            }
+                          } 
+                        }
                     ?>
                 </div>
             </div>

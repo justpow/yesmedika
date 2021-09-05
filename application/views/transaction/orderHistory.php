@@ -1,9 +1,9 @@
 <section class="order-history">
     <div class="container">
-        <div class="row mt-5 pt-5">
+        <div class="row mt-page">
             <h5 class="fw-bold">Riwayat Pesanan</h5>
-            <div class="col-8 mx-auto text-center mt-3">
-                <div class="" role="group" aria-label="Basic checkbox toggle button group">
+            <div class="col-lg-8 col-12 mx-auto text-center mt-3">
+                <div role="group" aria-label="Basic checkbox toggle button group">
                     <div class="owl-carousel">
                         <div>
                             <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
@@ -33,8 +33,8 @@
                 </div>
             </div>
             <?php foreach ($data as $value) : ?>
-            <div class="col-12 mx-auto d-flex justify-content-center mb-4">
-                <div class="card shadow-sm rounded-custom-1" style="width:40rem">
+            <div class="col-lg-8 col-12 mx-auto d-flex justify-content-center mb-4">
+                <div class="card shadow-sm rounded-custom-1 w-100">
                     <div class="card-body mx-2 my-2">
                         <h6>No. Pesanan : <?= 'INV/YES/'.$value['id'] ?></h6>
                         <div class="d-flex mt-3">

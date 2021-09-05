@@ -1,7 +1,7 @@
-<section class="cart">
+<section class="orderDetails">
     <div class="container">
         <form action="<?= base_url('transaction/checkout') ?>" method="POST">
-            <div class="row mt-5 pt-5">
+            <div class="row mt-page">
                 <h5 class="fw-bold">Detail Pesanan</h5>
                 <div class="col-lg-7">
                     <div class="border-bottom mb-5">
@@ -40,7 +40,7 @@
                                     <p class="mb-1"><small>Alamat: Jalan Cempaka Baru 4 No. 43, Kemayoran, Jakarta Pusat, DKI Jakarta 10640</small></p>
                                 </div>
                                 <div class="flex-grow-1 ms-1 align-self-center">
-                                    <button type="button" class="btn btn-outline-primary"><small>Ganti Alamat</small></button>
+                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#gantiAlamat"><small>Ganti Alamat</small></button>
                                 </div>
                             </div>
                         </div>
@@ -50,30 +50,34 @@
                             Jenis Pengiriman
                         </div>
                         <div class="card-body">
-                            <div class="d-flex text-center align-items-center">
-                                <input class="form-check-input me-5" type="radio" id="flexRadioDefault1">
-                                <div class="flex-shrink-0">
-                                    <i class="fas fa-cart-arrow-down text-primary fs-1"></i>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="card-text mb-1">Pickup in Store</p>
-                                </div>
-                                <div class="flex-grow-1 ms-1">
-                                    <p class="card-text mb-1">Free</p>
-                                </div>
-                            </div>
-                            <div class="d-flex text-center align-items-center mt-5">
-                                <input class="form-check-input me-5" type="radio" id="flexRadioDefault1">
-                                <div class="flex-shrink-0">
-                                    <i class="fas fa-shipping-fast text-primary fs-1"></i>
-                                </div>
-                                <div class="flex-grow-1 ms-3">
-                                    <p class="card-text mb-1">Antar aja</p>
-                                </div>
-                                <div class="flex-grow-1 ms-1">
-                                    <p class="card-text mb-1">Rp. 10.000</p>
-                                </div>
-                            </div>
+                            <div class="form-check mb-3 w-100">
+                                <input class="form-check-input me-5" type="radio" name="selectKurir" id="kurir1">
+                                <label class="form-check-label mb-2 d-flex text-center align-items-center" for="kurir1"> 
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-cart-arrow-down text-primary fs-1"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <p class="card-text mb-1">Pickup in Store</p>
+                                    </div>
+                                    <div class="flex-grow-1 ms-1">
+                                        <p class="card-text mb-1">Free</p>
+                                    </div>
+                                </label>
+                            </div>  
+                            <div class="form-check mb-3 w-100">
+                                <input class="form-check-input me-5" type="radio" name="selectKurir" id="kurir2">
+                                <label class="form-check-label mb-2 d-flex text-center align-items-center" for="kurir2"> 
+                                    <div class="flex-shrink-0">
+                                        <i class="fas fa-shipping-fast text-primary fs-1"></i>
+                                    </div>
+                                    <div class="flex-grow-1 ms-3">
+                                        <p class="card-text mb-1">Antar aja</p>
+                                    </div>
+                                    <div class="flex-grow-1 ms-1">
+                                        <p class="card-text mb-1">Rp. 10.000</p>
+                                    </div>
+                                </label>
+                            </div>  
                         </div>
                     </div>
                     <div class="border-bottom mb-5">
@@ -84,14 +88,14 @@
                             <div class="d-flex">
                                 <div class="flex-grow-1 me-5">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" id="flexRadioDefault2">
-                                        <label class="form-check-label" for="flexRadioDefault2">
+                                        <input class="form-check-input" type="radio" name="selectPembayaran" id="cod">
+                                        <label class="form-check-label" for="cod">
                                             COD
                                         </label>
                                     </div>
                                     <div class="form-check mt-2">
-                                        <input class="form-check-input" type="radio" id="flexRadioDefault3">
-                                        <label class="form-check-label" for="flexRadioDefault3">
+                                        <input class="form-check-input" type="radio" name="selectPembayaran" id="transfer">
+                                        <label class="form-check-label" for="transfer">
                                             Transfer Bank
                                         </label>
                                     </div>
@@ -101,8 +105,8 @@
                     </div>
                 </div>
                 <div class="col-lg-5 pt-3">
-                    <div class="card border-2 mx-auto shadow-sm" style="width:80%;">
-                        <div class="card-body">
+                    <div class="card border-2 rounded-custom-1 mx-auto shadow-sm" style="width:80%;">
+                        <div class="card-body p-4">
                             <h5 class="card-title fw-bold">Ringkasan Belanja</h5>
                             <div class="row">
                                 <div class="col-7">
@@ -135,4 +139,5 @@
             </div>
         </form>
     </div>
+    <?php include './application/views/transaction/transactionModal/modalChangeAddress.php'; ?>
 </section>

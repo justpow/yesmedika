@@ -79,13 +79,17 @@ $( '#kecamatan' ).change(function() {
     });
 });
 
-
-// check provinsi, city, kecamatan, kelurahan
 $( "#add_address" ).click(function() {
 
     // Condition for Validation Form
     if ( validate_form() == 0 )
     {
+        return;
+    }
+
+    // Validate Number Phone
+    if($( '#noTelp' ).val().length < 10 ) {   
+        Swal.fire('', 'Nomor handphone tidak boleh kurang dari 10 karakter', 'error');
         return;
     }
 
@@ -109,11 +113,7 @@ $( "#add_address" ).click(function() {
             // console.log(data);
             if ( data.kode == 0)
             {
-                Swal.fire(
-                    'Oops,',
-                    data.message,
-                    'error'
-                )
+                Swal.fire('', data.message, 'error')
                 return;
             }
         }
@@ -142,8 +142,7 @@ $( "#add_address" ).click(function() {
 })
 
 // Check Validation Error
-function validate_form()
-{
+function validate_form() {
     let form_input = [];
     var result = 1;
 
@@ -203,30 +202,24 @@ $( '.btn-edit' ).click(function(){
         type: "GET",
         dataType : 'json',
         success: function(data) {
-            console.log(data);
-            if (data == 'error') 
-            {
-                location.reload();
-                return;
-            }
-            else
-            {
-                $( '#namaAlamat' ).val(data[0].address_name);
-                $( '#namaPenerima' ).val(data[0].recipient_name);
-                $( '#noTelp' ).val(data[0].phone_number);
-                $( '#detailAlamat' ).val(data[0].address);
-                $( '#noteAlamat' ).val(data[0].note_address);
-                $( '#provinsi' ).val(data[0].nama_provinsi);
-                $( '#kota' ).val(data[0].nama_kota);
-                $( '#kecamatan' ).val(data[0].nama_kecamatan);
-                $( '#kelurahan' ).val(data[0].nama_kelurahan);
-                $( '#inputZip' ).val(data[0].kode_pos);
-    
-                let_get_provinsi();
-            }
-           
+            $( '#namaAlamat' ).val(data[0].address_name);
+            $( '#namaPenerima' ).val(data[0].recipient_name);
+            $( '#noTelp' ).val(data[0].phone_number);
+            $( '#detailAlamat' ).val(data[0].address);
+            $( '#noteAlamat' ).val(data[0].note_address);
+            $( '#provinsi' ).val(data[0].nama_provinsi);
+            $( '#kota' ).val(data[0].nama_kota);
+            $( '#kecamatan' ).val(data[0].nama_kecamatan);
+            $( '#kelurahan' ).val(data[0].nama_kelurahan);
+            $( '#inputZip' ).val(data[0].kode_pos);
+            $( '#tambahAlamat' ).modal('show');
+            let_get_provinsi();
+        },
+        error: function(err) {
+            var error = $.parseJSON( err.responseText );
+            Swal.fire('', error.msg, 'error');
         }
-    });    
+    }); 
 
 });
 
@@ -305,6 +298,7 @@ function let_get_kecamatan()
 $( '#btn_tambah_alamat' ).click(function(){
 
     $( '#showUtama' ).show();
+    $( '.form_address' ).val('');
     $( '#add_address_submit' ).attr('action', '<?= base_url("address/address/add_address_submit") ?>');
 
 });

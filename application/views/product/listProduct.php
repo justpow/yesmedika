@@ -1,8 +1,8 @@
 
 <form action="<?= base_url('home/cari_produk/');?>" id="productForm" method="get">
     <section class="head-home">
-        <div id="head-home" class="position-relative overflow-hidden p-3 p-md-5 text-center bg-dark text-light">
-            <div class="col-md-5 p-lg-5 mx-auto my-5">
+        <div id="head-home" class="position-relative overflow-hidden p-3 p-md-home text-center bg-dark text-light">
+            <div class="col-md-6 p-lg-5 mx-auto my-5">
                 <h1 class="display-4 fw-normal">YES Medika Alkes</h1>
                 <p class="lead fw-normal">YES MEDIKA menyediakan segala jenis kebutuhan di bidang alat kesehatan</p>
                 <div class="input-group mb-3">

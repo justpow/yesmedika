@@ -100,7 +100,7 @@
                 </div>
             </div>
         </div>
-        <!-- Tambah Alamat -->
+        <!-- Update Profile -->
         <form  action="<?= base_url('user/profile/edit_prof_submit'); ?>" method="post">
             <div class="modal fade border-0" id="editProfile" tabindex="-1" aria-labelledby="editProfile" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-lg border-0">
@@ -159,13 +159,12 @@
                         </div>
                         <div class="modal-footer border-0">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <input type="hidden" class="form-control" id="idUser" name="id_user" value="<?= $data[0]['id'] ?>">
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </div>
                 </div>
             </div>
         </form>
-        <!-- Tambah Alamat -->
+        <!-- Update Profile -->
     </div>
 </section>

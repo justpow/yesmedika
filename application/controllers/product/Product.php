@@ -162,6 +162,7 @@ class Product extends MY_Controller {
                 
                 foreach ($resultVar as $key => $value) {
                     array_push($listPrd, array(
+                        'cart_id' => $cart['id'],
                         'product' => $product,
                         'variant' => $value,
                         'qty' => $cart['qty']
@@ -169,6 +170,7 @@ class Product extends MY_Controller {
                 }
             } else {
                 array_push($listPrd, array(
+                    'cart_id' => $cart['id'],
                     'product' => $product,
                     'qty' => $cart['qty']
                 ));
@@ -176,5 +178,28 @@ class Product extends MY_Controller {
         }
         
         $this->render_page('main', 'transaction/cart', $listPrd);
+    }
+
+    public function remove_product_from_cart($cartId)
+    {
+        if (!$this->has_access(ADD_TO_CART)) {
+			redirect('login');
+			return;
+        }
+
+        // Get user session.
+        $user = (object)$this->session->userdata('user');
+        if (!isset($user)) {
+            redirect('login');
+            return;
+        }
+
+        $result = $this->cart->delete(array('create_by' => $user->id, 'id' => $cartId));
+        if ($result->error['code'] !==  0 && $result->error['message']) {
+            $this->cart_page();
+            return;
+        }
+
+        redirect('cart');
     }
 }

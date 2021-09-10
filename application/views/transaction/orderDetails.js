@@ -49,13 +49,30 @@ $( "#select_address" ).click(function() {
     dataType : 'json',
     success: function(data) {
       $('input[name="address_id"]').val(data[0].id);
+      $('input[name="address_string"]').val(data[0].address +', Kelurahan '+ data[0].nama_kelurahan +', Kecamatan '+ data[0].nama_kecamatan +', '+ data[0].nama_kota +', '+ data[0].nama_provinsi +' '+ data[0].kode_pos);
       $('#nama_address').html('<small> '+ data[0].address_name +' </small>');
       $('#penerima_address').html('Penerima: '+ data[0].recipient_name +' ('+ data[0].phone_number +')');
       $('#alamat_address').html('<small>Alamat: '+ data[0].address +', Kelurahan '+ data[0].nama_kelurahan +', Kecamatan '+ data[0].nama_kecamatan +', '+ data[0].nama_kota +', '+ data[0].nama_provinsi +' '+ data[0].kode_pos +'</small>');
       $('#note_address').html('<small>Catatan: '+ data[0].note_address +'</small>');
       $('#gantiAlamat').modal('hide');
       $('input[name="selectAlamat"]').prop("checked", false);
-      console.log(data[0].address_name);
+      if (data[0].nama_kota == "KOTA DEPOK") {
+        $('#pickup-input').append(`<div class="d-flex text-center align-items-center mt-5" id="depok-only">
+        <input class="form-check-input me-5" type="radio" id="flexRadioDefault1" name="pickup_type" value="2">
+        <div class="flex-shrink-0">
+            <i class="fas fa-shipping-fast text-primary fs-1"></i>
+        </div>
+        <div class="flex-grow-1 ms-5">
+            <p class="card-text mb-1">Kurir toko</p>
+        </div>
+        <div class="flex-grow-1 ms-1">
+            <p class="card-text mb-1">Free</p>
+        </div>
+        </div>`)
+      } else {
+        $('#depok-only').remove()
+      }
+      console.log(data[0].nama_kota);
     },
     error: function (jqXhr) {
       var error = $.parseJSON( jqXhr.responseText );

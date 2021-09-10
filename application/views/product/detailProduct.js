@@ -54,7 +54,89 @@ $(document).ready(function(){
 });
 
  // Set price by selected variant.
- function variantListener(id, price) {
+ function variantListener(id, price, stock) {
   $('#price').html(`Rp. ${price}`);
   $('#variantId').val(id);
+  $('#stock').html(stock);
+  $('#qty_').attr('max', stock);
+}
+
+const perPage = 10
+
+
+// Init Infinite Scroll.
+let $container = initInfiniteScroll(`per_page=${perPage}`);
+
+$container.on('load.infiniteScroll', function( event, data ) {
+  console.log(data)
+    // Compile body data into HTML.
+    let itemsHTML = data.map( loadPage ).join('');
+
+    // Convert HTML string into elements.
+    let $items =  $( itemsHTML );
+    
+    // Append item elements.
+    $container.infiniteScroll( 'appendItems', $items );
+});
+
+// Load initial page.
+$container.infiniteScroll('loadNextPage');
+
+// // Triggered by status button.
+// $('.btn-check').click(e =>{
+//     submitFilter()
+// });
+
+
+// function submitFilter() {
+//   // Get status value.
+//   let status = $('input[name="transStat"]:checked').val();
+
+//   // Emptying the product list.
+//   $('.transaction-list').html('');
+
+//   // Destroy current infine scroll aka 'Lazy Scrolling'.
+//   $container.infiniteScroll('destroy');
+
+//   // Init Infinite Scroll along with defined query paramaters.
+//   $container = initInfiniteScroll(`per_page=${perPage}&status=${status}`);
+
+//   // Load first page.
+//   $container.infiniteScroll('loadNextPage');
+// }
+
+
+function initInfiniteScroll(queryString) {
+  let productId = $('.review-list').data('product-id');
+  return $('.review-list').infiniteScroll({
+      path: function() {
+          return `<?= base_url('rating/list?product_id=${productId}&page=${this.loadCount + 1}&${queryString}') ?>`
+      },
+      responseBody: 'json',
+      status: '.scroller-status',
+      hideNav: '.pagination',
+      history: false,
+      checkLastPage: false
+  });
+}
+
+function loadPage(value) {
+let rating = value['rate']*20;
+  return `<div class="card mt-1 rounded-0 border-0">
+    <div class="card-body d-flex">
+        <div class="d-flex align-items-center">
+            <div class="flex-shrink-0">
+                <img src="<?= base_url('assets/image/profile.png')?>" class="rounded float-start" alt="Foto Profile" width="70" height="70">
+            </div>
+            <div class="flex-grow-1 ms-3">
+                <h4 class="fw-bold mb-0">Satrio</h4>
+                <div class="stars-outer" style="order:1;">
+                    <div class="stars-inner" style="width:${rating}% !important; "></div>
+                </div>
+                <p>${value['comment']}</p>
+            </div>
+        </div>
+    </div>
+</div>
+`
 }

@@ -142,17 +142,43 @@ define('MISC', $misc);
 
 // TRANSACTION STATUS.
 $trans = array(
+    'CANCELLED' => 0,
     'WAITING_PAYMENT' => 1,
     'ON_PROCESS' => 2,
     'ON_DELIVERY' => 3,
     'DELIVERED' => 4,
-    'CANCELLED' => 5,
+    'DONE' => 5,
 
     // FRONTEND NEEDS.
+    0 => 'Dibatalkan',
     1 => 'Menunggu Pembayaran',
     2 => 'Diproses',
     3 => 'Dikirim',
     4 => 'Sampai Tujuan',
-    5 => 'Dibatalkan'
+    5 => 'Selesai'
 );
 define('TRANS', $trans);
+
+
+// PICKUP TYPE.
+$pickup = array(
+    'PICKUP_IN_STORE' => 1,
+    'KURIR_TOKO' => 2,
+    'JNT' => 3,
+    //... DLL, Tapi bagusnya nanti ada tabel khusus kurir ya.
+
+    1 => 'Ambil di Toko',
+    2 => 'Kurir Toko',
+    3 => 'J&T'
+);
+define('PICKUP', $pickup);
+
+
+// PAYMENT TYPE.
+$payment = array(
+    'COD' => 1,
+    'MANUAL' => 2,
+    1 => 'COD',
+    2 => 'Transfer Manual'
+);
+define('PAYMENT_TYPE', $payment);

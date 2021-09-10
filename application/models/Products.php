@@ -35,4 +35,17 @@ class Products extends MY_Model {
         $error = $this->db->error();
         return $this->db_response($result, $error);
     }
+
+    public function update($data, $filters=[])
+    {
+        if (count($filters) != 0) {
+            foreach ($filters as $key => $value) {
+               $this->db->where($key, $value);
+            }
+        }
+
+        $result = $this->db->update('ym_product', $data);
+        $error = $this->db->error();
+        return $this->db_response($result, $error);
+    }
 }

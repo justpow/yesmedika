@@ -66,7 +66,7 @@ function submitFilter() {
 function initInfiniteScroll(queryString) {
     return $('.product-list').infiniteScroll({
         path: function() {
-            return `product/product?page=${this.loadCount + 1}&${queryString}`
+            return `<?= base_url('product/product?page=${this.loadCount + 1}&${queryString}') ?>`
         },
         responseBody: 'json',
         status: '.scroller-status',
@@ -79,13 +79,13 @@ function initInfiniteScroll(queryString) {
 function loadPage(data) {
     return `<div class="col-lg-4 col-md-6 col-6 mb-3 mt-5">
                 <div class="card shadow-sm text-center rounded-custom-1">
-                    <img src="assets/image/${JSON.parse(data.photo)[0]}" class="card-img-top rounded-custom-1 rounded-custom-2" alt="product">
+                    <img src="<?= base_url('assets/image/${JSON.parse(data.photo)[0]}') ?>" class="card-img-top rounded-custom-1 rounded-custom-2" alt="product">
                     <div class="card-body">
                         <h5 class="card-title">${data.name}</h5>
                         <p class="card-text harga fw-bold">Rp. ${data.price}</p>
                     </div>
                     <div class="cover rounded-custom-1">
-                        <a href="product/${data.id}" class="btn text-light" type="button" id="button-addon2"><i class="fas fa-search"></i></a>
+                        <a href="<?= base_url('product/${data.id}') ?>" class="btn text-light" type="button" id="button-addon2"><i class="fas fa-search"></i></a>
                         <p class="title">Lihat Detail</p>
                     </div>
                 </div>

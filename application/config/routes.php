@@ -66,11 +66,13 @@ $route['logout'] = 'auth/logout';
 $route['product/(:num)'] = 'product/product/detail/$1';
 $route['product/add-to-cart'] = 'product/product/add_to_cart';
 $route['cart'] = 'product/product/cart_page';
+$route['remove-product-from-cart/(:num)'] = 'product/product/remove_product_from_cart/$1';
 
 // Transaction Router
 $route['transaction/precheckout'] = 'transaction/transaction/pre_checkout';
 $route['transaction/checkout'] = 'transaction/transaction/checkout';
-$route['transaction/history'] = 'transaction/transaction/history';
+$route['transaction/history'] = 'transaction/transaction/history_page';
+$route['transaction/detail/(:num)'] = 'transaction/transaction/detail/$1';
 
 // Profile Router
 $route['user/profile'] = 'user/profile';
@@ -79,6 +81,11 @@ $route['user/ubah-password'] = 'user/profile/ubah_password';
 
 // Address Router
 $route['address/list-address'] = 'address/address';
+
+// Rating Router
+$route['rating/submit'] = 'rating/rating/submit_review';
+$route['rating/list'] = 'rating/rating/list_review';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

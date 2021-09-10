@@ -4,6 +4,11 @@
             <div class="row mt-page">
                 <h5 class="fw-bold">Keranjang</h5>
                 <div class="col-lg-7">
+                    <?php if ($this->session->flashdata('checkout_error')): ?>
+                      <div class="alert alert-danger" role="alert">
+                        <?= $this->session->flashdata('checkout_error') ?>
+                      </div>
+                    <?php endif; ?>
                     <div class="form-check mt-5 mb-2">
                         <input checked class="form-check-input" type="checkbox" value="" id="selectAll">
                         <label class="form-check-label" for="selectAll">
@@ -34,7 +39,7 @@
                                     <p class="card-text harga fw-bold mb-1" id="<?='price_'.$cart['product']['id'].'_'.$variant ?>"  data-price="<?= $price*$cart['qty'] ?>">Rp. <span class="prc"><?= $price?></span></p>
                                 </div>
                                 <div class="flex-grow-1 ms-3 align-self-center text-end">
-                                    <i class="fas fa-trash-alt text-primary"></i>
+                                <a onclick="return false" class="remove-product" data-url="<?= base_url('remove-product-from-cart/'.$cart['cart_id']) ?>" href="#"><i class="fas fa-trash-alt text-primary"></i></a>
                                 </div>
                             </div>
                         </div>

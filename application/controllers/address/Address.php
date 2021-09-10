@@ -33,9 +33,9 @@ class Address extends MY_Controller {
             return;
         }
 
-        $result['address'] = $resultAddress->data->result_array();
-
-		if ( $result['address'][0]['id_user'] != $user->id ) {
+		$result['address'] = $resultAddress->data->result_array();
+		
+		if ( count($result['address']) > 0 && $result['address'][0]['id_user'] != $user->id ) {
 			$this->session->set_flashdata('error', 'Maaf, Data tidak sesuai');
 			$this->render_page('main', 'address/listAddress');
 			return;	

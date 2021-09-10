@@ -15,15 +15,17 @@ class Transactions extends MY_Model {
         return $this->db_response($this->db->insert_id(), $error);
     }
 
-    public function get_transaction($filters=[])
+    public function get_transaction($page=1, $per_page=10, $filters=[])
     {
+        $start_from = $page - 1;
         if (count($filters) != 0) {
             foreach ($filters as $key => $value) {
                $this->db->where($key, $value);
             }
         }
 
-        $result = $this->db->get('ym_transaction');
+        $this->db->order_by('id', 'desc');
+        $result = $this->db->get('ym_transaction', $per_page, $start_from * $per_page);  
         $error = $this->db->error();
         return $this->db_response($result, $error);
     }

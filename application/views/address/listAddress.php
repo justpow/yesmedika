@@ -24,9 +24,9 @@
                     ?>
                     <div id="notfound" class="text-center mt-5">
                         <div class="notfound">
-                            <div class="notfound-404">
+                            <!-- <div class="notfound-404">
                                 <h1>404</h1>
-                            </div>
+                            </div> -->
                             <h2>Maaf, Anda belum memiliki alamat</h2>
                             <p>Silahkan daftarkan alamat anda!</p>
                             <a href="<?= base_url('') ?>">Kembali ke Halaman Utama</a>

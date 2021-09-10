@@ -118,3 +118,25 @@ function resetValue() {
   $('#totalPrice').html(0)
   $('#totalItem').html(0)
 }
+
+
+
+// Set select all.
+$('.remove-product').click(function(e) {
+  Swal.fire({
+    title: '',
+    text: "Apakah anda yakin ingin membuang produk ini dari keranjang?",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Ya',
+    cancelButtonText: 'Tidak'
+    }).then((result) => {
+    if (result.isConfirmed) {
+        window.location = $(this).data('url')
+    }
+  })
+})
+
+

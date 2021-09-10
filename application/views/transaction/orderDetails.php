@@ -33,16 +33,29 @@
                             Alamat Pengiriman
                         </div>
                         <div class="card-body">
-                            <div class="d-flex">
-                                <div class="flex-grow-1">
-                                    <p class="mb-1"><small>Rumah Wunsel Arto</small></p>
-                                    <p class="card-text mb-1">Penerima: Wunsel Arto Negoro (0812321322)</p>
-                                    <p class="mb-1"><small>Alamat: Jalan Cempaka Baru 4 No. 43, Kemayoran, Jakarta Pusat, DKI Jakarta 10640</small></p>
-                                </div>
-                                <div class="flex-grow-1 ms-1 align-self-center">
-                                    <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#gantiAlamat"><small>Ganti Alamat</small></button>
-                                </div>
-                            </div>
+                            <?php if (empty($data['address_all'])) {?>
+                                <div id="notfound" class="text-center">
+                                    <div class="notfound">
+                                        <h6>Maaf, Anda belum memiliki alamat</h6>
+                                        <p>Silahkan daftarkan alamat anda!</p>
+                                        <a href="<?= base_url('address/list-address') ?>">Tambah Alamat</a>
+                                    </div>
+                                </div>  
+                            
+                            <?php } else { ?>
+                                <div class="d-flex">
+                                    <div class="flex-grow-1">
+                                        <input type="hidden" name="address_id" value="<?= $data['address']['id'] ?>">
+                                        <p id="nama_address" class="mb-1"><small><?= $data['address']['address_name'] ?></small></p>
+                                        <p id="penerima_address" class="card-text mb-1">Penerima: <?= $data['address']['recipient_name'] ?> (<?= $data['address']['phone_number'] ?>)</p>
+                                        <p id="alamat_address" class="mb-1"><small>Alamat: <?= $data['address']['address'] ?>, Kelurahan <?= $data['address']['nama_kelurahan'] ?>, Kecamatan <?= $data['address']['nama_kecamatan'] ?>, <?= $data['address']['nama_kota'] ?>, <?= $data['address']['nama_provinsi'] ?> <?= $data['address']['kode_pos'] ?></small></p>
+                                        <p id="note_address" class="card-text mb-1"><small>Catatan: <?= $data['address']['note_address'] ?></small></p>
+                                    </div>
+                                    <div class="flex-grow-1 ms-1 align-self-center">
+                                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#gantiAlamat"><small>Ganti Alamat</small></button>
+                                    </div>
+                                </div>    
+                            <?php }?>
                         </div>
                     </div>
                     <div class="border-bottom mb-5">

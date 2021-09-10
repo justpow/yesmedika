@@ -10,6 +10,7 @@ class Transaction extends MY_Controller {
 		$this->load->model('variants');
 		$this->load->model('cart');
 		$this->load->model('transactions');
+        $this->load->model('useraddress');
     }
     
     private function compile_cart_items($cart)
@@ -47,6 +48,16 @@ class Transaction extends MY_Controller {
             redirect('login');
             return;
         }
+
+        // Get Address Utama
+        $where_address = array('id_user' => $user->id, 'is_utama' => 1);
+        $address_utama = $this->useraddress->get_address_wilayah($where_address);
+        $selected_address = $address_utama->data->result_array()[0];
+
+        // Get Adress All
+        $where_address = array('id_user' => $user->id);
+        $address_all = $this->useraddress->get_address_wilayah($where_address);
+        $all_address = $address_all->data->result_array();
 
         // Re-mapping cart item to array list.
         $item_checked = $this->compile_cart_items($_POST);
@@ -86,7 +97,9 @@ class Transaction extends MY_Controller {
 
         $data = array(
             'item_checked' => $item_checked,
-            'grand_total' => $grand_total
+            'grand_total' => $grand_total,
+            'address' => $selected_address,
+            'address_all' => $all_address
         );
 
         // Set checked item session for making checkout process easy.
@@ -261,4 +274,5 @@ class Transaction extends MY_Controller {
 
         $this->render_page('main', 'transaction/orderHistory', $resultTrans);
     }
+
 }

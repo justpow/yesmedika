@@ -58,4 +58,5 @@ class Home extends MY_Controller {
 	public function transaksi_detail(){
 		$this->render_page('main', 'transaction/transactionDetails');
 	}
+	
 }

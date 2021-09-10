@@ -67,8 +67,13 @@ class Product extends MY_Controller {
             return;
         }
 
-        $product = $result->data->result_array()[0];
+        $product = $result->data->result_array();
+        if (empty($product)) {
+            redirect('');
+        }
 
+        $product = $product[0];
+        
         // Get variant product.
         $result = $this->variants->get_variants(array('product_id' => $productId));
         $result = $result->data->result_array();

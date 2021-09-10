@@ -79,7 +79,10 @@
                         <button type="button" class="btn btn-primary w-100 mt-5" data-bs-toggle="modal" data-bs-target="#lihatRating">Lihat Ulasan</button> <!-- kalo status diterima -->
                         <?php endif ?>
                         
-                        <button type="button" class="btn btn-outline-primary w-100 mt-2">Ajukan Permohonan Retur Barang</button> <!-- bisa ngelink ke api wa yesmedika -->
+                        <?php if( $data['status'] == TRANS['DELIVERED']): ?>
+                            <button type="button" class="btn btn-outline-primary w-100 mt-2">Ajukan Permohonan Retur Barang</button> <!-- bisa ngelink ke api wa yesmedika -->
+                        <?php endif ?>
+                        
                     </div>
                 </div>
             </div>

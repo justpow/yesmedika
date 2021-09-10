@@ -511,6 +511,8 @@ class Transaction extends MY_Controller {
 
                 $transDetail['trans_prod'][$key2] = $value2;
             }
+        } else {
+            redirect('');
         }
 
        

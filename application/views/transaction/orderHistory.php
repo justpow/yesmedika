@@ -26,8 +26,8 @@
                             <label class="btn btn-outline-primary" for="btncheck6">Selesai</label>
                         </div>
                         <div>
-                            <input type="radio" class="btn-check" id="btncheck6" autocomplete="off" name="transStat" value="0">
-                            <label class="btn btn-outline-primary" for="btncheck6">Dibatalkan</label>
+                            <input type="radio" class="btn-check" id="btncheck7" autocomplete="off" name="transStat" value="0">
+                            <label class="btn btn-outline-primary" for="btncheck7">Dibatalkan</label>
                         </div>
                     </div>
                 </div>

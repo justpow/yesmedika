@@ -519,4 +519,26 @@ class Transaction extends MY_Controller {
 
         $this->render_page('main', 'transaction/transactionDetails', $transDetail);
     }
+
+
+    public function batalkan_pesanan()
+    {
+        
+        // Get user session.
+        $user = (object)$this->session->userdata('user');
+        if (!isset($user)) {
+            redirect('login');
+            return;
+        }
+
+        // Update Status Transaction = 0
+        $resultCancel = $this->transactions->update_transaction(array('status' => 0), array('create_by' => $user->id, 'id' => $_GET['id']));
+        if ($resultCancel->error['code'] !==  0 && $resultCancel->error['message']) {
+            $this->send_api_response(500, (object)$resultCancel->error);
+            return;
+        }
+        
+        redirect('transaction/history');
+
+    }
 }

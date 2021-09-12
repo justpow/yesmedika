@@ -1,8 +1,17 @@
 <section class="cart">
-    <div class="container">
+    <div class="container min-height1">
         <form action="<?= base_url().'transaction/precheckout' ?>" method="POST">
             <div class="row mt-page">
                 <h5 class="fw-bold">Keranjang</h5>
+                <?php if (empty($data)) { ?>
+                    <div id="notfound" class="text-center mt-5">
+                        <div class="notfound">
+                            <h6>Maaf, Anda belum memiliki produk pada keranjang</h6>
+                            <p>Silahkan pilih produk dan masukan ke keranjang!</p>
+                            <a href="<?= base_url('') ?>">Kembali ke Halaman Utama</a>
+                        </div>
+                    </div>  
+                <?php } else { ?>
                 <div class="col-lg-7">
                     <?php if ($this->session->flashdata('checkout_error')): ?>
                       <div class="alert alert-danger" role="alert">
@@ -82,6 +91,7 @@
                         </div>
                     </div>
                 </div>
+                <?php } ?>                    
             </div>
 
         </form>

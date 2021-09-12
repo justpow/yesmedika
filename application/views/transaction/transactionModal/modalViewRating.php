@@ -13,7 +13,7 @@
                             <?php foreach ($data['trans_prod'] as $key => $value): ?>
                             <div class="produk-<?=$value['id']?> border-bottom border-3 mb-3">
                                 <div class="d-flex mt-3">
-                                    <div class="flex-shrink-0">
+                                    <div class="flex-shrink-0 mb-3">
                                         <img class="rounded-3" src="<?=  base_url('assets/image/').json_decode($value['product']['photo'])[0] ?>" alt="Product Image" width="100">
                                     </div>
                                     <div class="flex-grow-1 ms-3">

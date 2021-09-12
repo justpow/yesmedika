@@ -316,3 +316,11 @@ label.star:before {
   font-weight: 900;
   content: '\f005';
 }
+
+.min-height {
+  min-height: 60vh !important;
+}
+
+.min-height1 {
+  min-height: 73vh !important;
+}

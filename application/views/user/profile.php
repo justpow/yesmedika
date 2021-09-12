@@ -134,7 +134,7 @@
                                     </div>
                                     <div class="col-6">
                                         <label for="noHandphone" class="form-label">No Handphone</label>
-                                        <input type="text" class="form-control" name="phone_number" id="noHandphone" value="<?= $data[0]['phone_number'] ?>">
+                                        <input type="text" class="form-control numbers" name="phone_number" id="noHandphone" value="<?= $data[0]['phone_number'] ?>">
                                     </div>
                                     <div class="col-12">
                                         <label for="jenisKelamin" class="form-label">Jenis Kelamin</label>
@@ -158,7 +158,7 @@
                             </div>
                         </div>
                         <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                     </div>

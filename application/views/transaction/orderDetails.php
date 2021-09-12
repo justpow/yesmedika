@@ -1,4 +1,9 @@
-<section class="orderDetails">
+<?php if ( empty($data['item_checked']) ) 
+
+    redirect('cart');
+
+?>
+<section class="orderDetails min-height">
     <div class="container">
         <form action="<?= base_url('transaction/checkout') ?>" method="POST">
             <div class="row mt-page">

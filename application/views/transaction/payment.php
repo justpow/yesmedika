@@ -5,7 +5,7 @@
 ?>
 
 <section class="payment">
-    <div class="container">
+    <div class="container min-height1">
         <div class="row mt-page flex-direction-column justify-content-center">
             <div class="col-12 text-center">
                 <h5 class="fw-bold">Status transaksi</h5>
@@ -58,14 +58,14 @@
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <form class="row g-3">
+                                <div class="row g-3">
                                     <div class="col-md-6">
                                         <label for="inputText1" class="form-label">Nama Pemilik Rekening</label>
                                         <input type="text" class="form-control" id="inputText1">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputText2" class="form-label">No Rekening</label>
-                                        <input type="text" class="form-control" id="inputText2">
+                                        <input type="text" class="form-control numbers" id="inputText2">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputState" class="form-label">Transfer dari Bank</label>
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="inputNumber1" class="form-label">Jumlah Transfer</label>
-                                        <input type="number" class="form-control" id="inputNumber1">
+                                        <input type="text" class="form-control numbers" id="inputNumber1">
                                     </div>
                                     <div class="col-md-12">
                                         <label for="formFile" class="form-label">Bukti Pembayaran</label>
@@ -88,7 +88,7 @@
                                     <div class="col-md-12 text-end">
                                         <button type="submit" class="btn btn-primary">Upload</button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -1,10 +1,14 @@
 <section class="order-history">
-    <div class="container">
+    <div class="container min-height1">
         <div class="row mt-page">
             <h5 class="fw-bold">Riwayat Pesanan</h5>
             <div class="col-lg-8 col-12 mx-auto text-center mt-3">
-                <div role="group" aria-label="Basic checkbox toggle button group">
-                    <div class="owl-carousel">
+                <div role="group" aria-label="Basic checkbox toggle button group" class="d-flex border rounded-custom-1 mb-4">
+                    <div class="owl-carousel p-3">
+                        <div>
+                            <input type="radio" class="btn-check" id="btncheck2" autocomplete="off" name="transStat" value="6" checked>
+                            <label class="btn btn-outline-primary" for="btncheck2">Semua</label>
+                        </div>
                         <div>
                             <input type="radio" class="btn-check" id="btncheck1" autocomplete="off" name="transStat" value="1" checked>
                             <label class="btn btn-outline-primary" for="btncheck1">Menunggu Pembayaran</label>

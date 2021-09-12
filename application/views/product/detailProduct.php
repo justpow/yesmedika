@@ -31,7 +31,7 @@
                                 <?php foreach($data['variants'] as $variant): ?>
                                 <div class="btn-radio ms-1">
                                     <input onclick="variantListener(<?= $variant['id'] ?>,<?= $variant['price']?>,<?= $variant['stock']?>)" type="radio" class="btn-check" name="options" id="<?= $variant['id'] ?>" autocomplete="off"/>
-                                    <label class="btn btn-secondary" for="<?= $variant['id'] ?>"><?= $variant['name'] ?></label>
+                                    <label class="btn btn-outline-secondary" for="<?= $variant['id'] ?>"><?= $variant['name'] ?></label>
                                 </div>
                                 <?php endforeach; ?>
                             </div>

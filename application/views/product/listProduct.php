@@ -34,19 +34,61 @@
                     <h5 class="fw-bold my-3">Filter</h5>
                     <div class="card shadow-sm rounded-3" >
                         <ul class="list-group">
-                            <li class="list-group-item border-0" type="button" data-bs-toggle="collapse" data-bs-target="#merekCollapse">Merek</li>
+                            <li class="list-group-item border-0" type="button" data-bs-toggle="collapse" data-bs-target="#merekCollapse">Jenis Barang</li>
                             <div class="collapse show multi-collapse" id="merekCollapse">
                                 <div class="card card-body border-0">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="2" id="mrk_soft" name="brand[]" onchange="submitFilter()">
-                                        <label class="form-check-label" for="mrk_soft">
-                                            Softies
+                                        <input class="form-check-input" type="checkbox" value="2" id="masker" name="brand[]" onchange="submitFilter()">
+                                        <label class="form-check-label" for="masker">
+                                            Masker
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="1" id="mrk_sensi" name="brand[]" onchange="submitFilter()">
-                                        <label class="form-check-label" for="mrk_sensi">
-                                            Sensi
+                                        <input class="form-check-input" type="checkbox" value="1" id="srg_tangan" name="brand[]" onchange="submitFilter()">
+                                        <label class="form-check-label" for="srg_tangan">
+                                            Sarung Tangan
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="3" id="timbangan" name="brand[]" onchange="submitFilter()">
+                                        <label class="form-check-label" for="timbangan">
+                                            Timbangan
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="4" id="tensimeter" name="brand[]" onchange="submitFilter()">
+                                        <label class="form-check-label" for="tensimeter">
+                                            Tensimeter
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="5" id="gcu" name="brand[]" onchange="submitFilter()">
+                                        <label class="form-check-label" for="gcu">
+                                            Multicheck GCU
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="6" id="hand_sanitizer" name="brand[]" onchange="submitFilter()">
+                                        <label class="form-check-label" for="hand_sanitizer">
+                                            Hand Sanitizer
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="7" id="disinfektan" name="brand[]" onchange="submitFilter()">
+                                        <label class="form-check-label" for="disinfektan">
+                                            Disinfectan
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="2" id="apd" name="brand[]" onchange="submitFilter()">
+                                        <label class="form-check-label" for="apd">
+                                            Alat Pelindung Diri
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="2" id="thermometer" name="brand[]" onchange="submitFilter()">
+                                        <label class="form-check-label" for="thermometer">
+                                            Thermometer
                                         </label>
                                     </div>
                                 </div>

@@ -3,10 +3,10 @@
     <section class="head-home">
         <div id="head-home" class="position-relative overflow-hidden p-3 p-md-home text-center bg-dark text-light">
             <div class="col-md-6 p-lg-5 mx-auto my-5">
-                <h1 class="display-4 fw-normal">YES Medika Alkes</h1>
+                <h1 class="display-4 fw-normal">YES Medika</h1>
                 <p class="lead fw-normal">YES MEDIKA menyediakan segala jenis kebutuhan di bidang alat kesehatan</p>
                 <div class="input-group mb-3">
-                    <input id="searchField" type="text" class="form-control" placeholder="Cari..." aria-label="Search bar" aria-describedby="button-addon2">
+                    <input id="searchField" type="text" class="form-control" placeholder="Masukkan nama, merk, atau jenis barang..." aria-label="Search bar" aria-describedby="button-addon2">
                     <button class="btn btn-outline-secondary" type="button" id="searchBtn"><i class="fas fa-search"></i></button>
                 </div>
             </div>

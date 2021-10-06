@@ -31,7 +31,7 @@ const transStat = {
 const perPage = 10
 
 // Init Infinite Scroll.
-let $container = initInfiniteScroll(`per_page=${perPage}`);
+let $container = initInfiniteScroll(`per_page=${perPage}&status=6`);
 
 $container.on('load.infiniteScroll', function( event, data ) {
   console.log(data)

@@ -68,12 +68,16 @@
                             </div>
                         </div>
 
+                        <?php if( $data['status'] == TRANS['WAITING_PAYMENT'] ): ?>
                         <button type="button" class="btn btn-primary w-100 mt-2" data-bs-toggle="modal" data-bs-target="#addPayment">Upload Bukti Pembayaran</button> <!-- kalo status menunggu pembayaran -->
+                        <?php endif ?>
 
-                        <button type="button" class="btn btn-outline-primary w-100 mt-2 batalPesanan" data-id="<?= $data['id'] ?>">Batalkan Pesanan</button> <!-- kalo status menunggu pembayaran -->
+                        <?php if( $data['status'] == TRANS['WAITING_PAYMENT'] ): ?>
+                        <button type="button" class="btn btn-outline-primary w-100 mt-2" id="batalPesanan" data-id="<?= $data['id'] ?>">Batalkan Pesanan</button> <!-- kalo status menunggu pembayaran -->
+                        <?php endif ?>
 
                         <?php if( $data['status'] == TRANS['ON_DELIVERY'] || $data['status'] == TRANS['DELIVERED']  ): ?>
-                        <button type="button" class="btn btn-primary w-100 mt-2">Konfirmasi Pesanan Diterima</button> <!-- kalo status dikirim -->
+                        <button type="button" class="btn btn-primary w-100 mt-2" id="pesananSelesai" data-id="<?= $data['id'] ?>">Konfirmasi Selesai</button> <!-- kalo status dikirim -->
                         <?php endif ?>
                         
                         <?php if( $data['status'] == TRANS['DONE'] &&  !$isReviewed): ?>

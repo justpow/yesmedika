@@ -40,13 +40,11 @@
                         </h2>
                         <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                             <div class="accordion-body">
-                                <p>1. Lorem ipsum dolor, sit amet consectetur adipisicing</p>
-                                <p>2. Lorem ipsum dolor, sit amet consectetur adipisicing</p>
-                                <p>3. Lorem ipsum dolor, sit amet consectetur adipisicing</p>
-                                <p>4. Lorem ipsum dolor, sit amet consectetur adipisicing</p>
-                                <p>5. Lorem ipsum dolor, sit amet consectetur adipisicing</p>
-                                <p>6. Lorem ipsum dolor, sit amet consectetur adipisicing</p>
-                                <p>7. Lorem ipsum dolor, sit amet consectetur adipisicing</p>
+                                <p>1. Lakukan transfer sesuai nominal di atas dengan tujuan <b>BANK BNI 827708123121568 (PT YESMEDIKA)</b></p>
+                                <p>2. Setelah transfer, upload foto bukti pembayaran pada form <b>"Upload Bukti Pembayaran"</b> di bawah</p>
+                                <p>3. Setelah upload bukti bayar selesai, anda bisa melihat detail status pesanan di menu <b>"Riwayat Pesanan"</b> </p>
+                                <p>4. Untuk mempercepat proses, anda juga dapat memberi tahu Admin melalui halaman detail pesanan bahwa anda sudah upload bukti transfer</p>
+                                <p>5. Setelah Admin memverifikasi pembayaran, status pesanan akan berubah menjadi <b>"Diproses"</b> </p>
                             </div>
                         </div>
                     </div>

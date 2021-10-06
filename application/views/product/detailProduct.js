@@ -129,7 +129,7 @@ let rating = value['rate']*20;
                 <img src="<?= base_url('assets/image/profile.png')?>" class="rounded float-start" alt="Foto Profile" width="70" height="70">
             </div>
             <div class="flex-grow-1 ms-3">
-                <h4 class="fw-bold mb-0">Satrio</h4>
+                <h4 class="fw-bold mb-0">${value['reviewer']}</h4>
                 <div class="stars-outer" style="order:1;">
                     <div class="stars-inner" style="width:${rating}% !important; "></div>
                 </div>

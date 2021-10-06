@@ -8,6 +8,7 @@ class Rating extends MY_Controller {
 		parent::__construct();
         $this->load->model('ratings');
         $this->load->model('transactions');
+        $this->load->model('user');
     }
 
     public function list_review()
@@ -55,7 +56,7 @@ class Rating extends MY_Controller {
             return;
         }
 
-        // Get data review by user id.
+        // Get data review by product id.
         $result = $this->ratings->get_reviews($page, $per_page, array('product_id' => $product_id, 'status' => $status));
         if ($result->error['code'] !==  0 && $result->error['message']) {
             $this->send_api_response(500, (object)$result->error);
@@ -63,6 +64,17 @@ class Rating extends MY_Controller {
         }
 
         $result = $result->data->result_array();
+        foreach ($result as $key => $value) {
+            $user_result = $this->user->get(array('user.id' => $user->id));
+            if ($user_result->error['code'] !==  0 && $user_result->error['message']) {
+                $this->send_api_response(500, (object)$user_result->error);
+                return;
+            }
+
+            $user_result = $user_result->data->result_array()[0];
+            @$result[$key]['reviewer'] = $user_result['firstname'].' '.$user_result['lastname'];
+        }
+
         $this->send_api_response(200, $result);
     }
 
@@ -106,7 +118,7 @@ class Rating extends MY_Controller {
         $this->db->trans_start();
         foreach ($rate as $key => $value) {
 
-            // Get data transaction product by transaction id.
+            // Get data transaction product by transaction product id.
             $resultTransProd = $this->transactions->get_transaction_product(array('id' => $key));
             if ($resultTransProd->error['code'] !==  0 && $resultTransProd->error['message']) {
                 $this->send_api_response(500, (object)$resultTransProd->error);
@@ -135,7 +147,7 @@ class Rating extends MY_Controller {
         }
      
         $this->db->trans_complete();
-        redirect('transaction/history');
+        redirect('transaction/detail/'.$transRes[0]['transaction_id']);
     }
 
     private function upload_files($path, $title, $files)

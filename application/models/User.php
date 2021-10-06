@@ -12,7 +12,7 @@ class User extends MY_Model {
     {
         $this->db->set($data);
         $this->db->where('id', $param['id']);
-        $this->db->update('ym_user');
+        $result = $this->db->update('ym_user');
         $error = $this->db->error();
         return $this->db_response($result, $error);
     }

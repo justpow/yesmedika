@@ -10,7 +10,7 @@
                             <label class="btn btn-outline-primary" for="btncheck2">Semua</label>
                         </div>
                         <div>
-                            <input type="radio" class="btn-check" id="btncheck1" autocomplete="off" name="transStat" value="1" checked>
+                            <input type="radio" class="btn-check" id="btncheck1" autocomplete="off" name="transStat" value="1">
                             <label class="btn btn-outline-primary" for="btncheck1">Menunggu Pembayaran</label>
                         </div>
                         <div>

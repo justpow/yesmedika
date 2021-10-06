@@ -1,5 +1,5 @@
 <section class="profile">
-    <div class="container">
+    <div class="container  min-height1">
 
         <?php if ($this->session->flashdata('success')){ ?>
         <script>
@@ -185,7 +185,7 @@
                             </div>
                         </div>
                         <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
                             <button id="add_address" type="button" class="btn btn-primary">Submit</button>
                         </div>
                     

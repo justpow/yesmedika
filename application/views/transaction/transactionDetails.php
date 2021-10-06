@@ -1,5 +1,5 @@
 <section class="transactionDetails">
-    <div class="container">
+    <div class="container min-height1">
         <div class="row mt-page">
             <h5 class="fw-bold">Detail Transaksi</h5>
             <div class="col-lg-7 pt-3">
@@ -10,11 +10,11 @@
                             <p class="ms-auto">Status: <span class="fw-bold text-primary"><?= TRANS[$data['status']] ?></span></p>      
                         </div>
                         <p class="mb-1"><small>Tanggal Pembelian: <?= $data['create_time'] ?></small></p>
-                        <div class="produk mt-5">
+                        <div class="produk mt-4">
                             <p class="fw-bolder">Produk yang dibeli</p>
                             <?php $subtotal=0; $isReviewed=false; foreach ($data['trans_prod'] as $key => $value): ?>
                             <div class="d-flex mt-3 border-bottom border-3">
-                                <div class="flex-shrink-0">
+                                <div class="flex-shrink-0 mb-3">
                                     <img class="rounded-3" src="<?=  base_url('assets/image/').json_decode($value['product']['photo'])[0] ?>" alt="Product Image" width="100">
                                 </div>
                                 <div class="flex-grow-1 ms-3">
@@ -40,7 +40,7 @@
                             ?>
                             <?php endforeach ?>
                         </div>
-                        <div class="pengiriman mt-5">
+                        <div class="pengiriman mt-4 mb-5">
                             <p class="fw-bolder">Info Pengiriman</p>
                             <div class="row">
                                 <div class="col-3">
@@ -67,16 +67,21 @@
                                 </div>
                             </div>
                         </div>
+
+                        <button type="button" class="btn btn-primary w-100 mt-2" data-bs-toggle="modal" data-bs-target="#addPayment">Upload Bukti Pembayaran</button> <!-- kalo status menunggu pembayaran -->
+
+                        <button type="button" class="btn btn-outline-primary w-100 mt-2 batalPesanan" data-id="<?= $data['id'] ?>">Batalkan Pesanan</button> <!-- kalo status menunggu pembayaran -->
+
                         <?php if( $data['status'] == TRANS['ON_DELIVERY'] || $data['status'] == TRANS['DELIVERED']  ): ?>
-                        <button type="button" class="btn btn-primary w-100 mt-5">Konfirmasi Pesanan Diterima</button> <!-- kalo status dikirim -->
+                        <button type="button" class="btn btn-primary w-100 mt-2">Konfirmasi Pesanan Diterima</button> <!-- kalo status dikirim -->
                         <?php endif ?>
                         
                         <?php if( $data['status'] == TRANS['DONE'] &&  !$isReviewed): ?>
-                        <button type="button" class="btn btn-primary w-100 mt-5" data-bs-toggle="modal" data-bs-target="#beriRating">Beri Ulasan</button> <!-- kalo status diterima -->
+                        <button type="button" class="btn btn-primary w-100 mt-2" data-bs-toggle="modal" data-bs-target="#beriRating">Beri Ulasan</button> <!-- kalo status diterima -->
                         <?php endif ?>
                         
                         <?php if( $data['status'] == TRANS['DONE'] &&  $isReviewed): ?>
-                        <button type="button" class="btn btn-primary w-100 mt-5" data-bs-toggle="modal" data-bs-target="#lihatRating">Lihat Ulasan</button> <!-- kalo status diterima -->
+                        <button type="button" class="btn btn-primary w-100 mt-2" data-bs-toggle="modal" data-bs-target="#lihatRating">Lihat Ulasan</button> <!-- kalo status diterima -->
                         <?php endif ?>
                         
                         <?php if( $data['status'] == TRANS['DELIVERED']): ?>
@@ -136,5 +141,6 @@
         </div>
         <?php include './application/views/transaction/transactionModal/modalRating.php'; ?>
         <?php include './application/views/transaction/transactionModal/modalViewRating.php'; ?>
+        <?php include './application/views/transaction/transactionModal/modalAddPayment.php'; ?>
     </div>
 </section>

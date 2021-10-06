@@ -32,9 +32,22 @@ class Register extends MY_Controller {
 			return;
 		}
 
+
 		// TO DO: NEED EMAIL HANDLER.
 
-		// TO DO: NEED PASSWORD LENGTH VALIDATOR.
+		// Check for Password
+		if ( !empty($this->valid_password($_POST['password'])) ) {
+			$this->session->set_flashdata('register_error', $this->valid_password($_POST['password']));
+			$this->render_page('non_navbar', 'user/register');
+			return;
+		}
+
+		// Check Number Phone
+		if ( !empty($this->valid_phone($_POST['phone'])) ) {
+			$this->session->set_flashdata('register_error', $this->valid_phone($_POST['phone']));
+			$this->render_page('non_navbar', 'user/register');
+			return;
+		}
 
 		$user = array(
 			'firstname' 	=> $_POST['fname'],
@@ -80,5 +93,56 @@ class Register extends MY_Controller {
 				return 'Gagal, silahkan cek form kembali';
 				break;
 		}
+	}
+
+	public function valid_password($password = '')
+	{
+		$password = trim($password);
+
+		$regex_lowercase = '/[a-z]/';
+		$regex_uppercase = '/[A-Z]/';
+		$regex_number = '/[0-9]/';
+		$regex_special = '/[!@#$%^&*()\-_=+{};:,<.>§~]/';
+		$message = '';
+
+		if (empty($password))
+		{
+			$message = 'Kata sandi tidak boleh kosong';
+		}
+
+		if (preg_match_all($regex_uppercase, $password) < 1)
+		{
+			$message = 'Kata sandi minimal memiliki 1 huruf besar';
+		}
+
+		if (strlen($password) < 8)
+		{
+			$message = 'Kata sandi minimal memiliki 8 karakter';
+		}
+
+		return $message;
+	}
+
+	public function valid_phone($phone = '')
+	{
+		$phone = trim($phone);
+
+		$regex_lowercase = '/[a-z]/';
+		$regex_uppercase = '/[A-Z]/';
+		$regex_number = '/[0-9]/';
+		$regex_special = '/[!@#$%^&*()\-_=+{};:,<.>§~]/';
+		$message = '';
+
+		if (empty($phone))
+		{
+			$message = 'Nomor Handphone tidak boleh kosong';
+		}
+
+		if (strlen($phone) < 10)
+		{
+			$message = 'Nomor Handphone minimal memiliki 10 karakter';
+		}
+
+		return $message;
 	}
 }

@@ -1,10 +1,11 @@
-<body id="login">
+<section id="login" class="min-height">
     <section id="logo" class="mt-3">
         <div class="container">
             <img class="mx-auto my-auto d-block" src="<?= base_url('assets/image/logo.png')?>" alt="" width="120">
+            <h1 class="text-center fw-bold mt-1">YESMEDIKA</h1>
         </div>
     </section>        
-    <section id="card-form" class="mt-5">
+    <section id="card-form" class="mt-5 min-height">
         <div class="container">
             <div class="card mx-auto shadow" style="max-width: 50%;">
                 <div class="card-body">
@@ -33,6 +34,7 @@
                             <button type="submit" class="btn btn-primary">Masuk</button>
                         </div>
                     </form>
+                    <hr>
                     <div class="text-muted text-center mt-3 daftar">
                         Belum punya akun YESMedika? <a href="<?= base_url('register') ?>" class="text-decoration-none">Daftar</a>
                     </div>
@@ -40,4 +42,4 @@
             </div>
         </div>
     </section>
-</body>
+</section>

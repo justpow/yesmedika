@@ -3,6 +3,7 @@ $(document).ready(function(){
       items: 4,
       margin:10,
       nav:false,
+      dots: false,
       responsive: {
         0: {
           items: 2
@@ -23,7 +24,8 @@ const transStat = {
   2 : 'Diproses',
   3 : 'Dikirim',
   4 : 'Sampai Tujuan',
-  5 : 'Selesai'
+  5 : 'Selesai',
+  6 : 'Semua'
 }
 
 const perPage = 10
@@ -90,7 +92,7 @@ let variant = value['trans_prod'][0]['variant'] ? value['trans_prod'][0]['varian
 let transId = value['id']
 
   return `<div class="col-12 mx-auto d-flex justify-content-center mb-4">
-  <div class="card shadow-sm rounded-custom-1" style="width:40rem">
+  <div class="card shadow-sm rounded-custom-1" style="width:53rem">
       <div class="card-body mx-2 my-2">
           <h6>No. Pesanan : INV/YES/${transId}</h6>
           <div class="d-flex mt-3">

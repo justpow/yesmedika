@@ -20,12 +20,17 @@ class Transactions extends MY_Model {
         $start_from = $page - 1;
         if (count($filters) != 0) {
             foreach ($filters as $key => $value) {
-               $this->db->where($key, $value);
+                if ($key == 'status' && $value == '6') {
+                    $this->db->where($key.'<', $value);
+                }
+                else {
+                    $this->db->where($key, $value);
+                }
             }
         }
 
         $this->db->order_by('id', 'desc');
-        $result = $this->db->get('ym_transaction', $per_page, $start_from * $per_page);  
+        $result = $this->db->get('ym_transaction', $per_page, $start_from * $per_page);
         $error = $this->db->error();
         return $this->db_response($result, $error);
     }
@@ -41,6 +46,21 @@ class Transactions extends MY_Model {
         $result = $this->db->get('ym_transaction_product');
         $error = $this->db->error();
         return $this->db_response($result, $error);
+    }
+
+    public function update_transaction($set=[], $filters=[]) {
+
+        if (count($filters) != 0) {
+            foreach ($filters as $key => $value) {
+               $this->db->where($key, $value);
+            }
+        }
+
+        $this->db->set($set);
+        $result = $this->db->update('ym_transaction');
+        $error = $this->db->error();
+        return $this->db_response($result, $error);
+        
     }
 
    

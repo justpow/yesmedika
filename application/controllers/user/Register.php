@@ -52,7 +52,6 @@ class Register extends MY_Controller {
 		$user = array(
 			'firstname' 	=> $_POST['fname'],
 			'lastname' 		=> $_POST['lname'],
-			'birth_date' 	=> $_POST['birth'],
 			'username' 		=> $_POST['username'],
 			'email' 		=> $_POST['email'],
 			'password' 		=> password_hash($_POST['password'], PASSWORD_BCRYPT),

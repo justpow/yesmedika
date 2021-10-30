@@ -29,10 +29,6 @@
                           <label class="form-label" for="username">Username</label>
                           <input class="form-control" type="text" id="username" name="username" required value="<?= @set_value('username'); ?>">
                         </div>
-                        <div class="col-sm-12 col-md-12 mb-3">
-                          <label class="form-label" for="birth">Tanggal Lahir</label>
-                          <input class="form-control" type="date" id="birth" name="birth" required value="<?= @set_value('birth'); ?>">
-                        </div>
                         <div class="col-sm-12 col-md-6 mb-3">
                           <label class="form-label" for="email">Email</label>
                           <input class="form-control" type="text" id="email" name="email" required value="<?= @set_value('email'); ?>">

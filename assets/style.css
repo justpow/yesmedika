@@ -61,6 +61,7 @@ body {
     transition: opacity 0.15s ease-in;
     opacity: 0;
     padding-top: 50%;
+    padding-bottom: 50%;
     color: #fff;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
 }
@@ -233,6 +234,20 @@ body {
 .owl-nav{
   text-align:center;
   font-size: 2rem;
+}
+
+.riwayat .owl-stage-outer .owl-stage .owl-item{
+  width: auto !important;
+}  
+
+.product {
+  max-height: 100% !important;
+  max-width: 100% !important;
+  display: block;
+  height: 17rem !important;
+  width: 100%; 
+  object-fit: cover; 
+  /* background-size: cover; */
 }
 
 .mx-custom-1{

@@ -19,7 +19,7 @@
                     <a href="<?= base_url('cart') ?>" class="nav-link text-dark text-center position-relative">
                         Keranjang
                         <span class="badge-keranjang position-absolute translate-middle badge rounded-pill bg-primary">
-                            99+
+                            <?= @$this->yesmedika->countCart() ?>
                         </span>
                     </a>
                 </li>

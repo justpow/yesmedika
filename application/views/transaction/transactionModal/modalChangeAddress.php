@@ -7,7 +7,9 @@
                     <h5 class="modal-title" id="judulModal">Pilih Alamat</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
+                
                 <div class="modal-body border-0" style="min-height:20rem;max-height:38rem;">
+                    <a href="<?= base_url('address/list-address'); ?>"  class="btn btn-primary mb-2 float-end">Tambah Alamat</a>
                     <div class="container">
                         <?php $count=1;
                             foreach ( $data['address_all'] as $add ) { 

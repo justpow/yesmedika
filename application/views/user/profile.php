@@ -53,13 +53,23 @@
                     <div class="mb-1 row">
                         <label class="col-4">Tanggal Lahir</label>
                         <div class="col-8">
-                            <p>: <?= date("d F Y", strtotime($data[0]['birth_date'])) ?></p>
+                            <p>: <?= ($data[0]['birth_date'] == '0000-00-00') ? '-' : date("d F Y", strtotime($data[0]['birth_date'])) ?></p>
                         </div>
                     </div>
                     <div class="mb-1 row">
                         <label class="col-4">Jenis Kelamin</label>
                         <div class="col-8">
-                            <p>: <?= ($data[0]['jenis_kelamin'] == 'pria') ? 'Laki-laki' : 'Perempuan' ?></p>
+                            <p>: 
+                                <?php 
+                                    if(empty($data[0]['jenis_kelamin'])){
+                                        echo "-"; 
+                                    }else{
+                                        if ($data[0]['jenis_kelamin'] == 'pria') {
+                                            echo 'Laki-laki';
+                                        } else {
+                                            echo 'Perempuan';
+                                        } 
+                                    }?></p>
                         </div>
                     </div>
                     <div class="mb-1 row">

@@ -2,14 +2,14 @@
     <div class="container">
         <div class="row mt-5 pt-5">
             <div id="image-product" class="col-md-6 px-2 py-2 text-center">
-                <img src="<?= base_url('assets/image/').json_decode($data['photo'])[0] ?>" class="img-fluid rounded" alt="Product image" width="400">
-                <?php foreach(json_decode($data['photo']) as $photo_name): ?>
+                <img src="<?= base_url('assets/image/').json_decode($data['photo'])[0] ?>" class="img-fluid rounded" alt="Product image" width="400" onclick="changeImage(this)" id="main_product_image">
                 <div class="thumbnail d-flex justify-content-center flex-wrap mt-3 mx-auto" style="width:25rem;">
                     <div class="owl-carousel">
-                        <img src="<?= base_url('assets/image/').$photo_name ?>" class="rounded m-1" alt="Product image" width="60">
+                        <?php foreach(json_decode($data['photo']) as $photo_name): ?>
+                        <img src="<?= base_url('assets/image/').$photo_name ?>" class="rounded m-1" alt="Product image" width="10" onclick="changeImage(this)">
+                        <?php endforeach; ?>
                     </div>
                 </div>
-                <?php endforeach; ?>
             </div>
             <div id="detail-product" class="col-md-6">
                 <form action="<?= base_url().'product/add-to-cart' ?>" method="post">

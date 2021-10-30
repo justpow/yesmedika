@@ -153,7 +153,7 @@ function validate_form() {
     form_input.reverse();
     
     form_input.map(data => {
-        if ( data.val() == "" ) 
+        if ( data.val() == "" && data.attr('required') ) 
         {
             Swal.fire(
                 'Oops,',

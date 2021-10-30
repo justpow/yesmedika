@@ -293,7 +293,7 @@ class Address extends MY_Controller {
 
 		// Check Data Kosong
 		foreach ( $this->input->post() as $key => $value ) {
-			if ( $value == "" ) {
+			if ( $value == "" && $key != "noteAlamat" ) {
 				$this->session->set_flashdata('error', 'Data tidak boleh kosong');
 				redirect('address/list-address');
 				return;

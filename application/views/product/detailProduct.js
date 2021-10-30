@@ -1,3 +1,9 @@
+// Function for Change Main Image
+function changeImage(element) {
+  var main_prodcut_image = document.getElementById('main_product_image');
+  main_prodcut_image.src = element.src;
+}
+
 jQuery('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
 jQuery('.quantity').each(function() {
   var spinner = jQuery(this),

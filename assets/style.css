@@ -240,10 +240,6 @@ body {
   margin-right: 20rem;
 }
 
-.owl-item{ 
-  width : auto !important; 
-}
-
 .btn-secondary{
   background-color:rgba(0,0,0,.1) !important;
 }

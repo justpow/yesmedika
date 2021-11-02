@@ -1,5 +1,5 @@
 <!-- Beri Feedback -->
-<form>
+<form action="<?= base_url('transaction/upload/'.$data['id']); ?>" method="POST" enctype="multipart/form-data">
     <div class="modal fade border-0" id="addPayment" tabindex="-1" aria-labelledby="addPayment" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg border-0 modal-dialog-scrollable">
             <div class="modal-content">
@@ -78,36 +78,37 @@
                                                 <div class="row g-3">
                                                     <div class="col-md-6">
                                                         <div class="form-floating mb-3">
-                                                            <input type="text" class="form-control" id="nama_rekening" placeholder="">
+                                                            <input type="text" name='sender_name' class="form-control" id="nama_rekening" placeholder="" required>
                                                             <label for="floatingInput">Nama Pemilik Rekening</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-floating mb-3">
-                                                            <input type="text" class="form-control numbers" id="nomor_rekening" placeholder="">
+                                                            <input type="text" name='account_number' class="form-control numbers" id="nomor_rekening" placeholder="" required>
                                                             <label for="floatingInput">No Rekening</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-floating">
-                                                            <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                                                            <select name='provider' class="form-select" id="floatingSelect" aria-label="Floating label select example" required>
                                                                 <option selected>Pilih Bank</option>
-                                                                <option value="1">BNI</option>
-                                                                <option value="2">BNI</option>
-                                                                <option value="3">BNI</option>
+                                                                <option>BCA</option>
+                                                                <option>BNI</option>
+                                                                <option>BRI</option>
+                                                                <option>MANDIRI</option>
                                                             </select>
                                                             <label for="floatingSelect">Bank</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-floating">
-                                                            <input type="text" class="form-control numbers" id="total" placeholder="">
+                                                            <input name='amount' type="text" class="form-control numbers" id="total" placeholder="" required>
                                                             <label for="floatingInput">Jumlah Transfer</label>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <label for="formFile" class="form-label">Bukti Pembayaran</label>
-                                                        <input class="form-control" type="file" id="formFile">
+                                                        <input name='file' class="form-control" type="file" id="formFile" required>
                                                     </div>
                                                 </div>
                                             </div>

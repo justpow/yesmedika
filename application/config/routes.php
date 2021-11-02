@@ -73,6 +73,7 @@ $route['transaction/precheckout'] = 'transaction/transaction/pre_checkout';
 $route['transaction/checkout'] = 'transaction/transaction/checkout';
 $route['transaction/history'] = 'transaction/transaction/history_page';
 $route['transaction/detail/(:num)'] = 'transaction/transaction/detail/$1';
+$route['transaction/upload/(:num)'] = 'transaction/transaction/upload_payment/$1';
 
 // Profile Router
 $route['user/profile'] = 'user/profile';

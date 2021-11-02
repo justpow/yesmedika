@@ -182,3 +182,29 @@ $payment = array(
     2 => 'Transfer Manual'
 );
 define('PAYMENT_TYPE', $payment);
+
+// PAYMENT DOC.
+$payment_doc = array(
+    'WAITING' => 1,
+    'DECLINED' => 2,
+    'APPROVED' => 3,
+
+    1 => 'Menunggu validasi',
+    2 => 'Ditolak',
+    3 => 'Disetujui'
+);
+define('PAYMENT_DOC_STATUS', $payment_doc);
+
+// PAYMENT PROVIDER.
+$payment_provider = array(
+    'BCA' => 1,
+    'BNI' => 2,
+    'BRI' => 3,
+    'MANDIRI' => 4,
+
+    1 => 'BCA',
+    2 => 'BNI',
+    3 => 'BRI',
+    4 => 'MANDIRI'
+);
+define('PAYMENT_PROVIDER', $payment_provider);

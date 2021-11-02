@@ -55,39 +55,41 @@
                         </button>
                         </h2>
                         <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-                            <div class="accordion-body">
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <label for="inputText1" class="form-label">Nama Pemilik Rekening</label>
-                                        <input type="text" class="form-control" id="inputText1">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputText2" class="form-label">No Rekening</label>
-                                        <input type="text" class="form-control numbers" id="inputText2">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputState" class="form-label">Transfer dari Bank</label>
-                                        <select id="inputState" class="form-select">
-                                        <option selected>Choose...</option>
-                                        <option>BCA</option>
-                                        <option>BNI</option>
-                                        <option>BRI</option>
-                                        <option>MANDIRI</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label for="inputNumber1" class="form-label">Jumlah Transfer</label>
-                                        <input type="text" class="form-control numbers" id="inputNumber1">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <label for="formFile" class="form-label">Bukti Pembayaran</label>
-                                        <input class="form-control" type="file" id="formFile">
-                                    </div>
-                                    <div class="col-md-12 text-end">
-                                        <button type="submit" class="btn btn-primary">Upload</button>
+                            <form action="<?= base_url('transaction/upload/'.$data['transaction_id']); ?>" method="POST" enctype="multipart/form-data">
+                                <div class="accordion-body">
+                                    <div class="row g-3">
+                                        <div class="col-md-6">
+                                            <label for="inputText1" class="form-label">Nama Pemilik Rekening</label>
+                                            <input type="text" name='sender_name' class="form-control" id="inputText1" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputText2" class="form-label">No Rekening</label>
+                                            <input type="text" name='account_number' class="form-control numbers" id="inputText2" required>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputState" class="form-label">Transfer dari Bank</label>
+                                            <select name='provider' id="inputState" class="form-select" required>
+                                            <option selected>Choose...</option>
+                                            <option>BCA</option>
+                                            <option>BNI</option>
+                                            <option>BRI</option>
+                                            <option>MANDIRI</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="inputNumber1" class="form-label">Jumlah Transfer</label>
+                                            <input name='amount' type="text" class="form-control numbers" id="inputNumber1" required>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label for="formFile" class="form-label">Bukti Pembayaran</label>
+                                            <input name='file' class="form-control" type="file" id="formFile" required>
+                                        </div>
+                                        <div class="col-md-12 text-end">
+                                            <button type="submit" class="btn btn-primary">Upload</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>

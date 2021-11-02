@@ -12,6 +12,7 @@ class Transaction extends MY_Controller {
 		$this->load->model('transactions');
         $this->load->model('UserAddress');
         $this->load->model('ratings');
+        $this->load->model('payment');
     }
     
     private function compile_cart_items($cart)
@@ -314,6 +315,7 @@ class Transaction extends MY_Controller {
         }
 
         $data = array(
+            'transaction_id' => $trans_id,
             'invoice' => 'INV/YES/'.$trans_id, // Temporary, need discuss the invoice format.
             'total' => $grand_total,
             'expire' => $date_expire
@@ -509,13 +511,23 @@ class Transaction extends MY_Controller {
                     $value2['review'] = $review[0];
                 }
 
+                // Get latest payment doc.
+                $payment_docs = $this->payment->get(array('transaction_id' => $transDetail['id']), 'create_time', 'desc');
+                if ($payment_docs->error['code'] !==  0 && $payment_docs->error['message']) {
+                    $this->send_api_response(500, (object)$payment_docs->error);
+                    return;
+                }
+
+                $payment_docs = $payment_docs->data->result_array();
                 $transDetail['trans_prod'][$key2] = $value2;
+
+                if (count($payment_docs) != 0) {
+                    $transDetail['payment_doc'] = $payment_docs[0];
+                }
             }
         } else {
             redirect('');
         }
-
-       
 
         $this->render_page('main', 'transaction/transactionDetails', $transDetail);
     }
@@ -561,5 +573,57 @@ class Transaction extends MY_Controller {
         
         redirect('transaction/detail/'.$_GET['id']);
 
+    }
+
+
+    public function upload_payment($trans_id)
+    {
+
+        // Get user session.
+        $user = (object)$this->session->userdata('user');
+        if (!isset($user)) {
+            redirect('login');
+            return;
+        }
+        
+        $sender = $this->input->post('sender_name');
+        $number = $this->input->post('account_number');
+        $provider = $this->input->post('provider');
+        $amount = $this->input->post('amount');
+
+        // Base path of upload location.
+        $base_path = 'assets/payment_docs/';
+
+        // Upload process.
+        $res = $this->yesmedika->do_upload($base_path, 'file', $trans_id);
+        if ($res['error'] != '') {
+            $this->session->set_flashdata('upload_error', 'upload bukti bayar gagal, silahkan coba lagi pada tombol di bawah');
+            redirect('transaction/detail/'.$trans_id);
+        }
+
+        // File location.
+        $file_location = $base_path.$res['data']['file_name'];
+
+        // Insert payment doc.
+        $data = array(
+            'transaction_id' => $trans_id,
+            'sender_name' => $sender,
+            'account_number' => $number,
+            'provider' => PAYMENT_PROVIDER[$provider],
+            'amount' => $amount,
+            'file_location' => $file_location,
+            'status' => PAYMENT_DOC_STATUS['WAITING'],
+            'create_by' => $user->id
+        );
+
+        $result = $this->payment->insert($data);
+        if ($result->error['code'] !==  0 && $result->error['message']) {
+            print_r($result);
+            $this->session->set_flashdata('upload_error', 'upload bukti bayar gagal, silahkan coba lagi pada tombol di bawah');
+            redirect('transaction/detail/'.$trans_id);
+        }
+        
+        $this->session->set_flashdata('upload_success', 'upload bukti sukses, admin akan segera validasi bukti bayar');
+        redirect('transaction/detail/'.$trans_id);
     }
 }

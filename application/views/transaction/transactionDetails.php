@@ -1,6 +1,16 @@
 <section class="transactionDetails">
     <div class="container min-height1">
         <div class="row mt-page">
+        <?php if ($this->session->flashdata('upload_error')): ?>
+            <div class="alert alert-danger" role="alert">
+            <?= $this->session->flashdata('upload_error') ?>
+            </div>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata('upload_success')): ?>
+            <div class="alert alert-success" role="alert">
+            <?= $this->session->flashdata('upload_success') ?>
+            </div>
+        <?php endif; ?>
             <h5 class="fw-bold">Detail Transaksi</h5>
             <div class="col-lg-7 pt-3">
                 <div class="card border-2 rounded-custom-1 shadow-sm">
@@ -68,7 +78,7 @@
                             </div>
                         </div>
 
-                        <?php if( $data['status'] == TRANS['WAITING_PAYMENT'] ): ?>
+                        <?php if( ($data['status'] == TRANS['WAITING_PAYMENT'] && @$data['payment_doc']['status'] == PAYMENT_DOC_STATUS['DECLINED']) || ($data['status'] == TRANS['WAITING_PAYMENT'] && !isset($data['payment_doc']))): ?>
                         <button type="button" class="btn btn-primary w-100 mt-2" data-bs-toggle="modal" data-bs-target="#addPayment">Upload Bukti Pembayaran</button> <!-- kalo status menunggu pembayaran -->
                         <?php endif ?>
 

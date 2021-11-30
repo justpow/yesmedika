@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div id="detail-product" class="col-md-6">
-                <form action="<?= base_url().'product/add-to-cart' ?>" method="post">
+                <form class='buy' action="<?= base_url().'product/add-to-cart' ?>" method="post">
                     <input type="text" name="productId" value="<?= $data['id'] ?>" hidden>
                     <input type="text" id="variantId" name="variantId" value="<?php 
                             if(isset($data['variants'])){ echo $data['variants'][0]['id'];} else { echo 0; }?>" hidden> 
@@ -41,7 +41,8 @@
                             <p>Jumlah Product</p>
                             <div class="quantity">
                                 <input name="qty" id="qty_" type="number" min="1" max="<?php if(isset($data['variants'])){ echo $data['variants'][0]['stock'];} else { echo $data['stock'];} ?>" step="1" value="1">
-                                <button id="btn-add-cart" type="submit" name="add2cart" class="btn btn-primary ms-2 mt-1 text-uppercase"><i class="fas fa-cart-plus me-1"></i> beli</button>
+                                <button id="btn-add-cart" type="submit" name="add2cart" class="btn btn-primary ms-2 mt-1 text-uppercase"><i class=" me-1"></i> beli</button>
+                                <button id="btn-add-cart2" type="button" name="add2cart2" class="btn btn-primary ms-2 mt-1 text-uppercase"><i class="fas fa-cart-plus me-1"></i> tambah keranjang</button>
                             </div>
                         </div>
                     </div>

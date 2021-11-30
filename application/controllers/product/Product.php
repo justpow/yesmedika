@@ -100,25 +100,60 @@ class Product extends MY_Controller {
             $this->cart_page();
             return;
         }
-
+        
         $username = $user->username;
-        $data = array(
-            'product_id' => $productId,
-            'qty' => $quantities,
+
+        $filter = array(
             'username' => $username,
-            'create_by' => $user->id,
-            'update_by' => $user->id
+            'product_id' => $productId
         );
-
+        
         if ($variantId != 0) {
-            $data['variant_id'] = $variantId;
+            $filter['variant_id'] = $variantId;
         }
-
-        $result = $this->cart->insert($data);
+        
+        // Get current data
+        $result = $this->cart->get_carts($filter);
         if ($result->error['code'] !==  0 && $result->error['message']) {
             $this->cart_page();
             return;
         }
+
+        $result = $result->data->result_array();
+
+        if (count($result) == 0) {
+            $data = array(
+                'product_id' => $productId,
+                'qty' => $quantities,
+                'username' => $username,
+                'create_by' => $user->id,
+                'update_by' => $user->id
+            );
+    
+            if ($variantId != 0) {
+                $data['variant_id'] = $variantId;
+            }
+    
+            $result = $this->cart->insert($data);
+            if ($result->error['code'] !==  0 && $result->error['message']) {
+                $this->cart_page();
+                return;
+            }
+        } else {
+            // Update current data
+            $result = $this->cart->update(array(
+                'qty' => $result[0]['qty']+$quantities
+            ), array(
+                'id' => $result[0]['id']
+            ));
+
+            if ($result->error['code'] !==  0 && $result->error['message']) {
+                $this->cart_page();
+                return;
+            }
+        }
+
+        
 
         // $this->cart_page();
         redirect('cart');

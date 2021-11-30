@@ -146,3 +146,34 @@ let rating = value['rate']*20;
 </div>
 `
 }
+
+// Add to cart 'Tambah Keranjang'.
+$('#btn-add-cart2').click(e =>{
+  e.preventDefault();
+   // setup some local variables
+   var $form = $('.buy');
+
+   // Let's select and cache all the fields
+   var $inputs = $form.find("input, select, button, textarea");
+
+   // Serialize the data in the form
+   var serializedData = $form.serialize();
+   $.ajax({                                      
+    url: "<?= base_url() ?>product/add-to-cart",              
+    type: "post",
+    data: serializedData,
+    success: function(data) {
+      var el = $( '<div></div>' );
+      el.html(data)
+      Swal.fire('', 'Berhasil menambahkan ke keranjang', 'success');
+      $('.badge-keranjang').html($('.badge-keranjang', el)[0].innerHTML)
+
+      
+    },
+    error: function (jqXhr) {
+      var error = $.parseJSON( jqXhr.responseText );
+      Swal.fire('', error.msg, 'error');
+    }
+  });
+});
+

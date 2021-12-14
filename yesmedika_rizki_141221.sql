@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6deb5
+-- version 4.9.7
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 14, 2021 at 04:22 PM
--- Server version: 10.3.27-MariaDB-0+deb10u1
--- PHP Version: 7.3.27-1~deb10u1
+-- Generation Time: Dec 14, 2021 at 05:25 PM
+-- Server version: 10.3.32-MariaDB-cll-lve
+-- PHP Version: 7.3.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -17,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `yesmedika`
+-- Database: `u4871062_yesmedika_staging_1`
 --
 
 -- --------------------------------------------------------
@@ -91356,14 +91358,27 @@ CREATE TABLE `ym_address` (
 --
 
 INSERT INTO `ym_address` (`id`, `id_user`, `address_name`, `recipient_name`, `phone_number`, `address`, `note_address`, `province`, `city`, `kecamatan`, `kelurahan`, `kode_pos`, `is_utama`, `create_time`, `update_time`, `create_by`, `update_by`) VALUES
-(26, 50, 'test 123', 'test 123', '08123123213', 'test 123', 'test 123', '36', '36.01', '36.01.27', '36.01.27.2009', '102020', 0, '2021-08-15 01:13:06', '2021-09-10 13:41:14', 50, 40),
-(30, 51, 'Rumah 1', 'Orang rumahh', '0812323123123', 'Jalan Rumah kedua', '-', '17', '17.71', '17.71.02', '17.71.02.1002', '20020', 0, '2021-08-17 19:56:44', '2021-09-10 13:41:14', 51, 40),
-(31, 51, 'Tambah ah', 'test', '21312312323', 'asdads', 'asdas', '51', '51.08', '51.08.06', '51.08.06.1022', '10120', 0, '2021-08-17 20:26:12', '2021-09-10 13:41:14', 51, 40),
-(32, 26, 'Kafe Antasari', 'Rizki', '08123456678', 'Jl Putih Melati', '-', '31', '31.74', '31.74.07', '31.74.07.1010', '121212', 1, '2021-08-28 12:11:28', '2021-09-10 21:27:42', 26, 40),
-(35, 40, 'rumah Ganang', 'Ganang', '08123456678', 'Jl test 123', '-', '32', '32.76', '32.76.01', '32.76.01.1009', '121212', 1, '2021-10-06 16:50:58', '2021-10-06 16:50:58', 40, 40),
-(36, 30, 'rumah Ganang', 'Ganang', '08123456678', 'Jl Test 1234', '-', '32', '32.76', '32.76.01', '32.76.01.1009', '121212', 1, '2021-10-06 16:55:02', '2021-10-06 16:55:02', 30, 30),
-(37, 49, 'Kafe Antasari', 'Rizki', '08123456678', 'Jl Putih Melati 10B', '', '31', '31.74', '31.74.07', '31.74.07.1010', '121212', 1, '2021-12-02 14:41:43', '2021-12-02 14:41:43', 49, 49),
-(38, 49, 'rumah Ganang', 'Ganang', '08123456678', 'Jl depok', '', '32', '32.76', '32.76.01', '32.76.01.1009', '121212', 0, '2021-12-14 11:31:22', '2021-12-14 11:31:22', 49, 49);
+(26, 50, 'test 123', 'test 123', '08123123213', 'test 123', 'test 123', '36', '36.01', '36.01.27', '36.01.27.2009', '102020', 0, '2021-08-15 01:13:06', '2021-10-12 20:54:19', 50, 57),
+(30, 51, 'Rumah 1', 'Orang rumahh', '0812323123123', 'Jalan Rumah kedua', '-', '17', '17.71', '17.71.02', '17.71.02.1002', '20020', 0, '2021-08-17 19:56:44', '2021-10-12 20:54:19', 51, 57),
+(31, 51, 'Tambah ah', 'test', '21312312323', 'asdads', 'asdas', '51', '51.08', '51.08.06', '51.08.06.1022', '10120', 0, '2021-08-17 20:26:12', '2021-10-12 20:54:19', 51, 57),
+(32, 26, 'Kafe Antasari', 'Rizki', '08123456678', 'Jl Putih Melati', '-', '31', '31.74', '31.74.07', '31.74.07.1010', '121212', 0, '2021-08-28 12:11:28', '2021-10-12 20:54:19', 26, 57),
+(33, 40, 'Kafe Antasari', 'Rizki', '08123456678', 'Jl Putih Melati 10 B', 'lalala', '31', '31.74', '31.74.07', '31.74.07.1010', '121212', 0, '2021-09-10 13:26:12', '2021-10-12 20:54:19', 40, 57),
+(34, 40, 'rumah Ganang', 'Ganang', '08123456678', 'Jl Mampang', '-', '32', '32.76', '32.76.01', '32.76.01.1009', '121212', 0, '2021-09-10 13:32:30', '2021-10-12 20:54:19', 40, 57),
+(35, 52, 'RUMAH', 'Ganang', '081122127366', 'JALAN SENTOSA RAYA, NO.99B', 'Toko YES MEDIKA', '32', '32.76', '32.76.05', '32.76.05.1004', '16312', 0, '2021-09-16 10:48:04', '2021-10-12 20:54:19', 52, 57),
+(36, 53, 'Rumah Ganang', 'Ganang', '081234554656', 'Mampang Mase no 99', '-', '32', '32.76', '32.76.01', '32.76.01.1009', '121212', 0, '2021-10-07 21:40:12', '2021-10-12 20:54:19', 53, 57),
+(37, 55, 'Rumah', 'Bimbo', '0181440900', 'GDC Sektor Melati', 'Rumah Warna Hijau', '32', '32.76', '32.76.08', '32.76.08.1005', '16416', 0, '2021-10-12 17:02:19', '2021-10-12 20:54:19', 55, 57),
+(38, 57, 'jl. hsdk', 'joko edan', '085218121001', 'jl.kaddll', 'ffasdfsa', '32', '32.76', '32.76.06', '32.76.06.1002', '16425', 1, '2021-10-12 20:53:53', '2021-10-12 20:54:19', 57, 57),
+(39, 57, 'jl. hsdk', 'joko edan', '085218121001', 'jl.kaddll', 'ffasdfsa', '32', '32.76', '32.76.06', '32.76.06.1002', '16425', 0, '2021-10-12 20:54:03', '2021-10-12 20:54:19', 57, 57),
+(40, 58, 'Jl. Lontar', 'Putri utami', '087871956113', 'Rt. 10 rw. 03', 'Samping bengkel motor', '31', '31.74', '31.74.09', '31.74.09.1004', '12610', 1, '2021-10-13 10:25:49', '2021-10-13 10:25:49', 58, 58),
+(41, 59, 'Kedung waringin ', 'Qisab', '0895611719054', 'Kp. Kedung waringin tengah no. 23 Rt/Rw 04/14 Bpjong gede ', 'Di belakan perumahan ambar waringin elok', '32', '32.01', '32.01.13', '32.01.13.2005', '16320', 1, '2021-10-13 10:47:35', '2021-10-13 10:47:35', 59, 59),
+(42, 62, 'home', 'hariz', '0844332347', 'jl. juanda', 'depok', '32', '32.17', '32.17.04', '32.17.04.2003', '16435', 1, '2021-10-30 16:55:05', '2021-10-30 16:55:05', 62, 62),
+(43, 66, 'Rumah', 'Bimbo', '0181440900', 'Blok Q1 No.3', 'Rumah Warna Kelabu', '32', '32.76', '32.76.08', '32.76.08.1005', '16416', 1, '2021-11-09 10:45:34', '2021-11-09 10:45:34', 66, 66),
+(44, 68, 'RUMAH', 'Ganang', '081122127366', 'Jalan satu dua dan tiga', '', '75', '75.01', '75.01.17', '75.01.17.2003', '16312', 1, '2021-11-09 11:12:28', '2021-11-09 11:12:28', 68, 68),
+(45, 67, 'Gng', 'Ganang', '081233243434', 'Jl Depok', '-', '32', '32.76', '32.76.02', '32.76.02.1012', '123223', 1, '2021-11-09 11:26:38', '2021-11-09 11:26:38', 67, 67),
+(46, 70, 'rums', 'ganng', '082211215277', 'perujmaghan', '', '63', '63.01', '63.01.03', '63.01.03.1002', '123223', 1, '2021-11-25 13:53:10', '2021-11-25 13:53:10', 70, 70),
+(47, 75, 'jl cinta', 'jokowi', '085218121001', 'jl cinta rt 1 rw 1', 'antar aja yaah', '32', '32.03', '32.03.28', '32.03.28.2004', '16425', 1, '2021-11-25 16:21:02', '2021-11-25 16:21:02', 75, 75),
+(48, 76, 'Rumah', 'Primer', '018144090019', 'Jl. Sanubari IV No.8', 'Rumah yang ada anjingnya', '32', '32.76', '32.76.08', '32.76.08.1005', '16416', 1, '2021-11-25 16:27:14', '2021-11-25 16:27:14', 76, 76),
+(49, 49, 'Kafe Antasari', 'Rizki', '08123456678', 'Jl Putih Melati', '', '31', '31.74', '31.74.07', '31.74.07.1010', '121212', 1, '2021-12-14 17:25:00', '2021-12-14 17:25:00', 49, 49);
 
 -- --------------------------------------------------------
 
@@ -91395,10 +91410,11 @@ INSERT INTO `ym_cart` (`id`, `username`, `product_id`, `variant_id`, `qty`, `cre
 (5, 'guest1624514878', 25, 1, 1, 1, 1, '2021-06-24 13:11:37', '2021-06-24 13:11:37'),
 (6, 'guest1627998069', 25, 1, 2, 1, 1, '2021-08-03 20:46:05', '2021-08-03 20:46:05'),
 (7, 'guest1627998069', 25, 2, 4, 1, 1, '2021-08-03 20:46:13', '2021-08-03 20:46:13'),
-(21, 'pow33231', 25, 1, 1, 26, 26, '2021-09-10 20:58:55', '2021-09-10 20:58:55'),
-(25, 'postgres', 25, 1, 1, 40, 40, '2021-09-10 21:28:54', '2021-09-10 21:28:54'),
-(51, 'ganang', 25, 1, 3, 30, 30, '2021-11-30 15:10:55', '2021-11-30 15:11:30'),
-(52, 'ganang', 25, 2, 1, 30, 30, '2021-11-30 15:11:01', '2021-11-30 15:11:01');
+(19, 'postgres', 24, NULL, 1, 40, 40, '2021-09-10 14:57:29', '2021-09-10 14:57:29'),
+(23, 'gananghariz', 25, NULL, 1, 53, 53, '2021-10-12 14:50:50', '2021-10-12 14:50:50'),
+(24, 'gananghariz', 21, 4, 1, 53, 53, '2021-10-12 16:48:47', '2021-10-12 16:48:47'),
+(46, 'gananghariz1', 1, NULL, 4, 70, 70, '2021-11-25 13:55:18', '2021-11-25 13:55:32'),
+(47, 'gananghariz1', 20, NULL, 4, 70, 70, '2021-11-25 13:55:26', '2021-11-25 13:55:32');
 
 -- --------------------------------------------------------
 
@@ -91422,8 +91438,15 @@ CREATE TABLE `ym_category` (
 --
 
 INSERT INTO `ym_category` (`id`, `name`, `description`, `status`, `create_by`, `update_by`, `create_time`, `update_time`) VALUES
-(1, 'Sensi', NULL, 1, 0, 0, '2021-04-20 16:15:01', '2021-04-20 16:15:01'),
-(2, 'Softies', NULL, 1, 0, 0, '2021-04-20 16:15:01', '2021-04-20 16:15:01');
+(1, 'Sarung Tangan', NULL, 1, 0, 0, '2021-04-20 16:15:01', '2021-09-17 10:29:52'),
+(2, 'Masker', NULL, 1, 0, 0, '2021-04-20 16:15:01', '2021-09-17 10:31:32'),
+(3, 'Timbangan', NULL, 1, 0, 0, '2021-09-17 10:32:37', '2021-09-17 10:32:56'),
+(4, 'Tensimeter', NULL, 1, 0, 0, '2021-09-17 10:35:38', '2021-09-17 10:35:38'),
+(5, 'Multicheck GCU', NULL, 1, 0, 0, '2021-09-17 10:35:38', '2021-09-17 17:03:11'),
+(6, 'Hand Sanitizer', NULL, 1, 0, 0, '2021-09-17 17:03:31', '2021-09-17 17:03:36'),
+(7, 'disinfektan', NULL, 1, 0, 0, '2021-09-17 17:04:15', '2021-09-17 17:04:15'),
+(8, 'Alat Pelindung Diri', NULL, 1, 0, 0, '2021-09-17 17:05:32', '2021-09-17 17:05:43'),
+(9, 'Thermometer', NULL, 1, 0, 0, '2021-09-17 17:05:32', '2021-09-17 17:05:47');
 
 -- --------------------------------------------------------
 
@@ -91451,9 +91474,11 @@ CREATE TABLE `ym_payment_doc` (
 --
 
 INSERT INTO `ym_payment_doc` (`id`, `transaction_id`, `sender_name`, `account_number`, `provider`, `amount`, `file_location`, `status`, `create_by`, `update_by`, `create_time`, `update_time`) VALUES
-(3, 38, 'aaaa', '2222', 2, 4343443, 'assets/payment_docs/389.jpeg', 2, 30, 0, '2021-11-02 16:07:30', '2021-11-02 16:13:05'),
-(4, 38, 'aaasas', '567567', 4, 344535, 'assets/payment_docs/3810.jpeg', 1, 30, 0, '2021-11-02 16:13:40', '2021-11-02 16:13:40'),
-(5, 39, 'ganang', '2342342', 2, 10000, 'assets/payment_docs/39.jpeg', 1, 30, 0, '2021-11-02 16:15:18', '2021-11-02 16:15:18');
+(6, 46, 'Ganang', '2342342342', 1, 380000, 'assets/payment_docs/46.png', 1, 67, 0, '2021-11-09 11:27:47', '2021-11-09 11:27:47'),
+(7, 44, 'bimbo', '12030001', 3, 830000, 'assets/payment_docs/44.png', 1, 66, 0, '2021-11-09 12:23:13', '2021-11-09 12:23:13'),
+(8, 47, 'Ganang', '2342342342', 3, 725000, 'assets/payment_docs/47.png', 1, 70, 0, '2021-11-25 13:54:19', '2021-11-25 13:54:19'),
+(9, 48, 'joko', '1570003777741', 1, 500000, 'assets/payment_docs/48.jpeg', 1, 75, 0, '2021-11-25 16:24:06', '2021-11-25 16:24:06'),
+(10, 49, 'Primer', '120300019', 1, 552000, 'assets/payment_docs/49.png', 1, 76, 0, '2021-11-25 16:29:12', '2021-11-25 16:29:12');
 
 -- --------------------------------------------------------
 
@@ -91515,10 +91540,10 @@ CREATE TABLE `ym_product` (
 --
 
 INSERT INTO `ym_product` (`id`, `category_id`, `promo_id`, `name`, `description`, `photo`, `price`, `brand`, `weight`, `dimension`, `stock`, `status`, `create_by`, `update_by`, `create_time`, `update_time`) VALUES
-(1, 1, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:11', '2021-04-20 16:17:15'),
-(2, 1, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:15'),
-(3, 1, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:15'),
-(4, 1, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:15'),
+(1, 3, NULL, 'GEA Timbangan Bayi Digital', 'Timbangan Digital untuk bayi merk GEA', '[\"001/bayi.jfif\"]', 377000, 'GEA', 1, '1x1x1', 99, 2, 0, 0, '2021-04-20 11:09:11', '2021-10-13 10:48:45'),
+(2, 1, NULL, 'Oxycan 500cc/10bar', 'Oxygen kemasan kecil untuk pertolongan pertama', '[\"001/oxycan.jpg\"]', 185000, 'yesmedika', 1, '1x1x1', 20, 2, 0, 0, '2021-04-20 11:09:39', '2021-09-16 11:25:51'),
+(3, 4, NULL, 'Tensimeter Digital ABN', 'Tensimeter Digital berbentuk gelang dari ABN', '[\"001/tensimeterabn.jpeg\"]', 565000, 'Abadi Nusa', 1, '1x1x1', 99, 2, 0, 0, '2021-04-20 11:09:39', '2021-10-13 13:52:32'),
+(4, 6, NULL, 'Hand Sanitizer Onemed Aseptic Gel', 'Hand sanitizer pembersih tangan dari bakteri dan kuman merk ONEMED', '[\"001/aseptic.jpeg\"]', 45000, 'Onemed', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-09-17 17:06:40'),
 (5, 1, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:15'),
 (6, 1, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:15'),
 (7, 1, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:15'),
@@ -91527,19 +91552,19 @@ INSERT INTO `ym_product` (`id`, `category_id`, `promo_id`, `name`, `description`
 (10, 1, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:15'),
 (11, 1, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:15'),
 (12, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(13, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(14, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(15, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(16, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(17, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(18, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(19, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(20, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(21, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(22, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-04-20 16:17:32'),
-(23, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 95, 2, 0, 0, '2021-04-20 11:09:39', '2021-09-10 13:49:17'),
-(24, 2, NULL, 'masker', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 1, '1x1x1', 89, 2, 0, 0, '2021-04-20 11:09:39', '2021-12-14 16:12:29'),
-(25, 2, NULL, 'Perban', 'Ini perban', '[\"perban.jpg\"]', 10000, 'yesmedika', 500, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-12-14 12:46:15');
+(13, 6, NULL, 'Hand Sanitizer Pump 500ml', 'Hand sanitizer pump ukuran 250ml, untuk membersihkan tangan dari bakteri, kuman, dan virus', '[\"013/dreamcarepump.jpeg\"]', 21000, 'yesmedika', 1, '1x1x1', 99, 2, 0, 0, '2021-04-20 11:09:39', '2021-11-25 16:27:51'),
+(14, 7, NULL, 'Disinfectan Spray 250ml', 'Disinfektan spray merk dream care, untuk membunuh virus dan kuman yang menempel di benda', '[\"014/disinfektanspray.jpeg\"]', 17000, 'yesmedika', 1, '1x1x1', 99, 2, 0, 0, '2021-04-20 11:09:39', '2021-11-25 16:27:51'),
+(15, 5, NULL, 'Autocheck GCU', 'Alat tes kadar gula darah, kolesterol, dan asam urat merk Autocheck', '[\"015/autocheckgcu.jpeg\"]', 285000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-10-08 10:42:37'),
+(16, 6, NULL, 'Dream Care Hand Sanitizer 5 Liter', 'Hand sanitizer cair dan gel merk Dream Care, dapat membersihkan kuman dan bakteri yang menempel di tangan', '[\"016/handsanitizer.jpeg\"]', 120000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-10-08 10:40:42'),
+(17, 8, NULL, 'APD Microporous Onecare', 'APD Microporous merk onecare, plain dan blue seal tape', '[\"017/apdseal.jpeg\",\"017/microporousplain.jpeg\"]', 120000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-10-08 10:39:10'),
+(18, 9, NULL, 'Thermogun Aicare', 'Thermometer infrared', '[\"018/aicarethermogun.jpeg\"]', 450000, 'yesmedika', 1, '1x1x1', 99, 2, 0, 0, '2021-04-20 11:09:39', '2021-11-09 10:46:22'),
+(19, 5, NULL, 'Strip Test Merk Accupro', 'Strip test untuk mengukur kadar asam urat, gula, kolesterol, dan hemoglobin merk Accupro', '[\"019/accuprostrip.jpeg\"]', 89000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-10-08 10:35:13'),
+(20, 5, NULL, 'Accupro Alat Test GCUH', 'Alat untuk tes kadar gula, kolesterol, asam urat, dan hemoglobin', '[\"020/accuprogcu.jpeg\"]', 514000, 'yesmedika', 1, '1x1x1', 98, 2, 0, 0, '2021-04-20 11:09:39', '2021-11-25 16:27:51'),
+(21, 5, NULL, 'Autocheck Strip Test', 'Strip untuk test kadar asam urat, gula, dan kolesterol dalam darah merk autocheck', '[\"001/autocheckstrip.jpeg\"]', 102000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-09-17 10:36:53'),
+(22, 5, NULL, 'Strip test Nesco', 'Strip tes gula, kolesterol dan asam urat', '[\"001/stripnesco.jpeg\"]', 107000, 'yesmedika', 1, '1x1x1', 100, 2, 0, 0, '2021-04-20 11:09:39', '2021-09-17 10:36:58'),
+(23, 4, NULL, 'Tensimeter Digital Omron', 'Alat ukur tekanan darah, tensimeter digital merk Omron', '[\"001/omrontensimeter.jpeg\"]', 950000, 'Omron', 1, '1x1x1', 94, 2, 0, 0, '2021-04-20 11:09:39', '2021-10-12 17:04:06'),
+(24, 4, NULL, 'Tensimeter Digital General Care', 'Tensimeter Digital, alat ukur tekanan darah merk General Care', '[\"001/gctensimeter.jpeg\"]', 345000, 'General Care', 1, '1x1x1', 87, 2, 0, 0, '2021-04-20 11:09:39', '2021-12-14 17:25:19'),
+(25, 4, NULL, 'Tensimeter Digital Yuwell', 'Alat ukur tekanan darah, Tensimeter Digital merk Yuwell', '[\"001/yuwell.jpeg\",\"001/yuwell.jpeg\"]', 380000, 'Yuwell', 1, '1x1x1', 92, 2, 0, 0, '2021-04-20 11:09:39', '2021-12-14 17:25:19');
 
 -- --------------------------------------------------------
 
@@ -91586,16 +91611,15 @@ CREATE TABLE `ym_rating` (
 --
 
 INSERT INTO `ym_rating` (`id`, `comment`, `transaction_product_id`, `product_id`, `rate`, `photo`, `status`, `create_by`, `update_by`, `create_time`, `update_time`) VALUES
-(1, 'asdsdasd', 24, 25, '4', '', 1, 40, 0, '0000-00-00 00:00:00', '2021-09-10 17:23:04'),
-(2, 'ghghjjghjgh', 25, 25, '2', '', 1, 40, 0, '0000-00-00 00:00:00', '2021-09-10 17:23:20'),
-(3, 'Oke', 23, 23, '2', '', 1, 40, 0, '0000-00-00 00:00:00', '2021-09-10 17:23:40'),
-(4, 'uhuy', 22, 23, '1', '', 1, 40, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(5, 'rtyt', 21, 23, '1', '', 1, 40, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(6, 'dffddffdfdfdfdffd', 20, 23, '5', '', 1, 40, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(7, 'Bagus', 19, 24, '4', '', 1, 40, 0, '2021-09-10 18:22:10', '0000-00-00 00:00:00'),
-(8, 'bagus tp gampang sobek', 26, 24, '4', '', 1, 40, 0, '2021-09-10 20:52:05', '0000-00-00 00:00:00'),
-(9, 'oke', 27, 25, '5', '', 1, 40, 0, '2021-09-10 20:52:05', '0000-00-00 00:00:00'),
-(10, 'mantep', 31, 24, '5', '', 1, 30, 0, '2021-10-06 17:41:24', '0000-00-00 00:00:00');
+(1, 'asdsdasd', 24, 25, 4, '', 1, 40, 0, '0000-00-00 00:00:00', '2021-09-10 17:23:04'),
+(2, 'ghghjjghjgh', 25, 25, 2, '', 1, 40, 0, '0000-00-00 00:00:00', '2021-09-10 17:23:20'),
+(3, 'Oke', 23, 23, 2, '', 1, 40, 0, '0000-00-00 00:00:00', '2021-09-10 17:23:40'),
+(4, 'uhuy', 22, 23, 1, '', 1, 40, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, 'rtyt', 21, 23, 1, '', 1, 40, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, 'dffddffdfdfdfdffd', 20, 23, 5, '', 1, 40, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, 'Bagus', 19, 24, 4, '', 1, 40, 0, '2021-09-10 18:22:10', '0000-00-00 00:00:00'),
+(8, 'Jelek banget', 26, 25, 1, '', 1, 52, 0, '2021-09-16 05:51:48', '0000-00-00 00:00:00'),
+(9, 'Tensimeternya akurat bossss', 27, 25, 5, '', 1, 53, 0, '2021-10-07 14:48:59', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -91658,8 +91682,8 @@ INSERT INTO `ym_role_permission` (`role_id`, `permission_id`, `create_time`, `up
 CREATE TABLE `ym_transaction` (
   `id` int(6) NOT NULL,
   `awb` varchar(100) NOT NULL,
-  `shipping_cost` int(6) NOT NULL,
   `shipping_desc` varchar(100) NOT NULL,
+  `shipping_cost` int(6) NOT NULL,
   `status` int(11) NOT NULL,
   `pickup_type` int(11) NOT NULL,
   `address_id` int(11) NOT NULL,
@@ -91676,35 +91700,40 @@ CREATE TABLE `ym_transaction` (
 -- Dumping data for table `ym_transaction`
 --
 
-INSERT INTO `ym_transaction` (`id`, `awb`, `shipping_cost`, `shipping_desc`, `status`, `pickup_type`, `address_id`, `address_string`, `payment_type`, `create_by`, `update_by`, `expire`, `create_time`, `update_time`) VALUES
-(14, '', 0, '', 1, 0, 0, '', 0, 49, 49, '2021-07-01 18:34:30', '0000-00-00 00:00:00', '2021-07-01 15:34:30'),
-(15, '', 0, '', 1, 0, 0, '', 0, 49, 49, '2021-07-01 19:39:41', '2021-07-01 16:39:41', '2021-07-01 16:39:41'),
-(16, '', 0, '', 1, 0, 0, '', 0, 49, 49, '2021-07-01 19:49:52', '2021-07-01 16:49:52', '2021-07-01 16:49:52'),
-(19, '', 0, '', 1, 0, 0, '', 0, 50, 50, '2021-08-03 19:46:45', '2021-08-03 16:46:45', '2021-08-03 21:46:45'),
-(20, '', 0, '', 1, 0, 0, '', 0, 26, 26, '2021-08-28 15:08:34', '2021-08-28 12:08:34', '2021-08-28 12:08:34'),
-(21, '', 0, '', 2, 0, 0, '', 0, 26, 26, '2021-08-28 15:12:23', '2021-08-28 12:12:23', '2021-08-28 12:12:23'),
-(22, '', 0, '', 2, 0, 0, '', 0, 26, 26, '2021-08-28 16:34:53', '2021-08-28 13:34:53', '2021-08-28 13:34:53'),
-(25, '', 0, '', 1, 0, 0, '', 0, 40, 40, '2021-08-31 17:58:27', '2021-08-31 14:58:27', '2021-08-31 14:58:27'),
-(26, '', 0, '', 1, 1, 99, 'Jalan Cempaka Baru 4 No. 43, Kemayoran, Jakarta Pusat, DKI Jakarta 10640', 2, 40, 40, '2021-08-31 18:18:08', '2021-08-31 15:18:08', '2021-08-31 15:18:08'),
-(27, '', 0, '', 1, 1, 33, 'Jl Mampang', 2, 40, 40, '2021-09-10 16:42:16', '2021-09-10 13:42:16', '2021-09-10 13:42:16'),
-(28, '', 0, '', 5, 2, 34, 'Jl Mampang', 2, 40, 40, '2021-09-10 16:43:44', '2021-09-10 13:43:44', '2021-09-10 13:43:44'),
-(29, '', 0, '', 5, 1, 33, 'Jl Mampang', 2, 40, 40, '2021-09-10 16:44:19', '2021-09-10 13:44:19', '2021-09-10 13:44:19'),
-(30, '', 0, '', 5, 1, 33, 'Jl Mampang', 2, 40, 40, '2021-09-10 16:44:53', '2021-09-10 13:44:53', '2021-09-10 13:44:53'),
-(31, '', 0, '', 5, 2, 34, 'Jl Mampang, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 40, 40, '2021-09-10 16:48:40', '2021-09-10 13:48:40', '2021-09-10 13:48:40'),
-(32, '', 0, '', 5, 1, 33, 'Jl Putih Melati 10 B, Kelurahan Cipete Utara, Kecamatan Kebayoran Baru, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 121212', 2, 40, 40, '2021-09-10 16:49:13', '2021-09-10 13:49:13', '2021-09-10 13:49:13'),
-(33, '', 0, '', 5, 1, 34, 'Jl Mampang, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 40, 40, '2021-09-10 17:29:41', '2021-09-10 14:29:41', '2021-09-10 14:29:41'),
-(34, '', 0, '', 5, 2, 34, 'Jl Mampang, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 40, 40, '2021-09-10 23:44:03', '2021-09-10 20:44:03', '2021-09-10 20:44:03'),
-(35, '', 0, '', 1, 1, 34, 'Jl Mampang, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 40, 40, '2021-09-11 00:02:58', '2021-09-10 21:02:58', '2021-09-10 21:02:58'),
-(36, '', 0, '', 1, 1, 34, 'Jl Mampang, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 40, 40, '2021-09-11 00:14:04', '2021-09-10 21:14:04', '2021-09-10 21:14:04'),
-(37, '', 0, '', 0, 1, 36, 'Jl Test 1234, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 30, 30, '2021-10-06 19:55:19', '2021-10-06 16:55:19', '2021-10-06 16:55:19'),
-(38, '', 0, '', 1, 1, 36, 'Jl Test 1234, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 30, 30, '2021-10-06 20:02:36', '2021-10-06 17:02:36', '2021-10-06 17:02:36'),
-(39, '', 0, '', 1, 1, 36, 'Jl Test 1234, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 30, 30, '2021-11-02 19:14:53', '2021-11-02 16:14:53', '2021-11-02 16:14:53'),
-(40, '', 0, '', 1, 2, 38, 'Jl depok, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 49, 49, '2021-12-14 16:53:36', '2021-12-14 13:53:36', '2021-12-14 13:53:36'),
-(41, '', 0, '', 1, 3, 37, 'Jl Putih Melati 10B, Kelurahan Cipete Utara, Kecamatan Kebayoran Baru, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 121212', 2, 49, 49, '2021-12-14 16:54:18', '2021-12-14 13:54:18', '2021-12-14 13:54:18'),
-(42, '', 8000, 'OKE (2-3 hari)', 1, 3, 37, 'Jl Putih Melati 10B, Kelurahan Cipete Utara, Kecamatan Kebayoran Baru, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 121212', 2, 49, 49, '2021-12-14 18:28:16', '2021-12-14 15:28:16', '2021-12-14 15:28:16'),
-(43, '', 9000, 'REG (1-2 hari)', 0, 3, 37, 'Jl Putih Melati 10B, Kelurahan Cipete Utara, Kecamatan Kebayoran Baru, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 121212', 2, 49, 49, '2021-12-14 19:00:39', '2021-12-14 16:00:39', '2021-12-14 16:00:39'),
-(44, '', 27000, 'REG (1-2 hari)', 1, 3, 37, 'Jl Putih Melati 10B, Kelurahan Cipete Utara, Kecamatan Kebayoran Baru, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 121212', 2, 49, 49, '2021-12-14 19:03:09', '2021-12-14 16:03:09', '2021-12-14 16:03:09'),
-(45, '', 0, '', 1, 1, 37, 'Jl Putih Melati 10B, Kelurahan Cipete Utara, Kecamatan Kebayoran Baru, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 121212', 2, 49, 49, '2021-12-14 19:12:29', '2021-12-14 16:12:29', '2021-12-14 16:12:29');
+INSERT INTO `ym_transaction` (`id`, `awb`, `shipping_desc`, `shipping_cost`, `status`, `pickup_type`, `address_id`, `address_string`, `payment_type`, `create_by`, `update_by`, `expire`, `create_time`, `update_time`) VALUES
+(14, '', '', 0, 2, 0, 0, '', 0, 49, 49, '2021-07-01 18:34:30', '0000-00-00 00:00:00', '2021-07-01 15:34:30'),
+(15, '', '', 0, 1, 0, 0, '', 0, 49, 49, '2021-07-01 19:39:41', '2021-07-01 16:39:41', '2021-07-01 16:39:41'),
+(16, '', '', 0, 1, 0, 0, '', 0, 49, 49, '2021-07-01 19:49:52', '2021-07-01 16:49:52', '2021-07-01 16:49:52'),
+(19, '', '', 0, 1, 0, 0, '', 0, 50, 50, '2021-08-03 19:46:45', '2021-08-03 16:46:45', '2021-08-03 21:46:45'),
+(20, '', '', 0, 1, 0, 0, '', 0, 26, 26, '2021-08-28 15:08:34', '2021-08-28 12:08:34', '2021-08-28 12:08:34'),
+(21, '', '', 0, 2, 0, 0, '', 0, 26, 26, '2021-08-28 15:12:23', '2021-08-28 12:12:23', '2021-08-28 12:12:23'),
+(22, '', '', 0, 2, 0, 0, '', 0, 26, 26, '2021-08-28 16:34:53', '2021-08-28 13:34:53', '2021-08-28 13:34:53'),
+(25, '', '', 0, 1, 0, 0, '', 0, 40, 40, '2021-08-31 17:58:27', '2021-08-31 14:58:27', '2021-08-31 14:58:27'),
+(26, '', '', 0, 1, 1, 99, 'Jalan Cempaka Baru 4 No. 43, Kemayoran, Jakarta Pusat, DKI Jakarta 10640', 2, 40, 40, '2021-08-31 18:18:08', '2021-08-31 15:18:08', '2021-08-31 15:18:08'),
+(27, '', '', 0, 1, 1, 33, 'Jl Mampang', 2, 40, 40, '2021-09-10 16:42:16', '2021-09-10 13:42:16', '2021-09-10 13:42:16'),
+(28, '', '', 0, 5, 2, 34, 'Jl Mampang', 2, 40, 40, '2021-09-10 16:43:44', '2021-09-10 13:43:44', '2021-09-10 13:43:44'),
+(29, '', '', 0, 5, 1, 33, 'Jl Mampang', 2, 40, 40, '2021-09-10 16:44:19', '2021-09-10 13:44:19', '2021-09-10 13:44:19'),
+(30, '', '', 0, 5, 1, 33, 'Jl Mampang', 2, 40, 40, '2021-09-10 16:44:53', '2021-09-10 13:44:53', '2021-09-10 13:44:53'),
+(31, '', '', 0, 5, 2, 34, 'Jl Mampang, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 40, 40, '2021-09-10 16:48:40', '2021-09-10 13:48:40', '2021-09-10 13:48:40'),
+(32, '', '', 0, 5, 1, 33, 'Jl Putih Melati 10 B, Kelurahan Cipete Utara, Kecamatan Kebayoran Baru, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 121212', 2, 40, 40, '2021-09-10 16:49:13', '2021-09-10 13:49:13', '2021-09-10 13:49:13'),
+(33, '', '', 0, 5, 1, 34, 'Jl Mampang, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 40, 40, '2021-09-10 17:29:41', '2021-09-10 14:29:41', '2021-09-10 14:29:41'),
+(34, '', '', 0, 5, 1, 35, 'JALAN SENTOSA RAYA, NO.99B, Kelurahan Mekar Jaya, Kecamatan Sukmajaya, KOTA DEPOK, JAWA BARAT 16312', 2, 52, 52, '2021-09-16 08:48:34', '2021-09-16 05:48:34', '2021-09-16 10:48:34'),
+(35, '', '', 0, 5, 2, 36, 'Mampang Mase no 99, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 53, 53, '2021-10-07 17:40:33', '2021-10-07 14:40:33', '2021-10-07 21:40:33'),
+(36, '', '', 0, 2, 1, 36, 'Mampang Mase no 99, Kelurahan Mampang, Kecamatan Pancoran Mas, KOTA DEPOK, JAWA BARAT 121212', 2, 53, 53, '2021-10-12 09:28:29', '2021-10-12 06:28:29', '2021-10-12 13:28:29'),
+(37, '', '', 0, 1, 1, 37, 'GDC Sektor Melati, Kelurahan Jatimulya, Kecamatan Cilodong, KOTA DEPOK, JAWA BARAT 16416', 2, 55, 55, '2021-10-12 13:04:06', '2021-10-12 10:04:06', '2021-10-12 17:04:06'),
+(38, '', '', 0, 1, 1, 38, 'jl.kaddll, Kelurahan Kukusan, Kecamatan Beji, KOTA DEPOK, JAWA BARAT 16425', 2, 57, 57, '2021-10-12 16:55:40', '2021-10-12 13:55:40', '2021-10-12 20:55:40'),
+(39, '', '', 0, 1, 1, 40, 'Rt. 10 rw. 03, Kelurahan Lenteng Agung, Kecamatan Jagakarsa, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 12610', 2, 58, 58, '2021-10-13 06:28:01', '2021-10-13 03:28:01', '2021-10-13 10:28:01'),
+(40, '', '', 0, 1, 1, 40, 'Rt. 10 rw. 03, Kelurahan Lenteng Agung, Kecamatan Jagakarsa, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 12610', 2, 58, 58, '2021-10-13 06:31:16', '2021-10-13 03:31:16', '2021-10-13 10:31:16'),
+(41, '', '', 0, 1, 1, 41, 'Kp. Kedung waringin tengah no. 23 Rt/Rw 04/14 Bpjong gede , Kelurahan Kedungwaringin, Kecamatan Bojong Gede, KAB. BOGOR, JAWA BARAT 16320', 2, 59, 59, '2021-10-13 06:48:45', '2021-10-13 03:48:45', '2021-10-13 10:48:45'),
+(42, '', '', 0, 1, 1, 0, ', Kelurahan , Kecamatan , ,  ', 2, 55, 55, '2021-10-13 09:52:32', '2021-10-13 06:52:32', '2021-10-13 13:52:32'),
+(43, '', '', 0, 1, 1, 42, 'jl. juanda, Kelurahan Cipada, Kecamatan Cikalongwetan, KAB. BANDUNG BARAT, JAWA BARAT 16435', 2, 62, 62, '2021-10-30 12:55:39', '2021-10-30 09:55:39', '2021-10-30 16:55:39'),
+(44, '', '', 0, 1, 1, 43, 'Blok Q1 No.3, Kelurahan Jatimulya, Kecamatan Cilodong, KOTA DEPOK, JAWA BARAT 16416', 2, 66, 66, '2021-11-09 06:46:22', '2021-11-09 03:46:22', '2021-11-09 10:46:22'),
+(45, '', '', 0, 1, 1, 44, 'Jalan satu dua dan tiga, Kelurahan Ombulo, Kecamatan Limboto Barat, KAB. GORONTALO, GORONTALO 16312', 2, 68, 68, '2021-11-09 07:12:46', '2021-11-09 04:12:46', '2021-11-09 11:12:46'),
+(46, '', '', 0, 1, 1, 45, 'Jl Depok, Kelurahan Cisalak Pasar, Kecamatan Cimanggis, KOTA DEPOK, JAWA BARAT 123223', 2, 67, 67, '2021-11-09 07:26:45', '2021-11-09 04:26:45', '2021-11-09 11:26:45'),
+(47, '', '', 0, 1, 1, 46, 'perujmaghan, Kelurahan Karang Taruna, Kecamatan Pelaihari, KAB. TANAH LAUT, KALIMANTAN SELATAN 123223', 2, 70, 70, '2021-11-25 09:53:36', '2021-11-25 06:53:36', '2021-11-25 13:53:36'),
+(48, '', '', 0, 1, 1, 47, 'jl cinta rt 1 rw 1, Kelurahan Sindanglaya, Kecamatan Cipanas, KAB. CIANJUR, JAWA BARAT 16425', 2, 75, 75, '2021-11-25 12:21:40', '2021-11-25 09:21:40', '2021-11-25 16:21:40'),
+(49, '', '', 0, 1, 1, 48, 'Jl. Sanubari IV No.8, Kelurahan Jatimulya, Kecamatan Cilodong, KOTA DEPOK, JAWA BARAT 16416', 2, 76, 76, '2021-11-25 12:27:51', '2021-11-25 09:27:51', '2021-11-25 16:27:51'),
+(50, '', 'YES (1-1 hari)', 18000, 1, 3, 49, 'Jl Putih Melati, Kelurahan Cipete Utara, Kecamatan Kebayoran Baru, KOTA ADM. JAKARTA SELATAN, DKI JAKARTA 121212', 2, 49, 49, '2021-12-14 13:25:19', '2021-12-14 10:25:19', '2021-12-14 17:25:19');
 
 -- --------------------------------------------------------
 
@@ -91752,19 +91781,32 @@ INSERT INTO `ym_transaction_product` (`id`, `transaction_id`, `product_id`, `var
 (23, 32, 23, NULL, 1, 10000, ''),
 (24, 33, 25, 1, 3, 30000, ''),
 (25, 33, 25, 2, 1, 11000, ''),
-(26, 34, 24, NULL, 1, 10000, 'test'),
-(27, 34, 25, 1, 2, 20000, 'test 2'),
-(28, 35, 25, 1, 1, 10000, ''),
-(29, 36, 25, 1, 1, 10000, ''),
-(30, 37, 25, 1, 1, 10000, ''),
-(31, 38, 24, NULL, 1, 10000, ''),
-(32, 39, 25, 1, 1, 10000, ''),
-(33, 40, 25, 1, 3, 30000, ''),
-(34, 41, 25, 1, 1, 10000, ''),
-(35, 42, 25, 1, 1, 10000, ''),
-(36, 43, 25, 2, 5, 55000, ''),
-(37, 44, 25, 2, 5, 55000, ''),
-(38, 45, 24, NULL, 1, 10000, '');
+(26, 34, 25, 1, 1, 10000, ''),
+(27, 35, 25, NULL, 1, 380000, ''),
+(28, 36, 24, NULL, 2, 690000, ''),
+(29, 37, 21, 4, 1, 102000, ''),
+(30, 37, 23, NULL, 1, 950000, ''),
+(31, 38, 25, NULL, 1, 380000, ''),
+(32, 39, 22, 1, 1, 202000, ''),
+(33, 40, 17, 12, 3, 510000, ''),
+(34, 41, 1, NULL, 1, 377000, ''),
+(35, 42, 16, 13, 2, 240000, ''),
+(36, 42, 3, NULL, 1, 565000, ''),
+(37, 42, 21, 4, 2, 204000, ''),
+(38, 43, 24, NULL, 1, 345000, ''),
+(39, 44, 25, NULL, 1, 380000, ''),
+(40, 44, 18, NULL, 1, 450000, ''),
+(41, 45, 21, 4, 1, 102000, ''),
+(42, 45, 20, NULL, 1, 514000, ''),
+(43, 46, 25, NULL, 1, 380000, ''),
+(44, 47, 25, NULL, 1, 380000, ''),
+(45, 47, 24, NULL, 1, 345000, ''),
+(46, 48, 25, NULL, 1, 380000, ''),
+(47, 49, 20, NULL, 1, 514000, ''),
+(48, 49, 14, NULL, 1, 17000, ''),
+(49, 49, 13, NULL, 1, 21000, ''),
+(50, 50, 25, NULL, 2, 760000, ''),
+(51, 50, 24, NULL, 1, 345000, '');
 
 -- --------------------------------------------------------
 
@@ -91802,7 +91844,22 @@ INSERT INTO `ym_user` (`id`, `firstname`, `lastname`, `birth_date`, `username`, 
 (40, 'John', 'Doe', '2021-04-01', 'postgres', 'john2@gmail.com', '$2y$10$m7oRko56UTAUFcGHeNlJO.8Nr5ri7WOpyu5o/tXD6aYCZ8Tly3Ssu', '0187237233232', 'pria', 1, '2021-04-16 07:48:50', '2021-08-04 09:56:37', 0, 0, 3),
 (49, 'Pow', 'Pow', '2021-04-22', 'pow3323', 'pow3323@gmail.com', '$2y$10$hgqQYME7CLW5BvHCDbb8DOWI062kvCztxZovKbq9MxdwD2OdjMHSm', '081232443434', 'pria', 1, '2021-04-16 10:36:06', '2021-08-04 09:56:39', 0, 0, 3),
 (50, 'Wunsel Arto', 'Negoro', '1997-03-06', 'wunselan', 'devwunsel@gmail.com', '$2y$10$ccL6ZOa.Y6kyE/9FDwZ3/O5nIhaTe3LIlpTzAMEnAS1mGvHbKFDoy', '08123231321321', 'pria', 1, '2021-08-03 13:43:17', '2021-08-13 08:40:39', 0, 0, 3),
-(51, 'tester', 'wunsel', '1984-08-14', 'tester123', 'testerwunsel@gmail.com', '$2y$10$/fsu473eI9rWH9i0yaCyYe/1pVmCuImuNK/qkZbBK7U.0rmIux/Qy', '0812323213', NULL, 1, '2021-08-17 12:55:58', '2021-08-17 12:55:58', 0, 0, 3);
+(51, 'tester', 'wunsel', '1984-08-14', 'tester123', 'testerwunsel@gmail.com', '$2y$10$/fsu473eI9rWH9i0yaCyYe/1pVmCuImuNK/qkZbBK7U.0rmIux/Qy', '0812323213', NULL, 1, '2021-08-17 12:55:58', '2021-08-17 12:55:58', 0, 0, 3),
+(52, 'gng', 'hrz', '9991-07-11', 'gnghrz', 'gng@hrz.com', '$2y$10$vqQgUp8CWcfCVKSARWMXjuc8xmMG5/OU3bBC0Q41gt0xLtKh7yn4O', '082211212233', NULL, 1, '2021-09-16 03:45:40', '2021-09-16 03:45:40', 0, 0, 3),
+(53, 'Ganang', 'Hariz', '2021-10-06', 'gananghariz', 'ganang07@gmail.com', '$2y$10$vdFw1goJacjGu2KBILy6g.CWco3MI1LKxR7drRs4tD/kZBQsxIPN2', '0812345678', NULL, 1, '2021-10-07 14:36:11', '2021-10-07 14:36:11', 0, 0, 3),
+(54, 'yb', 'as', '1983-02-01', 'bintoro', 'bintoro@yesmedika.com', '$2y$10$wLNrZM8nS/Gat9f2SmDJ7.ZZopehPkc5qIgFMF1.exRCkxVC.3ppm', '082312033348', NULL, 1, '2021-10-12 07:44:15', '2021-10-12 07:44:15', 0, 0, 3),
+(55, 'bimbo', 'cokro', '2001-02-01', 'bimbo', 'bimbo@yesmedika.com', '$2y$10$wLmcSPp/UdZp2QjwWpP15OPT6aZOsqHdQ1hOjSO4L8WezvlwZVCzC', '0818440900', NULL, 1, '2021-10-12 09:54:43', '2021-10-12 09:54:43', 0, 0, 3),
+(57, 'jokowi', 'edan', '2021-10-12', 'joko', 'jokowi@yesmedika.com', '$2y$10$TiT7TgFZSWePCHxTy.6GfufoEZMFEto1wdsPiK4jnu7S2jI4qTqQ2', '085218121001', NULL, 1, '2021-10-12 13:50:20', '2021-10-12 13:50:20', 0, 0, 3),
+(58, 'Putri', 'Utami', '1999-10-22', 'Putami', 'putriutami968@gmail.com', '$2y$10$6dReFcdJjpd8WWgVUdcVCO/oNBc6eT40AXjw0cJaxAhyn/wjdgcqG', '087871956113', NULL, 1, '2021-10-13 03:22:42', '2021-10-13 03:22:42', 0, 0, 3),
+(59, 'Rifkah', 'Fitrati', '1985-07-22', 'Qisab', 'riefkahfitrati@gmail.com', '$2y$10$Rrjb4.d.fl4593dlp4w0TeGie7tiC5uW/epE6sx3tlGogJCA0qmF6', '0895611719054', NULL, 1, '2021-10-13 03:37:33', '2021-10-13 03:37:33', 0, 0, 3),
+(62, 'Dev Wunsel Arto', 'Negoro', '2019-09-29', 'wunselllll', 'devwunsel123@gmail.com', '$2y$10$3NO0A2Jhq5YhxGNL9ppU4..YVuNkgl807PJsxMdgpXB/PwiR6U9RK', '081233339921', NULL, 1, '2021-10-30 09:51:42', '2021-10-30 09:51:42', 0, 0, 3),
+(66, 'bimbo', 'cokro', '0000-00-00', 'bimbo1', 'bimbo1@yesmedika.com', '$2y$10$JMhhq4OIrqm2xVQOnxyGz.KcC3NUJL4T1KTPtRx3XhvRnj4W/cAr6', '081844090065', NULL, 1, '2021-11-09 03:32:24', '2021-11-09 03:32:24', 0, 0, 3),
+(67, 'ganang', 'harz', '0000-00-00', 'gananghrs', 'gagaga@yesmedika.com', '$2y$10$F8OCwQtnbV0UyIdyr2QBbughgLwwHm1FkkUnCUndEN6LAS4CvF44G', '0238198273', NULL, 1, '2021-11-09 03:55:11', '2021-11-09 03:55:11', 0, 0, 3),
+(68, 'gng', 'hrz', '0000-00-00', 'gananghr', 'ganangh@yesmedika.com', '$2y$10$ib3shw.Tmky/.2To1OgFwOL..yvspj8POm5.FI/wIcaoU2WWlYrOS', '0831764319', NULL, 1, '2021-11-09 04:08:48', '2021-11-09 04:08:48', 0, 0, 3),
+(70, 'ganang', 'hariz', '0000-00-00', 'gananghariz1', 'ganang@yesmedika.com', '$2y$10$khZNDRbVPH84t92tE9I5leqsoXxbEr1H5pyOZXHXYuKrduYNu4I4e', '082211215267', NULL, 1, '2021-11-25 06:50:56', '2021-11-25 06:50:56', 0, 0, 3),
+(74, 'yudho', 'bintoro', '0000-00-00', 'yudho', 'yudhobintoro@yesmedika.com', '$2y$10$6R8Zc81TLiJ4VYN72yBiI.RHNa.nG2lqz34cPp4HOhvWTtcES7722', '08081318214044', NULL, 1, '2021-11-25 09:14:44', '2021-11-25 09:14:44', 0, 0, 3),
+(75, 'jokowi', 'bloon', '0000-00-00', 'jokowiek', 'jokowi@gmail.com', '$2y$10$jL.4SeDUd.X3/DW/tU9VAOEf2aUvzfu3KWnW5R5l9ne37zqjJA.iy', '089652097384', NULL, 1, '2021-11-25 09:17:43', '2021-11-25 09:17:43', 0, 0, 3),
+(76, 'Primer', 'cokro', '0000-00-00', 'primer', 'primer_1@yesmedika.com', '$2y$10$f/eqFsIJRJlQe7lvSl7nYORSx612toqRe36ao6C9wPk1vZQhfpIIW', '081844090019', NULL, 1, '2021-11-25 09:20:20', '2021-11-25 09:20:20', 0, 0, 3);
 
 -- --------------------------------------------------------
 
@@ -91829,8 +91886,20 @@ CREATE TABLE `ym_variant` (
 --
 
 INSERT INTO `ym_variant` (`id`, `product_id`, `name`, `description`, `price`, `stock`, `status`, `create_by`, `update_by`, `create_time`, `update_time`) VALUES
-(1, 25, 'Hitam', NULL, 10000, 36995, 2, 0, 0, '2021-05-31 15:37:45', '2021-12-14 15:28:16'),
-(2, 25, 'Putih', NULL, 11000, 35, 2, 0, 0, '2021-05-31 15:37:45', '2021-12-14 16:03:09');
+(1, 22, 'Cholesterol', NULL, 202000, 41, 2, 0, 0, '2021-05-31 15:37:45', '2021-10-13 10:28:01'),
+(2, 22, 'Glucose', NULL, 107000, 45, 2, 0, 0, '2021-05-31 15:37:45', '2021-09-17 10:02:48'),
+(3, 22, 'Uric Acid', NULL, 114000, 30, 2, 0, 0, '2021-09-17 10:07:48', '2021-09-17 10:08:20'),
+(4, 21, 'Glucose', NULL, 102000, 86, 2, 0, 0, '2021-09-17 10:19:16', '2021-11-09 11:12:46'),
+(5, 21, 'Cholesterol', NULL, 208000, 13, 2, 0, 0, '2021-09-17 10:19:16', '2021-09-17 10:19:16'),
+(6, 21, 'Uric Acid', NULL, 120000, 15, 2, 0, 0, '2021-09-17 10:19:16', '2021-09-17 10:19:16'),
+(7, 19, 'Glucose', NULL, 100000, 90, 2, 0, 0, '2021-09-17 16:51:44', '2021-09-17 16:58:54'),
+(8, 19, 'Cholesterol', NULL, 190000, 8, 2, 0, 0, '2021-09-17 16:51:44', '2021-09-17 16:58:57'),
+(9, 19, 'Uric Acid', NULL, 123000, 20, 2, 0, 0, '2021-09-17 16:51:44', '2021-09-17 16:58:59'),
+(10, 19, 'Hemoglobin', NULL, 89000, 201, 2, 0, 0, '2021-09-17 16:51:44', '2021-09-17 16:59:02'),
+(11, 17, 'Plain', NULL, 120000, 20, 2, 0, 0, '2021-09-17 17:15:27', '2021-09-17 17:16:14'),
+(12, 17, 'Blue Seal', NULL, 170000, 17, 2, 0, 0, '2021-09-17 17:15:27', '2021-10-13 10:31:16'),
+(13, 16, 'Cair', NULL, 120000, 3, 2, 0, 0, '2021-09-17 17:22:42', '2021-10-13 13:52:32'),
+(14, 16, 'Gel', NULL, 135000, 5, 2, 0, 0, '2021-09-17 17:22:42', '2021-09-17 17:22:42');
 
 --
 -- Indexes for dumped tables
@@ -91945,62 +92014,74 @@ ALTER TABLE `ym_variant`
 -- AUTO_INCREMENT for table `ym_address`
 --
 ALTER TABLE `ym_address`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+
 --
 -- AUTO_INCREMENT for table `ym_cart`
 --
 ALTER TABLE `ym_cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
 --
 -- AUTO_INCREMENT for table `ym_category`
 --
 ALTER TABLE `ym_category`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `ym_payment_doc`
 --
 ALTER TABLE `ym_payment_doc`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
 --
 -- AUTO_INCREMENT for table `ym_product`
 --
 ALTER TABLE `ym_product`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
 --
 -- AUTO_INCREMENT for table `ym_promo`
 --
 ALTER TABLE `ym_promo`
   MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+
 --
 -- AUTO_INCREMENT for table `ym_rating`
 --
 ALTER TABLE `ym_rating`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
 --
 -- AUTO_INCREMENT for table `ym_role`
 --
 ALTER TABLE `ym_role`
   MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `ym_transaction`
 --
 ALTER TABLE `ym_transaction`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
 --
 -- AUTO_INCREMENT for table `ym_transaction_product`
 --
 ALTER TABLE `ym_transaction_product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+
 --
 -- AUTO_INCREMENT for table `ym_user`
 --
 ALTER TABLE `ym_user`
-  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(6) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+
 --
 -- AUTO_INCREMENT for table `ym_variant`
 --
 ALTER TABLE `ym_variant`
-  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
 --
 -- Constraints for dumped tables
 --
@@ -92017,12 +92098,6 @@ ALTER TABLE `ym_address`
 ALTER TABLE `ym_cart`
   ADD CONSTRAINT `FK_product_id_cart` FOREIGN KEY (`product_id`) REFERENCES `ym_product` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_variant_id_cart` FOREIGN KEY (`variant_id`) REFERENCES `ym_variant` (`id`) ON UPDATE CASCADE;
-
---
--- Constraints for table `ym_payment_doc`
---
-ALTER TABLE `ym_payment_doc`
-  ADD CONSTRAINT `fk_transaction_id` FOREIGN KEY (`transaction_id`) REFERENCES `ym_transaction` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `ym_product`
@@ -92064,6 +92139,7 @@ ALTER TABLE `ym_user`
 --
 ALTER TABLE `ym_variant`
   ADD CONSTRAINT `FK_product_id` FOREIGN KEY (`product_id`) REFERENCES `ym_product` (`id`) ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

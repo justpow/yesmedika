@@ -87,6 +87,9 @@ $route['address/list-address'] = 'address/address';
 $route['rating/submit'] = 'rating/rating/submit_review';
 $route['rating/list'] = 'rating/rating/list_review';
 
+// Courier Router
+$route['courier/get-cost'] = 'courier/courier/get_cost';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

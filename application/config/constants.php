@@ -164,12 +164,12 @@ define('TRANS', $trans);
 $pickup = array(
     'PICKUP_IN_STORE' => 1,
     'KURIR_TOKO' => 2,
-    'JNT' => 3,
+    'JNE' => 3,
     //... DLL, Tapi bagusnya nanti ada tabel khusus kurir ya.
 
     1 => 'Ambil di Toko',
     2 => 'Kurir Toko',
-    3 => 'J&T'
+    3 => 'JNE'
 );
 define('PICKUP', $pickup);
 
@@ -208,3 +208,11 @@ $payment_provider = array(
     4 => 'MANDIRI'
 );
 define('PAYMENT_PROVIDER', $payment_provider);
+
+
+// COURIER CONFIG
+$COURIER = array(
+    'RAJAONGKIR_COST_URL' => 'https://api.rajaongkir.com/starter/cost',
+    'KEY' => '7627644004174fe2cb9640722529485c',
+);
+define('COURIER', $COURIER);

@@ -57,7 +57,7 @@
                                     <p class="mb-1">Jenis Kurir</p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="mb-1">: &nbsp;<?= PICKUP[$data['pickup_type']] ?></p>
+                                    <p class="mb-1">: &nbsp;<?= !empty($data['shipping_desc'])? PICKUP[$data['pickup_type']].' '. $data['shipping_desc']: PICKUP[$data['pickup_type']]?></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -65,7 +65,7 @@
                                     <p class="mb-1">No. Resi</p>
                                 </div>
                                 <div class="col-6">
-                                    <p class="mb-1">: &nbsp;-</p>
+                                    <p class="mb-1">: &nbsp;<?= !empty($data['awb']) ? $data['awb'] : '-'; ?></p>
                                 </div>
                             </div>
                             <div class="row">

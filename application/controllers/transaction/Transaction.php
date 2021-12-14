@@ -13,6 +13,7 @@ class Transaction extends MY_Controller {
         $this->load->model('UserAddress');
         $this->load->model('ratings');
         $this->load->model('payment');
+        $this->load->model('couriers');
     }
     
     private function compile_cart_items($cart)
@@ -147,9 +148,12 @@ class Transaction extends MY_Controller {
         // payment type.
         $payment_type = 0;
 
+        // shipping desc.
+        $shipping_desc = "";
+
         // Mapping note to checked item.
         foreach ($_POST as $key => $value) {
-            if ($key != 'note' && $key != 'pickup_type' && $key != 'address_id' && $key != 'address_string' && $key != 'payment_type') {
+            if ($key != 'note' && $key != 'pickup_type' && $key != 'address_id' && $key != 'address_string' && $key != 'payment_type' && $key != 'shipping_desc') {
                 @$item_checked[$key]->note = $value;
             }
         }
@@ -158,6 +162,12 @@ class Transaction extends MY_Controller {
         $address_id = $_POST['address_id'];
         $address_string = $_POST['address_string'];
         $payment_type = $_POST['payment_type'];
+        $shipping_cost = 0;
+        $shipping_desc = $_POST['shipping_desc'];
+        $destination_code = 0;
+        $origin_code = 115; // DEPOK
+        $total_weight = 0;
+        
 
         // Payment expiration time.
         $date_expire = date("Y-m-d H:i:s", strtotime('+3 hours'));
@@ -288,6 +298,9 @@ class Transaction extends MY_Controller {
                 return;
             }
 
+            // Calculate totalWeight.
+            $total_weight += $resultDetailProduct[0]['weight']*$value->qty;           
+
             // Deleting data from cart.
             $resultDelete = $this->cart->delete(array('product_id' => $value->product['id'], 'variant_id' => isset($value->variant) ? $value->variant['id'] : null, 'username' => $user->username));
             if ($resultDelete->error['code'] !==  0 && $resultDelete->error['message']) {
@@ -314,10 +327,52 @@ class Transaction extends MY_Controller {
             }
         }
 
+   
+        if ($pickup_type == PICKUP['JNE']) {
+            $res = $this->UserAddress->get_address_wilayah(array('address.id' =>  $address_id));
+            if ($res->error['code'] !==  0 && $res->error['message']) {
+                $this->session->set_flashdata('checkout_error', $res->error['message']);
+                redirect('cart');
+                return;
+            }
+
+            $res = $res->data->result_array();
+            if (count($res) == 0) {
+                $this->session->set_flashdata('checkout_error', 'Alamat tidak ditemukan');
+                redirect('cart');
+                return;
+            }
+            
+            $destination_code = $res[0]['kode_ongkir'];
+            
+            $result = $this->couriers->get_cost($origin_code, $destination_code, $total_weight, strtolower(PICKUP[$pickup_type]));
+            if (!empty($result) && isset($result->rajaongkir) && count($result->rajaongkir->results) != 0) {
+                $list = $result->rajaongkir->results[0]->costs;
+
+                for ($i=0; $i < count($list); $i++) {                    
+                    if ($list[$i]->service == $shipping_desc) {
+                        $shipping_desc.= " (".$list[$i]->cost[0]->etd." hari)";
+                        $shipping_cost = $list[$i]->cost[0]->value;
+                    break;
+                    }
+                }
+            }
+
+            // Update transaction shipping cost and description.
+            $result = $this->transactions->update_transaction(array(
+                'shipping_cost' => $shipping_cost,
+                'shipping_desc' => $shipping_desc), array('id' => $trans_id));
+            if ($result->error['code'] !==  0 && $result->error['message']) {
+                redirect('cart'); // temporary error handler. Need flashdata.
+                return;
+            }
+
+        }
+
         $data = array(
             'transaction_id' => $trans_id,
             'invoice' => 'INV/YES/'.$trans_id, // Temporary, need discuss the invoice format.
-            'total' => $grand_total,
+            'total' => $grand_total+$shipping_cost,
             'expire' => $date_expire
         );
 

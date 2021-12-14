@@ -53,7 +53,7 @@ class UserAddress extends MY_Model {
 
     public function get_address_wilayah($data="")
     {
-        $this->db->select('address.*, a.nama as nama_kelurahan, b.nama as nama_kecamatan, c.nama as nama_kota, d.nama as nama_provinsi'); 
+        $this->db->select('address.*, a.nama as nama_kelurahan, b.nama as nama_kecamatan, c.nama as nama_kota, d.nama as nama_provinsi, c.kode_ongkir as kode_ongkir'); 
         $this->db->from('ym_address as address');
         $this->db->join('wilayah_2020 as a', 'address.kelurahan = a.kode', 'left');
         $this->db->join('wilayah_2020 as b', 'address.kecamatan = b.kode', 'left');

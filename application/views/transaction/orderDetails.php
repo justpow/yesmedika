@@ -2,6 +2,8 @@
 
     redirect('cart');
 
+    $totalWeight = 0;
+    $originCode = 115; // Kota Depok
 ?>
 <section class="orderDetails min-height">
     <div class="container">
@@ -20,7 +22,7 @@
                                 <img class="rounded-3" src="<?= base_url('assets/image/').json_decode($value->product['photo'])[0] ?>" alt="Product Image" width="100">
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <h5 class="mb-1"><?= $value->product['name'] ?></h5>
+                                    <h5 class="mb-1" ><?= $value->product['name'] ?></h5>
                                     <p class="mb-1"><small><?= $value->qty ?> Barang, Variasi: <?= isset($value->variant) ? $value->variant['name'] : '-' ?></small></p>
                                     <p class="card-text harga fw-bold">Rp. <?= $value->product['price'] ?></p>
                                 </div>
@@ -30,7 +32,9 @@
                                 <textarea class="form-control" name='<?= $key ?>' id="exampleFormControlTextarea1" rows="2"></textarea>
                             </div>
                             <br>
-                            <?php endforeach ?>
+                            <?php 
+                            $totalWeight += $value->product['weight']*$value->qty;
+                            endforeach; ?>
                         </div>
                     </div>
                     <div class="border-bottom mb-5">
@@ -49,7 +53,7 @@
                             
                             <?php } else { ?>
                                 <div class="d-flex">
-                                    <div class="flex-grow-1">
+                                    <div class="flex-grow-1 address-info" data-destinationcode=<?=  $data['address']['kode_ongkir']?>>
                                         <input type="hidden" name="address_id" value="<?= $data['address']['id'] ?>">
                                         <input hidden type="text" name="address_string" value="<?= $data['address']['address'] ?>, Kelurahan <?= $data['address']['nama_kelurahan'] ?>, Kecamatan <?= $data['address']['nama_kecamatan'] ?>, <?= $data['address']['nama_kota'] ?>, <?= $data['address']['nama_provinsi'] ?> <?= $data['address']['kode_pos'] ?>">
                                         <p id="nama_address" class="mb-1"><small><?= $data['address']['address_name'] ?></small></p>
@@ -84,7 +88,7 @@
 
                             <?php if (!empty($data['address_all']) && $data['address']['nama_kota'] == "KOTA DEPOK"):  ?>
                             <div class="d-flex text-center align-items-center mt-5" id="depok-only">
-                                <input class="form-check-input me-5" type="radio" id="flexRadioDefault1" name="pickup_type" value="2">
+                                <input class="form-check-input me-5" type="radio" onclick="setOngkirFree()" id="flexRadioDefault2" name="pickup_type" value="2">
                                 <div class="flex-shrink-0">
                                     <i class="fas fa-shipping-fast text-primary fs-1"></i>
                                 </div>
@@ -96,8 +100,26 @@
                                 </div>
                             </div>
                            <?php endif ?>
-
-
+                           <div class="d-flex text-center align-items-center">
+                                <input class="form-check-input me-5" type="radio" id="flexRadioDefault3" name="pickup_type" value="3">
+                                <div class="flex-shrink-0">
+                                    <i class="text-primary fs-1"><img src="<?= base_url('assets/image/jne.png') ?>" alt="" height="80px"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-5">
+                                    <p class="card-text mb-1">JNE</p>
+                                </div>
+                                <div class="flex-grow-1 ms-1">
+                                    <p class="card-text mb-1"></p>
+                                    <div class="infinite-scroll-request loader-ellips loading" hidden>
+                                        <span class="loader-ellips__dot"></span>
+                                        <span class="loader-ellips__dot"></span>
+                                        <span class="loader-ellips__dot"></span>
+                                    </div>
+                                    <div class="courier-opt"></div>
+                                </div>
+                            </div>
+                            
+                            <input class="form-check-input me-5" type="text" id="shipping-desc" name="shipping_desc" value="" hidden>
                             <!-- <div class="d-flex text-center align-items-center mt-5">
                                 <input class="form-check-input me-5" type="radio" id="flexRadioDefault1" name="pickup_type" value="3" disabled>
                                 <div class="flex-shrink-0">
@@ -145,7 +167,7 @@
                                     <p class="card-text">Subtotal</p>
                                 </div>
                                 <div class="col-5 text-end">
-                                    <p class="card-text">Rp. <?= $data['grand_total'] ?></p>
+                                    <p class="card-text sub-total" data-subtotal=<?= $data['grand_total'] ?> >Rp. <?= $data['grand_total'] ?></p>
                                 </div>
                             </div>
                             <div class="row">
@@ -153,7 +175,7 @@
                                     <p class="card-text">Pengiriman</p>
                                 </div>
                                 <div class="col-5 text-end">
-                                    <p class="card-text">Free</p>
+                                    <p class="card-text courier-fee" data-courierfee="0" >Free</p>
                                 </div>
                             </div>
                             <div class="row fw-bold mt-3">
@@ -161,7 +183,7 @@
                                     <p class="card-text">Total Belanja</p>
                                 </div>
                                 <div class="col-5 text-end">
-                                    <p class="card-text">Rp. <?= $data['grand_total'] ?></p>
+                                    <p class="card-text grand-total">Rp. <?= $data['grand_total'] ?></p>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary float-end mt-3">Bayar</button>

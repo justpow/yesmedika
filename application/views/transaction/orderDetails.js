@@ -89,13 +89,20 @@ $( "#select_address" ).click(function() {
 });
 
 // JNE Click
+$( document ).ready(function() {
+  var totalWeight = "<?= $totalWeight ?>"
+  var destinationCode = $('.address-info').data('destinationcode')
+  var originCode = "<?= $originCode ?>"
+  var courierType = $('#flexRadioDefault3').val()
+  setJNEList(originCode, destinationCode, totalWeight, courierType)
+});
+
 $( "#flexRadioDefault3" ).click(function() {
   var totalWeight = "<?= $totalWeight ?>"
   var destinationCode = $('.address-info').data('destinationcode')
   var originCode = "<?= $originCode ?>"
   var courierType = $('#flexRadioDefault3').val()
   setJNEList(originCode, destinationCode, totalWeight, courierType)
-
 });
 
 $( "#flexRadioDefault1" ).click(function() {
@@ -127,6 +134,7 @@ function setOngkirFree() {
 }
 
 function setJNEList(originCode, destinationCode, totalWeight, courierType) {
+  $('.stripText').html("")
   $('.courier-opt').html("")
   $('.loading').attr("hidden", false)
 

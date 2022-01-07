@@ -73,43 +73,16 @@
                             Jenis Pengiriman
                         </div>
                         <div class="card-body" id="pickup-input">
-                            <div class="d-flex text-center align-items-center">
-                                <input class="form-check-input me-5" type="radio" id="flexRadioDefault1" name="pickup_type" value="1" checked>
+                            <div class="d-flex align-items-center">
+                                <input class="form-check-input me-3" type="radio" id="flexRadioDefault3" name="pickup_type" value="3" checked>
                                 <div class="flex-shrink-0">
-                                    <i class="fas fa-cart-arrow-down text-primary fs-1"></i>
+                                    <i class="text-primary"><img src="<?= base_url('assets/image/jne.png') ?>" alt="" style="width:5.5rem !important"></i>
                                 </div>
                                 <div class="flex-grow-1 ms-3">
-                                    <p class="card-text mb-1">Pickup in Store</p>
-                                </div>
-                                <div class="flex-grow-1 ms-1">
-                                    <p class="card-text mb-1">Free</p>
-                                </div>
-                            </div>
-
-                            <?php if (!empty($data['address_all']) && $data['address']['nama_kota'] == "KOTA DEPOK"):  ?>
-                            <div class="d-flex text-center align-items-center mt-5" id="depok-only">
-                                <input class="form-check-input me-5" type="radio" onclick="setOngkirFree()" id="flexRadioDefault2" name="pickup_type" value="2">
-                                <div class="flex-shrink-0">
-                                    <i class="fas fa-shipping-fast text-primary fs-1"></i>
-                                </div>
-                                <div class="flex-grow-1 ms-5">
-                                    <p class="card-text mb-1">Kurir toko</p>
-                                </div>
-                                <div class="flex-grow-1 ms-1">
-                                    <p class="card-text mb-1">Free</p>
-                                </div>
-                            </div>
-                           <?php endif ?>
-                           <div class="d-flex text-center align-items-center">
-                                <input class="form-check-input me-5" type="radio" id="flexRadioDefault3" name="pickup_type" value="3">
-                                <div class="flex-shrink-0">
-                                    <i class="text-primary fs-1"><img src="<?= base_url('assets/image/jne.png') ?>" alt="" height="80px"></i>
-                                </div>
-                                <div class="flex-grow-1 ms-5">
                                     <p class="card-text mb-1">JNE</p>
                                 </div>
-                                <div class="flex-grow-1 ms-1">
-                                    <p class="card-text mb-1"></p>
+                                <div class="ms-1">
+                                    <p class="card-text mb-1 stripText">-</p>
                                     <div class="infinite-scroll-request loader-ellips loading" hidden>
                                         <span class="loader-ellips__dot"></span>
                                         <span class="loader-ellips__dot"></span>
@@ -118,6 +91,35 @@
                                     <div class="courier-opt"></div>
                                 </div>
                             </div>
+
+                            <div class="d-flex align-items-center">
+                                <input class="form-check-input me-3" type="radio" id="flexRadioDefault1" name="pickup_type" value="1">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-cart-arrow-down text-primary fs-1"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-kurir">
+                                    <p class="card-text mb-1">Pickup in Store</p>
+                                </div>
+                                <div class="ms-1">
+                                    <p class="card-text mb-1">Free</p>
+                                </div>
+                            </div>
+
+                            <?php if (!empty($data['address_all']) && $data['address']['nama_kota'] == "KOTA DEPOK"):  ?>
+                            <div class="d-flex align-items-center mt-5" id="depok-only">
+                                <input class="form-check-input me-3" type="radio" onclick="setOngkirFree()" id="flexRadioDefault2" name="pickup_type" value="2">
+                                <div class="flex-shrink-0">
+                                    <i class="fas fa-shipping-fast text-primary fs-1"></i>
+                                </div>
+                                <div class="flex-grow-1 ms-kurir">
+                                    <p class="card-text mb-1">Kurir toko</p>
+                                </div>
+                                <div class="ms-1">
+                                    <p class="card-text mb-1">Free</p>
+                                </div>
+                            </div>
+                            <?php endif ?>
+                           
                             
                             <input class="form-check-input me-5" type="text" id="shipping-desc" name="shipping_desc" value="" hidden>
                             <!-- <div class="d-flex text-center align-items-center mt-5">
@@ -175,7 +177,7 @@
                                     <p class="card-text">Pengiriman</p>
                                 </div>
                                 <div class="col-5 text-end">
-                                    <p class="card-text courier-fee" data-courierfee="0" >Free</p>
+                                    <p class="card-text courier-fee" data-courierfee="0" ><span class="text-primary"><b>Loading..</b></span> </p>
                                 </div>
                             </div>
                             <div class="row fw-bold mt-3">

@@ -71,7 +71,7 @@ body {
 }
 
 .loader-ellips {
-    font-size: 20px; /* change size here */
+    font-size: 1rem; /* change size here */
     position: relative;
     width: 4em;
     height: 1em;
@@ -334,4 +334,12 @@ label.star:before {
 
 .min-height1 {
   min-height: 73vh !important;
+}
+
+.courier-select {
+  width: 15rem;
+}
+
+.ms-kurir {
+  margin-left:3.8rem !important
 }
